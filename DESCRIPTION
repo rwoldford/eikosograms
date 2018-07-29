@@ -1,0 +1,24 @@
+Package: eikos
+Type: Package
+Title: Eikosogram plots
+Version: 1.4.0
+Date: 2018-04-19
+Author: 
+    R. Wayne Oldford <rwoldford@uwaterloo.ca>
+    Erle Holgersen <emholgersen@uwaterloo.ca>
+    Ben Lafreniere <ben.lafreniere@gmail.com>
+    Tianlu Zhu <t8zhu@uwaterloo.ca>
+Maintainer: R. Wayne Oldford <rwoldford@uwaterloo.ca>
+Description: Generates eikosograms. Eikosograms are simple graphics for
+    visualizing conditional probability, sharing similarities with Venn diagrams
+    and Mosaic plots.
+License: GPL (>= 2)
+Depends: R (>= 3.1.0)
+Imports: plyr, grid
+LazyLoad: yes
+LazyData: no
+RoxygenNote: 6.0.1
+NeedsCompilation: no
+Suggests: knitr, rmarkdown
+VignetteBuilder: knitr
+Packaged: 2018-04-18 14:37:14 UTC; zhuti
