@@ -76,7 +76,12 @@ $\renewcommand{\tr}[1]{{#1}^{\mkern-1.5mu\mathsf{T}}}$
 $\renewcommand{\norm}[1]{\left|\left|{#1}\right|\right|}$
 $\renewcommand{\intersect}{\cap}$
 $\renewcommand{\union}{\cup}$
-  
+
+Eikosograms are drawn using the grid graphics package:
+```{r}
+library(grid)
+library(gridExtra)
+```
 
 # Dependence/Independence
 As with continuous data, interest lies in assessing whether the values of catergorical variates might have been generated independently.  

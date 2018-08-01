@@ -1,12 +1,47 @@
 #' Generic method for creating an eikosogram
 #'
-
 #' @param y Either the name of a variable in the data set (eikos.default), or a formula of such variables (eikos.formula).
-#' @param ... includes a data argument as well as other arguments for features of the display
+#' @param x name(s) of any conditional variable(s) (horizontal axis). Should be null if formula given.
+#' @param data data frame or table
+#' @param marginalize variable(s) to marginalize on, or NULL if none
+#' @param bottomcol bottom colour
+#' @param topcol top colour
+#' @param lcol colour of lines
+#' @param draw logical, whether to draw eikosogram.
+#' @param newpage logical, whether to draw on a newpage.
+#' @param xlabs logical, whether x labels should appear or not.
+#' @param ylabs logical, whether y labels should appear or not.
+#' @param xaxs logical, whether x axis should appear or not.
+#' @param yaxs logical, whether y axis should appear or not.
+#' @param xprobs probabilities to be shown on x-axis. NULL if they should be calculated from the data.
+#' @param yprobs probabilities to be shown on y-axis. NULL if they should be calculated from the data.
+#' @param vertical_xprobs logical, whether probabilities on x axis should be rotated vertically.
+#' @param main title of plot
+#' @param main_size font size of title (points)
+#' @param label_size font size of labels (points)
+#' @param xlab_rot rotation of x labels
+#' @param ylab_rot rotation of y labels
+#' @param ospace list of four items (bottom, left, top, right) indicating the margin of texts around the diagram
+#' @param axis_name_size font size of axis names (points)
+#' @param legend logical, whether to include legend
+#' @param lock_aspect logical, whether to force 1:1 aspect ratio.
 #' @seealso \code{\link{eikos.default}}
 #' @seealso \code{\link{eikos.formula}}
+#' @import grid plyr
 #' @export
-eikos <- function(y, ...) {
+eikos <- function(y, x=NULL, data=NULL, marginalize=NULL, 
+                  bottomcol="steelblue", topcol="snow2", lcol = "black", 
+                  draw = TRUE, newpage = TRUE, 
+                  xlabs = TRUE, ylabs = TRUE, xaxs = TRUE, yaxs = TRUE,
+                  xprobs = NULL, yprobs = NULL, vertical_xprobs = TRUE, 
+                  main = "", main_size = 16, label_size = 10,
+                  xlab_rot = 0, ylab_rot=0, 
+                  ospace = list(bottom = unit(2,"points"), 
+                                left=unit(2,"points"),
+                                top=unit(2,"points"), 
+                                right=unit(2,"points")),
+                  axis_name_size = 12, legend = FALSE, 
+                  lock_aspect = FALSE) {
     UseMethod("eikos")
 }
 
@@ -44,13 +79,20 @@ eikos <- function(y, ...) {
 #' eikos("Hair", "Eye", data=HairEyeColor, legend = TRUE)
 #'
 #' @export
-eikos.default <- function(y, x=NULL, data=NULL,
-    marginalize=NULL, bottomcol="steelblue", topcol="snow2",
-    lcol = "black", draw = TRUE, newpage = TRUE, xlabs = TRUE, ylabs = TRUE, xaxs = TRUE, yaxs = TRUE,
-    xprobs = NULL, yprobs = NULL, vertical_xprobs = TRUE, main = "", main_size = 16, label_size = 10,
-    xlab_rot = 0, ylab_rot=0, ospace = list(bottom = unit(2,"points"), left=unit(2,"points"),
-        top=unit(2,"points"), right=unit(2,"points")),
-    axis_name_size = 12, legend = FALSE, lock_aspect = FALSE) {
+eikos.default <- function(y, x=NULL, data=NULL, marginalize=NULL, 
+                          bottomcol="steelblue", topcol="snow2", lcol = "black", 
+                          draw = TRUE, newpage = TRUE, 
+                          xlabs = TRUE, ylabs = TRUE, xaxs = TRUE, yaxs = TRUE,
+                          xprobs = NULL, yprobs = NULL, vertical_xprobs = TRUE, 
+                          main = "", main_size = 16, label_size = 10,
+                          xlab_rot = 0, ylab_rot=0, 
+                          ospace = list(bottom = unit(2,"points"), 
+                                        left=unit(2,"points"),
+                                        top=unit(2,"points"), 
+                                        right=unit(2,"points")),
+                          axis_name_size = 12, legend = FALSE, 
+                          lock_aspect = FALSE
+    ) {
 
 
     # response variable cannot be more than one
@@ -63,7 +105,7 @@ eikos.default <- function(y, x=NULL, data=NULL,
         stop("Response variable must be different from conditioning variables.")
     }
     
-    if(newpage & draw) grid.newpage()
+    if(newpage & draw) grid::grid.newpage()
     
     # sets margin between eikosogram and labels.
     margin <- unit(2, "points")
@@ -79,7 +121,7 @@ eikos.default <- function(y, x=NULL, data=NULL,
 
     # create colour palette
     responses <- as.vector(unique(idf[,y]))
-    colour_palette <- colorRampPalette(c(bottomcol,topcol))(length(responses))
+    colour_palette <- grDevices::colorRampPalette(c(bottomcol,topcol))(length(responses))
     names(colour_palette) <- responses
 
     # create rectangles
@@ -175,9 +217,11 @@ eikos.default <- function(y, x=NULL, data=NULL,
 
 
 
-#' Draw eikosogram from formula
+#' Draw eikosogram using a formula to identify response and conditioning variates
 #'
-#' @param formula formula giving conditional as the sum of named response variables
+#' @param y formula expressing response ~ sum of explanatory variate names to be conditioned on
+#' @param x should be NULL.  If given it overrides the variates named in the formula to
+#'         identify the conditional variable(s) (horizontal axis)
 #' @param data data frame or table
 #' @param marginalize variable to marginalize on, or NULL if none
 #' @param bottomcol bottom colour
@@ -206,19 +250,25 @@ eikos.default <- function(y, x=NULL, data=NULL,
 #' eikos(Eye ~ Hair + Sex, data=HairEyeColor)
 #'
 #' @export
-eikos.formula <- function(formula, data=NULL,
-    marginalize=NULL, bottomcol="steelblue", topcol="snow2",
-    lcol = "black", draw = TRUE, newpage = TRUE, xlabs = TRUE, ylabs = TRUE, xaxs = TRUE, yaxs = TRUE,
-    xprobs = NULL, yprobs = NULL, vertical_xprobs = TRUE, main = "", main_size = 16,
-    label_size = 10, xlab_rot = 0, ylab_rot=0, ospace = list(bottom = unit(2,"points"),
-        left=unit(2,"points"), top=unit(2,"points"), right=unit(2,"points")),
-    axis_name_size = 12, legend = FALSE, lock_aspect = FALSE) {
-
+eikos.formula <- function(y, x=NULL, data=NULL, marginalize=NULL, 
+                          bottomcol="steelblue", topcol="snow2", lcol = "black", 
+                          draw = TRUE, newpage = TRUE, 
+                          xlabs = TRUE, ylabs = TRUE, xaxs = TRUE, yaxs = TRUE,
+                          xprobs = NULL, yprobs = NULL, vertical_xprobs = TRUE, 
+                          main = "", main_size = 16, label_size = 10,
+                          xlab_rot = 0, ylab_rot=0, 
+                          ospace = list(bottom = unit(2,"points"), 
+                                        left=unit(2,"points"),
+                                        top=unit(2,"points"), 
+                                        right=unit(2,"points")),
+                          axis_name_size = 12, legend = FALSE, 
+                          lock_aspect = FALSE
+) {
+    formula <- y
     # extract response vaiable from formula
     y <- all.vars(formula[[2]])
     # extract conditional variables from formula
-    x <- all.vars(formula[[3]])
-
+    if (is.null(x)) {x <- all.vars(formula[[3]])} 
     if (x == ".") {
         # take the conditional variables as removing responsible variable from all variables
         if (is.data.frame(data)) {
@@ -237,8 +287,16 @@ eikos.formula <- function(formula, data=NULL,
 
 
     # call eikos function with new parameters y and x
-    eikos.default(y, x, data, marginalize, bottomcol, topcol, lcol, draw, newpage, xlabs, ylabs,
-        xaxs, yaxs, xprobs, yprobs, vertical_xprobs, main, main_size, label_size, xlab_rot, ylab_rot, ospace, axis_name_size, legend, lock_aspect)
+    eikos.default(y = y, x = x, data = data , marginalize = marginalize, 
+                  bottomcol = bottomcol, topcol = topcol, lcol = lcol,
+                  draw = draw, newpage = newpage, 
+                  xlabs = xlabs, ylabs = ylabs, xaxs = xaxs, yaxs = yaxs, 
+                  xprobs = xprobs, yprobs = yprobs, vertical_xprobs = vertical_xprobs, 
+                  main = main, main_size = main_size, label_size = label_size, 
+                  xlab_rot = xlab_rot, ylab_rot = ylab_rot, 
+                  ospace = ospace, 
+                  axis_name_size = axis_name_size, legend = legend, 
+                  lock_aspect = lock_aspect)
 }
 
 

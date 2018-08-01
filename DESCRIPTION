@@ -1,18 +1,28 @@
 Package: eikos
 Type: Package
-Title: Eikosogram plots
+Title: Eikosograms - the picture of probability
 Version: 1.4.0
 Date: 2018-04-19
+Authors@R: c(person(given = "Wayne", family = "Oldford",
+                    email = "rwoldford@uwaterloo.ca", 
+                    role = c("aut", "cre")),
+             person(given = "Erle", family = "Holgersen", 
+                    email = "emholgersen@uwaterloo.ca", 
+                    role = "aut"),
+             person(given = "Ben", family = "Lafreniere", 
+                    email = "ben.lafreniere@gmail.com", 
+                    role = "aut"),
+             person(given = "Tianlu", family = "Zhu", 
+                    email = "t8zhu@uwaterloo.ca", 
+                    role = "aut")
+             )
 Author: 
-    R. Wayne Oldford <rwoldford@uwaterloo.ca>
-    Erle Holgersen <emholgersen@uwaterloo.ca>
-    Ben Lafreniere <ben.lafreniere@gmail.com>
-    Tianlu Zhu <t8zhu@uwaterloo.ca>
-Maintainer: R. Wayne Oldford <rwoldford@uwaterloo.ca>
-Description: Generates eikosograms. Eikosograms are simple graphics for
+    Wayne Oldford [aut, cre], Erle Holgersen [aut], Ben Lafreniere [aut], Tianlu Zhu [aut]
+Maintainer: Wayne Oldford <rwoldford@uwaterloo.ca>
+Description: Eikosograms are simple graphics for
     visualizing conditional probability, sharing similarities with Venn diagrams
     and Mosaic plots.
-License: GPL (>= 2)
+License: GPL-3
 Depends: R (>= 3.1.0)
 Imports: plyr, grid
 LazyLoad: yes
@@ -21,4 +31,3 @@ RoxygenNote: 6.0.1
 NeedsCompilation: no
 Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
-Packaged: 2018-04-18 14:37:14 UTC; zhuti

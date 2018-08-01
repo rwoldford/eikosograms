@@ -4,12 +4,65 @@
 \alias{eikos}
 \title{Generic method for creating an eikosogram}
 \usage{
-eikos(y, ...)
+eikos(y, x = NULL, data = NULL, marginalize = NULL,
+  bottomcol = "steelblue", topcol = "snow2", lcol = "black",
+  draw = TRUE, newpage = TRUE, xlabs = TRUE, ylabs = TRUE,
+  xaxs = TRUE, yaxs = TRUE, xprobs = NULL, yprobs = NULL,
+  vertical_xprobs = TRUE, main = "", main_size = 16, label_size = 10,
+  xlab_rot = 0, ylab_rot = 0, ospace = list(bottom = unit(2, "points"),
+  left = unit(2, "points"), top = unit(2, "points"), right = unit(2, "points")),
+  axis_name_size = 12, legend = FALSE, lock_aspect = FALSE)
 }
 \arguments{
 \item{y}{Either the name of a variable in the data set (eikos.default), or a formula of such variables (eikos.formula).}
 
-\item{...}{includes a data argument as well as other arguments for features of the display}
+\item{x}{name(s) of any conditional variable(s) (horizontal axis). Should be null if formula given.}
+
+\item{data}{data frame or table}
+
+\item{marginalize}{variable(s) to marginalize on, or NULL if none}
+
+\item{bottomcol}{bottom colour}
+
+\item{topcol}{top colour}
+
+\item{lcol}{colour of lines}
+
+\item{draw}{logical, whether to draw eikosogram.}
+
+\item{newpage}{logical, whether to draw on a newpage.}
+
+\item{xlabs}{logical, whether x labels should appear or not.}
+
+\item{ylabs}{logical, whether y labels should appear or not.}
+
+\item{xaxs}{logical, whether x axis should appear or not.}
+
+\item{yaxs}{logical, whether y axis should appear or not.}
+
+\item{xprobs}{probabilities to be shown on x-axis. NULL if they should be calculated from the data.}
+
+\item{yprobs}{probabilities to be shown on y-axis. NULL if they should be calculated from the data.}
+
+\item{vertical_xprobs}{logical, whether probabilities on x axis should be rotated vertically.}
+
+\item{main}{title of plot}
+
+\item{main_size}{font size of title (points)}
+
+\item{label_size}{font size of labels (points)}
+
+\item{xlab_rot}{rotation of x labels}
+
+\item{ylab_rot}{rotation of y labels}
+
+\item{ospace}{list of four items (bottom, left, top, right) indicating the margin of texts around the diagram}
+
+\item{axis_name_size}{font size of axis names (points)}
+
+\item{legend}{logical, whether to include legend}
+
+\item{lock_aspect}{logical, whether to force 1:1 aspect ratio.}
 }
 \description{
 Generic method for creating an eikosogram

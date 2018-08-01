@@ -1,5 +1,25 @@
 ---
 title: "How to Use eikos function"
+author: "R.W. Oldford and Tianlu Zhu"
+date: '`r Sys.Date()`'
+output:
+  rmarkdown::html_vignette:
+    number_sections: yes
+    toc: yes
+  html_notebook: default
+  html_document:
+    number_sections: yes
+    toc: yes
+  pdf_document:
+    keep_tex: yes
+    latex_engine: xelatex
+    number_sections: yes
+    toc: yes
+  word_document: default
+vignette: |
+  %\VignetteIndexEntry{EikosFunction} 
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown} 
 header-includes:
 - \usepackage{color}
 - \usepackage{graphicx}
@@ -35,26 +55,7 @@ header-includes:
 - \newcommand*{\intersect}{\cap}
 - \newcommand*{\union}{\cup}
 - \newcommand{\suchthat}{~:~}
-author: "Tianlu Zhu"
-date: '`r Sys.Date()`'
-output:
-  html_document:
-    number_sections: yes
-    toc: yes
-  html_notebook: default
-  html_vignette:
-    number_sections: yes
-    toc: yes
-  pdf_document:
-    keep_tex: yes
-    latex_engine: xelatex
-    number_sections: yes
-    toc: yes
-  word_document: default
-vignette: |
-  %\VignetteIndexEntry{EikosFunction} 
-  %\VignetteEngine{knitr::rmarkdown} 
-  %\VignetteEncoding{UTF-8}
+  
 ---
 
 $\renewcommand{\tr}[1]{{#1}^{\mkern-1.5mu\mathsf{T}}}$
@@ -77,18 +78,22 @@ $\renewcommand{\norm}[1]{\left|\left|{#1}\right|\right|}$
 $\renewcommand{\intersect}{\cap}$
 $\renewcommand{\union}{\cup}$
 
+Eikosograms are drawn using the grid graphics package:
+```{r}
+library(grid)
+library(gridExtra)
+```
 
-We use the R dataset `HairEyeColor` as an example which records the hair and eye colour from a survey of 592 students at the University of Delaware^[It also records "Sex" but this value is fake.]. 
+As an example, consider the R dataset `HairEyeColor`. 
+This records the hair and eye colour from a survey of 592 students at the University of Delaware (N.B. it also records "Sex" whose values are fake). 
   
 ```{r}
 knitr::kable(apply(HairEyeColor, 1:2, sum))
 ```
 
-  
-We have to choose which of these two variates should be the response, which is the conditioning variate. That is, an eikosogram has an explicit model in mind when it is constructed.
-It assumes interest lies in
+An eikosgram implicitly distinguishes one of the variates as a "response", the other(s) being the variate(s) upon which we condition. More precisely, eikosograms implicitly assume that interest lies in 
 $$Pr(Y = y | X = x)$$
-where Y is the "response" and "X" is the "conditioning" variate^[eikos always takes a response variate and one (or more) conditioning variates.].    
+where Y is the "response" and "X" is the "conditioning" variate.    
   
 If we take "Hair" to be the response, we would call the eikos function with conditioning variate
 "Eye" as follows:  

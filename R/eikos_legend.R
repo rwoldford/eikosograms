@@ -29,7 +29,7 @@ eikos_legend <- function(labels, colours, margin = unit(2, "points"), lcol = "bl
     # create legend object
     legend_layout <- grid.layout(1, 2,
                                  widths = unit.c(2*margin + square_size, unit(1, "grobwidth", labelGrob)),
-                                 height = unit(1, "grobheight", squareGrob))
+                                 heights = unit(1, "grobheight", squareGrob))
     
     legend_frame <- frameGrob(layout = legend_layout)
     legend_frame <- placeGrob(legend_frame, squareGrob, 1, 1)

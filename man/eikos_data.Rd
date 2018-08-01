@@ -13,7 +13,7 @@ eikos_data(y, x, data, marginalize = NULL)
 
 \item{data}{data frame or table to be converted.}
 
-\item{marginalize}{varibale to marginalize on, NULL if none.}
+\item{marginalize}{name of variable to marginalize on, NULL if none.}
 }
 \description{
 Eikos helper function used to convert data.

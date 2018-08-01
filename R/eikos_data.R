@@ -5,8 +5,8 @@
 #' @param y response variable.
 #' @param x conditional variables.
 #' @param data data frame or table to be converted.
-#' @param marginalize varibale to marginalize on, NULL if none.
-eikos_data <- function(y, x, data, marginalize=NULL) {
+#' @param marginalize name of variable to marginalize on, NULL if none.
+eikos_data <- function(y, x, data, marginalize = NULL) {
 
     # Make sure x and marginalize are vectors of unique variates
     if (is.character(x)) {x <- c(x)}
@@ -71,9 +71,9 @@ eikos_data <- function(y, x, data, marginalize=NULL) {
 
     # Scale to [0,1]x[0,1], and compute boundaries of each of the regions to be drawn
     if (!is.null(x)){
-        idf <- ddply(idf, x, transform, MarginProb=Freq/sum(Freq))
-        idf <- ddply(idf, x, transform, ymax=cumsum(MarginProb))
-        idf <- ddply(idf, x, transform, ymin=ymax - MarginProb)
+        idf <- ddply(idf, x, transform, MarginProb = Freq/sum(Freq))
+        idf <- ddply(idf, x, transform, ymax = cumsum(MarginProb))
+        idf <- ddply(idf, x, transform, ymin = ymax - MarginProb)
 
         idf$total_freq <- sum(idf$Freq)
 

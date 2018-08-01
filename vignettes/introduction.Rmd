@@ -97,6 +97,12 @@ $\renewcommand{\norm}[1]{\left|\left|{#1}\right|\right|}$
 $\renewcommand{\intersect}{\cap}$
 $\renewcommand{\union}{\cup}$
 
+Eikosograms are drawn using the grid graphics package:
+```{r}
+library(grid)
+library(gridExtra)
+```
+
 # A picture of probability
 
 The word **eikosogram** is constructed by joining two ancient Greek words:

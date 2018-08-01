@@ -2,9 +2,9 @@
 % Please edit documentation in R/eikos.R
 \name{eikos.formula}
 \alias{eikos.formula}
-\title{Draw eikosogram from formula}
+\title{Draw eikosogram using a formula to identify response and conditioning variates}
 \usage{
-\method{eikos}{formula}(formula, data = NULL, marginalize = NULL,
+\method{eikos}{formula}(y, x = NULL, data = NULL, marginalize = NULL,
   bottomcol = "steelblue", topcol = "snow2", lcol = "black",
   draw = TRUE, newpage = TRUE, xlabs = TRUE, ylabs = TRUE,
   xaxs = TRUE, yaxs = TRUE, xprobs = NULL, yprobs = NULL,
@@ -14,7 +14,10 @@
   axis_name_size = 12, legend = FALSE, lock_aspect = FALSE)
 }
 \arguments{
-\item{formula}{formula giving conditional as the sum of named response variables}
+\item{y}{formula expressing response ~ sum of explanatory variate names to be conditioned on}
+
+\item{x}{should be NULL.  If given it overrides the variates named in the formula to
+identify the conditional variable(s) (horizontal axis)}
 
 \item{data}{data frame or table}
 
@@ -63,7 +66,7 @@
 \item{lock_aspect}{logical, whether to force 1:1 aspect ratio.}
 }
 \description{
-Draw eikosogram from formula
+Draw eikosogram using a formula to identify response and conditioning variates
 }
 \examples{
 eikos(Eye ~ Hair + Sex, data=HairEyeColor)
