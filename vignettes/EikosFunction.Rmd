@@ -78,12 +78,6 @@ $\renewcommand{\norm}[1]{\left|\left|{#1}\right|\right|}$
 $\renewcommand{\intersect}{\cap}$
 $\renewcommand{\union}{\cup}$
 
-Eikosograms are drawn using the grid graphics package:
-```{r}
-library(grid)
-library(gridExtra)
-```
-
 As an example, consider the R dataset `HairEyeColor`. 
 This records the hair and eye colour from a survey of 592 students at the University of Delaware (N.B. it also records "Sex" whose values are fake). 
   

@@ -1,3 +1,4 @@
+library(plyr)
 #' Create eikosogram data frame
 #'
 #' @description Eikos helper function used to convert data.
@@ -38,11 +39,11 @@ eikos_data <- function(y, x, data, marginalize = NULL) {
     }
 
 
-
     # Remove any extra variables and sum those Frequencies away to concentrate
     # on the vars identified by the user
-    idf <- idf[,c(allvars,"Freq")]
-    idf <- unique(ddply(idf, allvars, transform, Freq=sum(Freq)))
+    idf <- idf[, c(allvars, "Freq")]
+    idf <- unique(ddply(idf, allvars, 
+                        .fun = transform, Freq = sum(Freq)))
 
     #
     # If there is to be marginalization,

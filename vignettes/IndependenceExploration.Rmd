@@ -104,12 +104,6 @@ $\renewcommand{\intersect}{\cap}$
 $\renewcommand{\union}{\cup}$
 
 
-Eikosograms are drawn using the grid graphics package:
-```{r}
-library(grid)
-library(gridExtra)
-```
-
 
 ```{r set up conditional independence tables, eval = TRUE, echo = FALSE}
 # This function will create all the joint probabilities

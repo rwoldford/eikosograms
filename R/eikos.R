@@ -1,3 +1,5 @@
+library(grid)
+
 #' Generic method for creating an eikosogram
 #'
 #' @param y Either the name of a variable in the data set (eikos.default), or a formula of such variables (eikos.formula).

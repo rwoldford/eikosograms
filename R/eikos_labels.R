@@ -1,3 +1,4 @@
+library(grid)
 #' eikos helper function. Returns grob with x axis labels.
 #'
 #' @param x vector of conditional variables

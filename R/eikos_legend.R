@@ -1,3 +1,5 @@
+library(grid)
+
 #' Create eikosogram legend
 #'
 #' @description Eikos helper function used to create legend.
