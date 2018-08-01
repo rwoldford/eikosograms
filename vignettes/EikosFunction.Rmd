@@ -1,5 +1,5 @@
 ---
-title: "How to Use eikos function"
+title: "The eikos function"
 author: "R.W. Oldford and Tianlu Zhu"
 date: '`r Sys.Date()`'
 output:
