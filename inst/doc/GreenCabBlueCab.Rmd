@@ -1,5 +1,27 @@
 ---
-title: "Green cab, blue cab"
+title: "Perceptions of probability"
+subtitle: "Green cabs, blue cabs"
+bibliography: eikosograms.bib
+author: "R. Wayne Oldford"
+date: '`r Sys.Date()`'
+output:
+  html_document:
+    number_sections: no
+    toc: yes
+  html_notebook: default
+  html_vignette:
+    number_sections: no
+    toc: yes
+  pdf_document:
+    keep_tex: yes
+    latex_engine: xelatex
+    number_sections: no
+    toc: yes
+  word_document: default
+vignette: |
+  %\VignetteIndexEntry{Introduction} 
+  %\VignetteEngine{knitr::rmarkdown} 
+  %\VignetteEncoding{UTF-8}
 header-includes:
 - \usepackage{graphicx}
 - \usepackage{epic}
@@ -45,26 +67,6 @@ header-includes:
 - \newcommand{\suchthat}{~:~}
 - \newcommand{\st}{~:~} 
 - \newcommand{\permpause}{\pause}
-author: "R. W. Oldford"
-date: '`r Sys.Date()`'
-output:
-  html_document:
-    number_sections: no
-    toc: yes
-  html_notebook: default
-  html_vignette:
-    number_sections: no
-    toc: yes
-  pdf_document:
-    keep_tex: yes
-    latex_engine: xelatex
-    number_sections: no
-    toc: yes
-  word_document: default
-vignette: |
-  %\VignetteIndexEntry{Introduction} 
-  %\VignetteEngine{knitr::rmarkdown} 
-  %\VignetteEncoding{UTF-8}
   
 
 ---
@@ -103,8 +105,9 @@ library(eikosograms)
 
 # The problem
 
-The following problem was first introduced by 
-Kahneman and Tversky (1972) reproduced below from Tversky and Kahneman (1982, pp. 156-157).
+@KahnemanTversky72 investigated human perception of probability by asking people to solve seemingly simple probability problems.  One of the more famous problems involved determining a probability of guilt in a court of law, based solely on the quantifiable empirical evidence that was presented.
+
+Participants were given the following information, taken here from @TverskyKahneman1982EvidImpact pp. 156-157, and asked to find the correct probability:
 
 > A cab was involved in a hit and run accident at night. Two cab companies, the Green and Blue, operate in the city. 
 >
@@ -115,24 +118,20 @@ The court tested the reliability of the witness under the same circumstances tha
 >
 >What is the probability that the cab involved in the accident was Blue rather than Green? 
 
-There, they report that the
-median and modal answers given by these subjects is typically 0.80, exactly the
-probability  that the witness correctly identifies the cab colour in
-the test situations.  
+The authors report that the
+median and modal answers given by these subjects is typically 0.80, 
+which is exactly the probability  that the witness correctly identifies the cab colour in the test situations.  
 
-Knowing that the witness has been demonstrated to
-be right 80\% of the time, both when the cab is Green and when the cab is Blue,
-it would seem to many of these potential jurors that the cab has probability of 0.80
-of being whatever colour the witness says it was.  The distribution of the cabs in the
-city seems to have been deemed irrelevant.
+It would appear that knowing that the witness is right 80\% of the time, both when the cab is Green and when the cab is Blue, that the cab should also have probability of 0.80 of being whatever colour the witness says it was.  These potential jurors seem to have ignored the distribution of the cabs in the city, possibly as being irrelevant given the witness's identification of colour.
 
-That this is not the case might have been more easily seen had the information been
+That this is not correct might have been more easily seen had the information been
 presented visually.
 
-# Information given as an eikosogram
-The following eikosogram shows the information that was given in the problem
+## its picture
 
-```{r cab data, echo=TRUE, message=FALSE, fig.align="center", fig.width=4, fig.height=3.5, out.width ="50%"}
+The probabilities correspond to the following table of counts (summing to 100):
+
+```{r cab data}
 HitAndRun <- as.table(array(c(12, 17, 3, 68), 
                             dim = c(2,2),
                             dimnames = list(
@@ -140,24 +139,72 @@ HitAndRun <- as.table(array(c(12, 17, 3, 68),
                                 Witness = c("Blue", "Green"))
                             )
                       )
+```
 
+Or, equivalently, as proportions:
+
+```{r print table, echo=FALSE, message=FALSE, fig.align="center", fig.width=4, fig.height=3.5, out.width ="50%"}
+knitr::kable(addmargins(prop.table(HitAndRun)))
+```
+
+
+Plotting this data as an eikosogram provides a picture of the probabilities/proportions exactly as given by the court room testimony:
+
+```{r first eikosogram, echo=TRUE, message=FALSE, fig.align="center", fig.width=4, fig.height=3.5, out.width ="50%"}
 eikos(y = "Witness", x = "Cab", data = HitAndRun, 
       bottomcol = "grey")
 ```
 
-An examination of this eikosogram shows that it is faithful to the facts as described.  The horizontal or conditioning variate is the actual colour of cabs in the city. As the widths show, 15\% of these are blue, and 85\% are green.  
+An examination of this eikosogram shows that it is faithful to the facts as described.  The horizontal or conditioning variate is the actual colour of cabs in the city --  15\%  blue cabs and 85\% green appear as the rectangle widths (the marginal probabilities marked along the top axis for each value of the conditioning variate).  
 
-The conditional probabilities show the reliability of the eye witness account.  At left, if the witness is shown a blue car, they will correctly identify it as blue with probability 0.80 or 80\% of the time.  Similarly, at right if the witness is presented with a green coloured cab, they will mis-identify it as blue with probability 0.2 or 20\% of the time and will correctly identify it as green 80 \% of the time.
+The vertical axes show the conditional probabilities according to the reliability of the eye witness.  The leftmost pair of rectangles represent the condition that the witness is shown a blue car; in this case, they correctly identify it as blue with probability 0.80 or 80\% of the time (height of bottom rectangle).  Similarly, the rightmost pair of rectangles represent the condition that the witness is presented a green coloured cab, in which case they will incorrectly say is blue with only a probability 0.2 or 20\% of the time (height of bottom rectangle) and will correctly identify it as green fully  80\% of the time (height of top rectangle).
+
+Reading the eikosogram from left to right, the first vertical height of 0.8 for the darker grey bar at left is seen to be (reading left to right) the conditional probability that the witness says the cab is blue given that it is blue.  But is this the probability of interest?  Surely, in a court of law, the jurors should be interested in the probability that the accused is guilty, given the evidence presented.  Mathematically, this would be
+\[ Pr \left( \mbox{Cab is blue} \given \mbox{Witness says it is blue} \right).
+\]
+Instead, the participants/jurors appear to have focused on
+\[ Pr \left( \mbox{Witness says it is blue} \given \mbox{Cab is blue}  \right)
+\]
+which is not the relevant probability to determine guilt or innocence.
+
 
 # The solution
 
-Of course, the conditional probabilities above are not those which should be of interest.  The eikosogram makes this clear, the first vertical height of 0.8 for the darker grey bar at left is seen to be (reading left to right) the conditional probability that the witness says the cab is blue given that it is blue.
+The correct probability,
+\[ Pr \left( \mbox{Cab is blue} \given \mbox{Witness says it is blue} \right),
+\]
+can of course be determined directly from the above eikosogram.  
 
-But this is not the probability of interest!  Rather it is the probability that the cab is blue given that the witness said it was blue.  The correct eikosogram is had from the same data as
+The conditioning event, here that the witness said the cab was blue, corresponds to the two bottomost dark grey rectangles of that eikosogram.  
+
+Considering only those rectangles, the ratio of the area of the leftmost to that of the rightmost gives the *odds* that the cab actually is blue to it actually being green.  Similarly, the ratio of the area of the leftmost dark grey rectangle to the sum of the areas of the two dark grey rectangles is the desired probability. 
+
+Visual inspection suggests that this is less than $1/2$ since the left dark rectangle appears to have smaller area than the right dark rectangle.  It is at least clearly much less than $0.80$! Only the actual calculation will determine the value precisely.
+
+## its picture
+
+Fortunately, this value is trivially had if we simply flip the eikosogram on its side.  That is, swap the two variates changing the roles from response to conditioning variate and vice versa. 
+
+The eikosogram with "Cab" as the response variate and "Witness" as the conditioning variate is just as easily produced.
 
 ```{r cab solution, echo=TRUE, message=FALSE, fig.align="center", fig.width=4, fig.height=3, out.width ="50%"}
 eikos(y = "Cab", x = "Witness", data = HitAndRun, 
       bottomcol = "grey")
 ```
 
-Reading the desired probability from this eikosogram, we see that the probability that the cab is blue given that the witness said it was blue is only 0.41, nearly half the probability that Kahneman and Tversky found to be the most popular value suggested by their subjects!!
+Note that comparison of this eikosogram with the previous shows that no probability has changed.  Both diagrams represent the same joint probability distribution. For example, note that matching areas between the two eikosograms is simply Bayes rule. All that has happened is that the joint distribution is factored differently.
+
+The desired probability, is much more easily read off the second diagram than the first.  Its value (from the right hand vertical axis) is
+\[ Pr \left( \mbox{Cab is blue} \given \mbox{Witness says it is blue} \right) = 0.41 .
+\]
+This is nearly half the probability that Kahneman and Tversky found to be the most popular value suggested by the participants!
+
+We also see that had the witness said the cab was green, the probability that it is indeed green is $1 - 0.04 = 0.96$.  If the witness is consistently correct 80\% of the time, because of the distribution of cabs of both colours across the city, the cab will indeed be blue if the witness says so only 41\% of the time but will be green nearly always (96\% of the time) if the witness identifies it as green!
+
+Now that's interesting...
+
+# More problems and paradoxes
+
+For other probability problems and paradoxes using eikosograms, see @eikosExamples03.
+
+# References
