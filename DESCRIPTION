@@ -5,7 +5,8 @@ Version: 1.0.0
 Date: 2018-04-19
 Authors@R: c(person(given = "Wayne", family = "Oldford",
                     email = "rwoldford@uwaterloo.ca", 
-                    role = c("aut", "cre")),
+                    role = c("aut", "cre"),
+                    comment = c(ORCID = "0000-0002-4053-394X")),
              person(given = "Erle", family = "Holgersen", 
                     email = "emholgersen@uwaterloo.ca", 
                     role = "aut"),
