@@ -29,5 +29,5 @@ LazyLoad: yes
 LazyData: no
 RoxygenNote: 6.0.1
 NeedsCompilation: no
-Suggests: knitr, rmarkdown
+Suggests: knitr, rmarkdown, gridExtra
 VignetteBuilder: knitr
