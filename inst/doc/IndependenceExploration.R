@@ -3,6 +3,10 @@ knitr::opts_chunk$set(echo = TRUE)
 library(knitr)
 set.seed(12314159)
 
+## ----libraries-----------------------------------------------------------
+library(eikosograms)
+library(gridExtra)
+
 ## ----set up conditional independence tables, eval = TRUE, echo = FALSE----
 # This function will create all the joint probabilities
 # and place them in the appropriate three-way table
@@ -68,7 +72,6 @@ independenceExample <- as.table(array(c(10, 40, 15, 60),
                              Y = c("y_1", "y_2"))))
 
 ## ----bivariate independence, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "Independence of variates X and Y"----
-library(eikos)
 eikos("Y", "X", data = independenceExample)
 eikos("X", "Y", data = independenceExample)
 
@@ -161,13 +164,9 @@ eikosZ <- eikos(y="Z", x = c("X", "Y"),
                 data = complete_indep, draw = FALSE)
 
 ## ----complete independence arrange 3, echo = TRUE, fig.width=12, fig.height=3.5, fig.align="center", fig.cap = "Complete independence", out.width="100%"----
-library(gridExtra)
 grid.arrange(eikosY, eikosX, eikosZ, nrow=1)
 
 ## ------------------------------------------------------------------------
-library(eikos)
-
-
 eikos(y="Y", x = c("Z", "X"), 
       data = create3WayBinaryTable(xz1, b2))
 

@@ -1,5 +1,7 @@
+## ----libraries-----------------------------------------------------------
+library(eikosograms)
+
 ## ---- echo=FALSE, fig.height=2.5, fig.width=3, message=FALSE-------------
-library(eikos)
 binIndep <- array(c(1,3,1,3), dim = c(2,2),
                   dimnames = list(X=c("x_1", "x_2"), Y = c("y_1", "y_2")))
 eikos(Y~X, data=binIndep, xaxs = FALSE, yaxs = FALSE)

@@ -103,6 +103,10 @@ $\renewcommand{\norm}[1]{\left|\left|{#1}\right|\right|}$
 $\renewcommand{\intersect}{\cap}$
 $\renewcommand{\union}{\cup}$
 
+```{r libraries}
+library(eikosograms)
+library(gridExtra)
+```
 
 
 ```{r set up conditional independence tables, eval = TRUE, echo = FALSE}
@@ -187,7 +191,6 @@ independenceExample <- as.table(array(c(10, 40, 15, 60),
 ```
 
 ```{r bivariate independence, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "Independence of variates X and Y"}
-library(eikos)
 eikos("Y", "X", data = independenceExample)
 eikos("X", "Y", data = independenceExample)
 ```
@@ -443,14 +446,10 @@ eikosZ <- eikos(y="Z", x = c("X", "Y"),
 
 
 ```{r complete independence arrange 3, echo = TRUE, fig.width=12, fig.height=3.5, fig.align="center", fig.cap = "Complete independence", out.width="100%"}
-library(gridExtra)
 grid.arrange(eikosY, eikosX, eikosZ, nrow=1)
 ```
 
 ```{r}
-library(eikos)
-
-
 eikos(y="Y", x = c("Z", "X"), 
       data = create3WayBinaryTable(xz1, b2))
 

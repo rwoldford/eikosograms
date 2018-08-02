@@ -105,8 +105,8 @@ The word **eikosogram** is constructed by joining two ancient Greek words:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*eikos*: like truth, likely, probable, reasonable, probability, likelihood  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*gramma*: that which is drawn, picture, piece of writing  
 
-```{r eikos library, echo = TRUE, fig.width=4, fig.height=3, fig.align="center", out.width="50%"}
-library(eikos)
+```{r eikosograms library, echo = TRUE, fig.width=4, fig.height=3, fig.align="center", out.width="50%"}
+library(eikosograms)
 ```
 
 As the name suggests, an **eikosogram** is a **picture of probability**. It visually partitions a unit square into rectangular regions whose areas give the numerical values of various probabilities. The construction is such that each rectangular region is identified with the value of one or more categorical variates.

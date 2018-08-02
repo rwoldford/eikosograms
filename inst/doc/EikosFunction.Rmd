@@ -78,6 +78,9 @@ $\renewcommand{\norm}[1]{\left|\left|{#1}\right|\right|}$
 $\renewcommand{\intersect}{\cap}$
 $\renewcommand{\union}{\cup}$
 
+```{r libraries}
+library(eikosograms)
+```
 As an example, consider the R dataset `HairEyeColor`. 
 This records the hair and eye colour from a survey of 592 students at the University of Delaware (N.B. it also records "Sex" whose values are fake). 
   
@@ -92,7 +95,6 @@ where Y is the "response" and "X" is the "conditioning" variate.
 If we take "Hair" to be the response, we would call the eikos function with conditioning variate
 "Eye" as follows:  
 ```{r, message=FALSE, fig.width=4, fig.height=3}
-library(eikos)
 eikos("Hair", "Eye", data = HairEyeColor, xaxs=FALSE, yaxs=FALSE)
 ```
 

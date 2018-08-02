@@ -3,8 +3,8 @@ knitr::opts_chunk$set(echo = TRUE)
 library(knitr)
 set.seed(12314159)
 
-## ----eikos library, echo = TRUE, fig.width=4, fig.height=3, fig.align="center", out.width="50%"----
-library(eikos)
+## ----eikosograms library, echo = TRUE, fig.width=4, fig.height=3, fig.align="center", out.width="50%"----
+library(eikosograms)
 
 ## ---- echo = FALSE, message = FALSE, warning = FALSE, error = FALSE, fig.width=4, fig.height=3, fig.align="center", out.width="50%", fig.cap = "Application to Waterloo's Faculty of Mathematics (2017)"----
 Waterloo <- data.frame(Decision = c(rep("Accepted", 1200), 
