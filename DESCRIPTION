@@ -1,7 +1,7 @@
 Package: eikosograms
 Type: Package
 Title: Eikosograms - the picture of probability
-Version: 1.4.0
+Version: 1.0.0
 Date: 2018-04-19
 Authors@R: c(person(given = "Wayne", family = "Oldford",
                     email = "rwoldford@uwaterloo.ca", 
@@ -20,8 +20,8 @@ Author:
     Wayne Oldford [aut, cre], Erle Holgersen [aut], Ben Lafreniere [aut], Tianlu Zhu [aut]
 Maintainer: Wayne Oldford <rwoldford@uwaterloo.ca>
 Description: Eikosograms are simple graphics for
-    visualizing conditional probability, sharing similarities with Venn diagrams
-    and Mosaic plots.
+    visualizing conditional probability, similar to (but distinct from) Venn diagrams,
+    Mosaic plots, and spine plots.
 License: GPL-3
 Depends: R (>= 3.1.0)
 Imports: plyr, grid
