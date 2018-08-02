@@ -2,7 +2,7 @@ Package: eikosograms
 Type: Package
 Title: Eikosograms - probability pictures for categorical variables
 Version: 1.0.0
-Date: 2018-04-19
+Date: 2018-08-01
 Authors@R: c(person(given = "Wayne", family = "Oldford",
                     email = "rwoldford@uwaterloo.ca", 
                     role = c("aut", "cre"),
