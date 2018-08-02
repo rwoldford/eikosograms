@@ -66,6 +66,7 @@ vignette: |
   %\VignetteIndexEntry{Introduction} 
   %\VignetteEngine{knitr::rmarkdown} 
   %\VignetteEncoding{UTF-8}
+  %\VignetteDepends{gridExtra}
   
 
 ---
