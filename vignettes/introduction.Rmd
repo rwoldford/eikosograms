@@ -1,5 +1,25 @@
 ---
 title: "Introduction to Eikosograms"
+author: "R. W. Oldford"
+date: '`r Sys.Date()`'
+output:
+  html_document:
+    number_sections: no
+    toc: yes
+  html_notebook: default
+  html_vignette:
+    number_sections: no
+    toc: yes
+  pdf_document:
+    keep_tex: yes
+    latex_engine: xelatex
+    number_sections: no
+    toc: yes
+  word_document: default
+vignette: |
+  %\VignetteIndexEntry{Introduction} 
+  %\VignetteEngine{knitr::rmarkdown} 
+  %\VignetteEncoding{UTF-8}
 header-includes:
 - \usepackage{graphicx}
 - \usepackage{epic}
@@ -45,26 +65,6 @@ header-includes:
 - \newcommand{\suchthat}{~:~}
 - \newcommand{\st}{~:~} 
 - \newcommand{\permpause}{\pause}
-author: "R. W. Oldford"
-date: '`r Sys.Date()`'
-output:
-  html_document:
-    number_sections: no
-    toc: yes
-  html_notebook: default
-  html_vignette:
-    number_sections: no
-    toc: yes
-  pdf_document:
-    keep_tex: yes
-    latex_engine: xelatex
-    number_sections: no
-    toc: yes
-  word_document: default
-vignette: |
-  %\VignetteIndexEntry{Introduction} 
-  %\VignetteEngine{knitr::rmarkdown} 
-  %\VignetteEncoding{UTF-8}
   
 
 ---
@@ -196,33 +196,96 @@ eikos("Dept", data = UCBAdmissions[,"Female",],
 we see a rather different distribution of probabilities.  Departments `A` and `B` are much less popular with female applicants than with male (e.g. only 1 in 100 applications from females are to `B` compared to 1 in 5 for males).  Instead departments `C` and `E` are much more likely to receive an application if it is from a female than if it is from a male.
 
 Knowing the marginal probabilities that an application is from a female or a male, we might put these two eikosograms together in a single eikosogram.
-```{r UCB Dept by gender, echo = TRUE, fig.width=4, fig.height=3, fig.align="center", out.width="50%"}
+```{r UCB Dept by gender, echo = TRUE, fig.width=4.3, fig.height=3.3, fig.align="center", out.width="50%"}
 eikos(y = "Dept", x = "Gender",  data = UCBAdmissions,
       label_size = 8)
 ```
 
 As can be seen the two conditional eikosograms are now fitted into the unit square, the width of each being the marginal probability of that conditioning variable "Gender".   
 
-The conditioning variate values appear along the bottom horsizontal edge of the eikosogram and the corresponding probability appears along the top.  The probability that an application is from a male applicant is 0.59 and from a female applicatant 0.41 = 1 - 0.59.  
+The conditioning variate(s) values appear across the bottom horizontal axis and the response along the left hand vertical axis.  This arrangement makes reading the conditional probabilities follow visually left to right, top to bottom.  For example, $Pr(Dept = A \given Gender = Male) = 0.31)$ visually followa the display left to right and dropping down to the bottom edge for the value of the conditioning variate(s).
 
-Along the right hand vertical axis are values associated with conditional probabilities for each department's applications given gender.  For every horizontal line in the plot, cumulative probability to that height is given.  The height of each bar now corresponds to the conditional probability of an application to that department given the corresponding gender.  These can be computed as the difference between the corresponding values on the vertical axis.  For example, the probability of an application being to department `E` is 0.21 = 0.81 - 0.6 given the gender is "Female" and is one third of that, or 0.07 = 0.86 - 0.79,  if the gender is "Male".
+*Numerical values along the top* horizontal edge are the *cumulative marginal probabilities* associated with the values of the (bottom) conditioning variate.  For example
+  - the probability that an application is from a male applicant is $0.59$ and 
+  - the probability that an application is from a female applicant is the difference $1 - 0.59 = 0.41$. 
 
+*Numerical values along the right*  vertical edge are the *cumulative conditional probabilities* for each department's applications given gender.  
 
-# Geometry and probability.
+- For every horizontal line in the plot, the *cumulative conditional probability* to that height is given. 
+
+- The height of each rectangle corresponds to the **conditional probability** of an application to that department given the corresponding gender.  For example, 
+     
+    - $Pr(Dept = E \given Gender = Male) = 0.86 - 0.79 = 0.07$
+    - $Pr(Dept = E \given Gender = Female) =  0.81 - 0.6 = 0.21$
+    - $Pr(Dept = A \given Gender = Male) = 0.31$
+    - $Pr(Dept \in \left\{B, D \right\} \given Gender = Male) = (0.51 - 0.31) + (0.79 - 0.64) = 0.35$ 
+    
+
+- The area of each rectangle corresponds to the **joint probability** of an application to that department from the corresponding gender.  For example, 
+    - $Pr(Dept = E, Gender = Male) = 0.59 \times (0.86 - 0.79) = 0.0413$
+
+## geometry and probability
+
+In its construction, the eikosogram 
+
+- divides the unit square into 
+    - vertical bars with widths equalling the probabilities for each value of the conditioning variate(s), 
+    - and then divides each vertical bar horizontally into
+        - rectangles with heights equal to the conditional probabilities of each value of the response variate given the value(s) of the conditioning variate(s).
+        
+The area of every rectangle now equals the joint probability of the corresponding values of the conditioning and response variates.
 
 The power of the eikosogram is that its **geometry embeds the probabilities** of discrete random variates:
 
-- the unit area of the whole eikosogram is the total probability,
-- widths of rectangles are marginal probabilities
-- heights of rectangles are conditional probabilities
-- areas of rectangles are joint probabilities
+
 - the vertical axis shows the values of the **response** variate
 - the horizontal axis shows the values of the **explanatory** or **conditioning** variate(s)
-- the width of the vertical bar is also the area of that bar and hence the sum of the areas of the rectangles it contains
-- the width of any vertical bar is the marginal probability of that value of the conditioning variate
+- each axis rangee exactly from 0 to 1 
+- total probability is 1, the area of the whole eikosogram
+- **widths** of rectangles are **marginal probabilities**
+- **heights** of rectangles are **conditional probabilities**
+- **areas** of rectangles are **joint probabilities** 
 
-An eikosogram divides the unit square into vertical bars according to the proportion for each value of one variate (the "conditioning" variate), and then divides each vertical bar horizontally into rectangles whose heights are proportional to the each value of the second variate (the "response" variate) given the value of the first (that which defined the vertical bar's width). The area of every rectangle is the joint probability of the corresponding values of the conditioning and reasponse variates.
+    \[joint = area = height \times width = conditional \times marginal\]
 
+- the width of an entire vertical bar is the area of that bar (since its height is 1) and is also the sum of the areas of the rectangles it contains
+- the width of an entire vertical bar is the therefore the marginal probability for that value of the (horizontal) conditioning variate
+
+By construction, probability comparisons are easily made visually with an eikosogram.
+
+# Marginal probabilities for the response
+An eikosogram displays the joint probability of two (or more) categorical variates by area of rectangles. From this it is easy to determine the marginal probability of any value of the conditioning variate (width) but not the marginal probability of the response variate.  This is because the heights record the conditional  **not** the marginal probabilities of the response variate value given that of the conditioning variate.  
+
+The marginal for the response value is found by summing the areas of the rectangles having the same colour (i.e. those which correspond to the same response value).
+
+This summing of areas is called **marginalization** and corresponds to a rule of probability.  For example, 
+\[Pr(Dept = A) = \sum_{gender \in \left\{Male, Female\right\}} Pr(Dept = A, Gender = gender)\]
+with 
+\[Pr(Dept = dept, Gender = gender) = Pr(Dept = dept \given Gender = gender) \times Pr(Gender = gender) \]
+for all values of $dept$ and $gender$.
+
+Marginalization can sometimes seems mysterious when first encountered.  Fortunately, the eikosogram lends itself to another visual metaphor that simplifies the idea of marginalization.  This is the **water container metaphor**.
+
+## the water container metaphor
+
+Consider again the joint probability distribution of $Dept$ and $Gender$ given by the eikosogram
+
+```{r UCB Dept by gender joint, echo = TRUE, fig.width=4, fig.height=3.65, fig.align="center", out.width="50%"}
+eikos(y = "Dept", x = "Gender", data = UCBAdmissions, 
+      xlabs = FALSE, yaxs = FALSE, xaxs = FALSE)
+
+```
+Only the department labels are shown and we now imagine that the picture shows two containers beside one another, each containing liquids of differing density so that the denser liquid, being heavier (and here darker in colour), sinks to the bottom in each container.  Each density of liquid (colour of rectangle) corresponds to a department and each container a gender (male on left, female on right).
+
+Marginalization is simply removing the distinction between the two genders; or equivalently removing the barrier which separates the two containers.   If these were liquids, then removing the barrier (or perforating the barrier) would cause the liquids to mix and then settle again according to density.  The corresponding (now single combined) container would look like 
+```{r UCB Dept marginalized, echo = TRUE, fig.width=4, fig.height=3.65, fig.align="center", out.width="50%"}
+eikos("Dept", data = UCBAdmissions, 
+      xlabs = FALSE, yaxs = FALSE, xaxs = FALSE)
+```
+
+Just as the volume of each liquid must be conserved, so too must the area of each colour, and so the total probability for each department.
+
+Marginalization can be thought of as perforating the barrier separating two volumes of liquid.
 
 # Bayes's theorem
 
