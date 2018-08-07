@@ -31,9 +31,18 @@ eikos("Dept", data = UCBAdmissions[,"Male",],
 eikos("Dept", data = UCBAdmissions[,"Female",], 
       main = "Applications from females")
 
-## ----UCB Dept by gender, echo = TRUE, fig.width=4, fig.height=3, fig.align="center", out.width="50%"----
+## ----UCB Dept by gender, echo = TRUE, fig.width=4.3, fig.height=3.3, fig.align="center", out.width="50%"----
 eikos(y = "Dept", x = "Gender",  data = UCBAdmissions,
       label_size = 8)
+
+## ----UCB Dept by gender joint, echo = TRUE, fig.width=4, fig.height=3.65, fig.align="center", out.width="50%"----
+eikos(y = "Dept", x = "Gender", data = UCBAdmissions, 
+      xlabs = FALSE, yaxs = FALSE, xaxs = FALSE)
+
+
+## ----UCB Dept marginalized, echo = TRUE, fig.width=4, fig.height=3.65, fig.align="center", out.width="50%"----
+eikos("Dept", data = UCBAdmissions, 
+      xlabs = FALSE, yaxs = FALSE, xaxs = FALSE)
 
 ## ----admit given gender, echo = TRUE, fig.width=4, fig.height=3, fig.align="center", out.width="50%"----
 eikos(y = "Admit", x = "Gender", data = UCBAdmissions)
