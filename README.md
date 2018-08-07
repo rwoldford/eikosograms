@@ -1,5 +1,5 @@
 # eikosograms
-Eikosograms: the picture of probability as the R package "eikos"
+Eikosograms: the picture of probability as the R package "eikosograms"
 
 An eikosogram (ancient Greek for probability picture) divides the unit square into rectangular regions whose areas, sides, and widths, represent various probabilities associated with the values of one or more categorical variates.
 
