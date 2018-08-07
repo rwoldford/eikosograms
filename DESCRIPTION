@@ -20,6 +20,7 @@ Authors@R: c(person(given = "Wayne", family = "Oldford",
 Author: 
     Wayne Oldford [aut, cre], Erle Holgersen [aut], Ben Lafreniere [aut], Tianlu Zhu [aut]
 Maintainer: Wayne Oldford <rwoldford@uwaterloo.ca>
+URL: https://github.com/rwoldford/eikosograms
 Description: An eikosogram (ancient Greek for probability picture) divides the unit square 
     into rectangular regions whose areas, sides, and widths, represent various probabilities
     associated with the values of one or more categorical variates.
