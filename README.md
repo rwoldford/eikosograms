@@ -13,8 +13,8 @@ As data analysis tools, eikosograms display categorical data in a manner similar
 Unlike Mosaic plots, **eikosograms do not alternate axes** as each new categorical variate (beyond two) is introduced.  
 
 Instead, only one categorical variate, designated the "response", presents on the vertical axis and all others, designated the "conditioning" variates, appear on the horizontal. In this way, conditional probability appears only as height and marginal probabilities as widths. The eikosogram is therefore much better suited to a response model analysis (e.g. logistic model)
-than is a Mosaic plot.  
+than is a Mosaic plot. 
 
 Mosaic plots are better suited to log-linear style modelling as in discrete multivariate analysis.
 
-Of course, eikosograms are also suited to discrete multivariate analysis with each variate in turn appearing as the response.
+Of course, eikosograms are also suited to discrete multivariate analysis with each variate in turn appearing as the response. This makes it better suited than Mosaic plots to discrete graphical models based on conditional independence graphs (i.e. "Bayesian Networks" or "BayesNets").
