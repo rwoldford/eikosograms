@@ -7,7 +7,7 @@ Rectangle areas are joint probabilities, widths are **always** marginal (though 
 
 Eikosograms embed the rules of probability and are useful for teaching elementary probability theory, including the axioms, marginal, conditional, and joint probabilities and their relationships (including rendering Bayes theorem to be completely natural).
 
-They are markedly superior to Venn diagrams for this pusrpose, especially in distinguishing probabilistic independence, mutually exclusive events, coincident events, and associations. They also are useful for identifying and understanding conditional independence structure.
+They are markedly superior to Venn diagrams for this purpose, especially in distinguishing probabilistic independence, mutually exclusive events, coincident events, and associations. They also are useful for identifying and understanding conditional independence structure.
 
 As data analysis tools, eikosograms display categorical data in a manner similar to Mosaic plots, especially when only two variates are involved (the only case in which they are essentially identical, though eikosograms purposely disallow spacing between rectangles).
 Unlike Mosaic plots, **eikosograms do not alternate axes** as each new categorical variate (beyond two) is introduced.  
