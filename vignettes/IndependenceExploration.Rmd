@@ -52,15 +52,18 @@ output:
   html_document:
     number_sections: no
     toc: yes
+    toc_depth: 4
   html_notebook: default
   html_vignette:
     number_sections: no
     toc: yes
+    toc_depth: 4
   pdf_document:
     keep_tex: yes
     latex_engine: xelatex
     number_sections: no
     toc: yes
+    toc_depth: 4
   word_document: default
 vignette: |
   %\VignetteIndexEntry{Introduction} 
@@ -225,23 +228,39 @@ It follows mathematically that
 \[Pr(Y \given X \and (Z = z1)) = Pr(Y \given Z = z1)\]
 for all values of of $Y$ and $X$.  
 
-This latter relation can also be observed directly from the eikosogram by applying the **water container metaphor** to the left hand flat.  To do so, think of the eikosogram as a series of columnar containers with a varying amounts of water each, as shown by the bottom blue rectangles (if $Y$ had more values, think of the containers having liquids of various density to give the layers in each column).  Were the boundary between two neighbouring containers to be perforated, then the liquid in the two containers would redistribute to find a new level across both containers.  If, for example, the boundary between the two neighbouring containers at left (between $X = x1$ and $X = x2$ when $Z = z1$) were to be removed, then the resulting level would unchanged.  Removing this boundary removes the effect of changing $X$ when $Z = z1$; that is, we have marginalized over $X$ with the resulting level becoming $Pr(Y = y1 \given Z = z1)$.  The unchanging level for this particular eikosogram implies the previous result, namely
+
+### Water container metaphor
+This latter relation can also be observed directly from the eikosogram by applying the **water container metaphor** to the left hand flat.  
+
+To do so, think of the eikosogram as a series of columnar containers with a varying amounts of water each, as shown by the bottom blue rectangles (if $Y$ had more values, think of the containers having liquids of various density to give the layers in each column). Were the boundary between two neighbouring containers to be perforated, then the liquid in the two containers would redistribute to find a new level across both containers.  
+
+If, for example, the boundary between the two neighbouring containers at left (between $X = x1$ and $X = x2$ when $Z = z1$) were to be removed, then the resulting level would unchanged.  Removing this boundary removes the effect of changing $X$ when $Z = z1$; that is, we have marginalized over $X$ with the resulting level becoming $Pr(Y = y1 \given Z = z1)$.  The unchanging level for this particular eikosogram implies the previous result, namely
 $Pr(Y \given X \and (Z = z1)) = Pr(Y \given Z = z1)$.
 
-Similarly, the same can be said about the right hand side of the eikosogram where $Z = z2$.  That is, it follows from the mathematics and/or eikosogram that we also have 
+The same can be said about the right hand side of the eikosogram where $Z = z2$.  That is, it follows from the mathematics and/or eikosogram that we also have 
 \[ Y \indep X \given (Z = z2). \]
+
 Since the conditional independence holds whatever value $Z$ takes, we say more generally that $Y$ and $X$ are conditionally independent of one another given the value of $Z$ and more succinctly write
 \[ Y \indep X \given Z \]
 to assert that this holds no matter what the values of $Y$, $X$, or $Z$.
 
 Clearly a number of independence relationships are possiblie for any collection of three variates which suggests a broader notation for probabilistic independence might be of some help.
 
-## Prefix notation
-$X \indep Y$ is the common notation to express the fact that random variates $X$ and $Y$ are probabilistically independent of one another.   A slight variant of this notation can be used to convey more than pairwise independence.  The idea is to switch to using $\indep$ as a function of any number of variates.  For a pair of variates $\indep(X, Y)$ means, as before, that $X$ and $Y$ are probabilistically independent of one another.  The notation becomes useful when there it has more than two arguments (or variates); it then indicates that all variates are probabilistically independent in every way, a *complete independence* of one another.
 
-This idea is made more precise in this section.  Strictly speaking, the notation is not necessary to understand the rest of the vignette and readers may skip this subsection and return to it after observing eikosograms for the various possible cases of independence involving three variates.  The notation principally permits these case to be symbolically described more succinctly.
+# Independence when there are more than two variates 
 
+This section is a little technical and can be skipped.  The next section focuses on only three variates and is illustrated via eikosograms.
 
+When more than two variates are involved there are numerous ways in which the variates may exhibit some sort of independence, conditional and otherwise.   Moreover, the conditional independence graphs do not capture all of these possibilities  -- see @eikosIndependence for demonstration and alternative graph representations.  
+
+However, the variants can be illustrated symbolically if we only slightly adjust the standard notation, switching from the standard "infix" use of $\indep$ to a "prefix" version.  
+
+### A prefix notation for independence
+$X \indep Y$ is the common notation to express the fact that random variates $X$ and $Y$ are probabilistically independent of one another.   
+
+A slight variant of this notation can be used to convey more than pairwise independence.  The idea is to switch to using $\indep$ as a function of any number of variates.  For a pair of variates $\indep(X, Y)$ means, as before, that $X$ and $Y$ are probabilistically independent of one another.  The notation becomes useful when there it has more than two arguments (or variates); it then indicates that all variates are probabilistically independent in every way, a *complete independence* of one another.  This idea is made more precise in this section. 
+
+Strictly speaking, the notation is not necessary to understand the rest of the vignette and readers may skip this subsection and return to it after observing eikosograms for the various possible cases of independence involving three variates.  The notation principally permits these cases to be symbolically described more succinctly.
 
 As an operator on two or more symmetrically treated variables, the function $\indep(X, Y, Z, \ldots)$ is understood as follows:
 \begin{eqnarray}
@@ -278,10 +297,12 @@ X \indep Z
 When only the binary operation is called
 for, either the prefix or infix notation can be used depending on which seems clearer in the context.
 
-As always, conditioning variables  or events appear to the right of a vertical line
+As always, conditioning variables or events appear to the right of a vertical line
 (if more than one variable is conditioned on, as in @Dawid1979, they can appear listed 
 separately within parentheses
-after the vertical bar). The prefix notation $\indep (Y, \cdots , Z)$ is intended 
+after the vertical bar). 
+
+The prefix notation $\indep (Y, \cdots , Z)$ is intended 
 to indicate the complete probabilistic independence
 of its arguments which, as with pairwise independence, can occur for its
 arguments either unconditionally or conditionally given other random variables 
@@ -330,16 +351,13 @@ assertion than does the traditional \textit{mutual} independence.  @eikosIndepen
 
 The rest of the vignette explores eikosograms which show the various possible independencies that appear as part of the definition of $\indep(X,Y,Z)$.
 
-
 # Three variates
 
-The nature of independence relationships becomes much more interesting when there are three variates.  To illustrate, we introduce several different joint probability distributions taken from @eikosIndependence.
+In this section we explore the possible independence relations between three variates.  
+@eikosIndependence provides some fake data constructed to illustrate the possible independence relationships between three categorical variates.  For each example, there will be a table of joint probabilities from which eikosograms may be determined.  To simplify the presentation, each variate, $X$, $Y$, and $Z$, will be binary, taking values "x1" or "x2", "y1" or "y2", and  "z1" or "z2", respectively.   Then each table will have only $2^3 = 8$ possible combinations of values.
 
-## Artificial but illustrative data
-
-Below, we reproduce the data given in Table 1 of @eikosIndependence; the resulting tables of probabilities are used to construct canonical examples. 
-
-```{r conditional independence tables display, echo = TRUE, eval = FALSE}
+A function to create the tables with data in the form given in the Appendix of @eikosIndependence is the following:
+```{r table creation function , echo = TRUE, eval = FALSE}
 # This function will create all the joint probabilities
 # and place them in the appropriate three-way table
 create3WayBinaryTable <- function(widths, heights) {
@@ -353,6 +371,36 @@ create3WayBinaryTable <- function(widths, heights) {
                   ))
     as.table(probs)
 }
+```
+
+Here the argument `widths` refers to the marginal joint probabilities of the values of the conditioning variate pairs $(X, Z)$ in the order $(x1, z1)$, $(x1, z2)$, $(x2, z1)$, and $(x2, z2)$.  The widths must sum to 1.  The argument `heights` gives the conditional probabilities of the response variate $Y$ taking value $y1$ for each of value of the conditioning pairs $(X, Y)$ in the same order as `widths`.  There is no restriction on the individual heights except that they be probabilities.
+
+For example, 
+```{r some table, echo = TRUE, eval = TRUE}
+someTable <-   create3WayBinaryTable(widths =  c(10/35, 8/35, 5/35, 12/35),
+                                     heights = c(7/10, 7/10, 7/10, 7/10))
+```
+
+produces the table of joint probabilities
+```{r cond_indep table, echo = FALSE}
+knitr::kable(cond_indep)
+```
+
+from which, for example, the following eikosogram can be produced 
+(note that left to right in the eikosogram, the values of the conditioning variates change from most to least frequently in the call to `eikos()` according to the order in Which they appear in its argument `x`).
+
+```{r eikos of someTable, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "What is the independence structure?"}
+eikos(y="Y", x = c("Z", "X"), data = someTable)
+```
+
+This eikosogram suggests some sort of independence.  Certainly, applying the water container metaphor makes it easy to see the "flat water" in the diagram implies that $Y \indep Z \given X$ and also that $Y \indep X \given Z$.  That all of the levels are identical also allows us to see that any perforation of vertical barriers would have no effect on any of the heights and hence we can conclude that pairwise independencies $\indep(Y, X)$ and $\indep(Y, Z)$ also hold.  
+
+One might be tempted to jump to the conclusion that the flat structure across all values of $X$ and $Z$ implies that $\indep(X,Y,Z)$ also holds (i.e. that $X$, $Y$, and $Z$ are **completely independent**).  This would be a mistake.  What this eikosogram fails to reveal immediately is the **pairwise relationship** between $X$ and $Z$ and what effect it might have, if any, on the remaining conditional relations $X \given (Y, Z)$ and $Z \given (X, Z)$.
+
+It turns our that for this set of probabilities,  the three variables $X$, $Y$, and $Z$  are **not completely independent**. 
+
+
+```{r conditional independence tables display, echo = FALSE, eval = FALSE}
 # Marginal probabilities (widths) for 
 # the two binary conditioning variates
 # are given by the xz values,
@@ -393,34 +441,33 @@ xz8 <- c(1/6, 1/3, 1/6, 1/3)
 b10 <- c(1/6, 2/3, 5/6, 1/3)
 fig14_data <- create3WayBinaryTable(xz8, b10)
 
-# Create this now for early illustration
-cond_indep <- fig5c_data
 ```
 
-Each table gives the joint probabilities for all $2^3 = 8$ combinations; for example the last table looks like
-```{r}
-fig14_data
-sum(fig14_data)
-```
+## The set of possibilities
 
-We will be using these data to illustate the various possible configurations of independent relations between three variates. (For example, the `cond_indep` used earlier is `fig5c_data`.)
-
-## Possible eikosograms
-
-For three variates, say $X$, $Y$, and $Z$, a great many  eikosograms are possibly of interest. 
+For three variates, say $X$, $Y$, and $Z$, a great many  eikosograms are possibly of interest.
 
 To begin with any one of the three variates can be chosen as the response variate (or vertical axis), with the combinations of the remaining two appearing as conditioning variates.  The order of the conditioning variates (and possibly their values) could be rearranged to produce further variations in the display.  
 
 We also need to consider the eikosograms of every pair of variates **unconditionally**. That is, we need to consider the joint distribution of each pair without any consideration of the third variate (i.e. marginalizing over the third). 
-For each pair, two substantively different eikosograms arise from alternating the two variates' roles between response or conditioning variates
 
-It turns out that there are only nine substantively different types of independence relationships between three categorical variates.  These will be illustrated in turn below.  
+It turns out that **there are only nine substantively different types of independence relationships between three categorical variates** @eikosIndependence.  These will be illustrated in turn below.  
 
-## Case 1: complete independence
+### Case 1: All three 3-way diagrams are flat
 
-When $\indep(X, Y, Z)$ holds, we have complete independence.  The joint distribution can be shown in three different eikosograms depending on which variate is the response.
-```{r complete independence code, eval = FALSE}
-complete_indep <- fig7_data
+As was suggested earlier, it is not enough to consider only one of the variates as the response.  While it may be possible to infer some independence structure from one three-way eikosogram, all three must be considered.  If all three 3-way diagrams are flat, then 
+ $\indep(X, Y, Z)$ holds and we have **complete independence**.  
+ 
+An example where this occurs is very nearly the same as `someTable` above and is given by the following table of joint probabilities:
+
+```{r complete independence table, echo = TRUE}
+complete_indep <- create3WayBinaryTable(widths = c(10/33, 12/33, 5/33, 6/33),
+                                        heights = c(7/10, 7/10, 7/10, 7/10))
+```
+
+The joint distribution can be shown in three different eikosograms depending on which variate is the response (for simplicity, none of the axis probabilities will be shown)
+
+```{r complete independence code, eval = TRUE, fig.height = 0.1}
 eikosY <- eikos(y="Y", x = c("Z", "X"), 
                 xaxs = FALSE, yaxs= FALSE,
                 data = complete_indep, draw = FALSE)
@@ -432,52 +479,155 @@ eikosZ <- eikos(y="Z", x = c("X", "Y"),
                 data = complete_indep, draw = FALSE)
 ```
 
-```{r complete independence eikos, echo = FALSE, fig.width=12, fig.height=3.5, fig.align="center", out.width="100%"}
-complete_indep <- fig7_data
-eikosY <- eikos(y="Y", x = c("Z", "X"), 
-                xaxs = FALSE, yaxs= FALSE,
-                data = complete_indep, draw = FALSE)
-eikosX <- eikos(y="X", x = c("Z", "Y"), 
-                xaxs = FALSE, yaxs= FALSE,
-                data = complete_indep, draw = FALSE)
-eikosZ <- eikos(y="Z", x = c("X", "Y"), 
-                xaxs = FALSE, yaxs= FALSE,
-                data = complete_indep, draw = FALSE)
-```
+These can be displayed in a single figure using the function `grid.arrange()` from the package `gridExtra`.
 
-
-```{r complete independence arrange 3, echo = TRUE, fig.width=12, fig.height=3.5, fig.align="center", fig.cap = "Complete independence", out.width="100%"}
+```{r complete independence arrange 3, echo = TRUE, fig.width=11, fig.height=3.5, fig.align="center", fig.cap = "Complete independence", out.width="100%"}
 grid.arrange(eikosY, eikosX, eikosZ, nrow=1)
 ```
 
-```{r}
-eikos(y="Y", x = c("Z", "X"), 
-      data = create3WayBinaryTable(xz1, b2))
+Note that each of the three eikosograms is completely flat.  This is the hallmark of complete independence.  In fact, it can be proved that $\indep(X,Y,Z)$ occurs if, and only if, all three of these 3-way eikosograms is flat.
 
-eikos(y="Y", x = c("Z", "X"), 
-      data = create3WayBinaryTable(xz1, b3))
-eikos(y="Y", x = c("X", "Z"), 
-      data = create3WayBinaryTable(xz1, b3))
+The conditional independencies are obvious from the diagrams, as are the marginal pairwise independencies.  To check the latter we could construct the corresponding histograms.
 
-eikos(y="Y", x = c("Z", "X"), 
-      data = create3WayBinaryTable(xz1, b4))
-
-
-eikos(y="Y", x = c("Z", "X"), 
-      data = create3WayBinaryTable(xz2, b4))
-eikos(y="Y", x = c("Z", "X"), 
-      data = create3WayBinaryTable(xz3, b5))
-eikos(y="Y", x = c("Z", "X"), 
-      data = create3WayBinaryTable(xz4, b6))
-eikos(y="Y", x = c("Z", "X"), 
-      data = create3WayBinaryTable(xz5, b7))
-eikos(y="Y", x = c("Z", "X"), 
-      data = create3WayBinaryTable(xz6, b8))
-eikos(y="Y", x = c("Z", "X"), 
-      data = create3WayBinaryTable(xz7, b9))
-eikos(y="Y", x = c("Z", "X"), 
-      data = create3WayBinaryTable(xz8, b10))
-
+```{r conditional on one, echo = TRUE, fig.width=9, fig.height=0.1, fig.align="center",  out.width="80%"}
+eikosYX <- eikos(y = "Y", x = "X",
+                 data = complete_indep, main = "Y | X",
+                 xaxs = FALSE, yaxs= FALSE, draw = FALSE)
+eikosYZ <- eikos(y = "Y", x = "Z",
+                 data = complete_indep, main = "Y | Z",
+                 xaxs = FALSE, yaxs= FALSE, draw = FALSE)
+eikosXZ <- eikos(y = "X", x = "Z", 
+                 data = complete_indep, main = "X | Z",
+                 xaxs = FALSE, yaxs= FALSE, draw = FALSE)
 ```
+
+
+```{r conditional on one arranged, echo = TRUE, fig.width=10, fig.height=3, fig.align="center", fig.cap = "Pairwise independence", out.width="80%"}
+grid.arrange(eikosYX, eikosYZ, eikosXZ, nrow = 1) 
+```
+
+
+For the other cases, it will be more convenient to produce all of these eikosograms at once.
+To that end, the following function will put simplified versions of all 3-way and all 2-way eikosograms together in one display.
+```{r grid code, eval = TRUE, fig.height = 0.1}
+layout3and2way <- function(table) {
+    if(length(dimnames(table))!=3) stop("Must be a three-way table")
+    varNames <- names(dimnames(table))
+    zVar <- varNames[1]
+    xVar <- varNames[2]
+    yVar <- varNames[3]
+    eikosY <- eikos(y = yVar, x = c(zVar, xVar),
+                     data = table, main = paste0(yVar, " | ", zVar, "&", xVar),
+                     xlabs = FALSE, ylabs = FALSE, xaxs = FALSE, yaxs= FALSE, draw = FALSE)
+    eikosX <- eikos(y = xVar, x = c(zVar, yVar), 
+                     data = table, main = paste0(xVar, " | ", zVar, "&", yVar),
+                     xlabs = FALSE, ylabs = FALSE, xaxs = FALSE, yaxs= FALSE, draw = FALSE)
+    eikosZ <- eikos(y = zVar, x = c(xVar, yVar), 
+                     data = table, main = paste0(zVar, " | ", xVar, "&", yVar),
+                     xlabs = FALSE, ylabs = FALSE, xaxs = FALSE, yaxs= FALSE, draw = FALSE)
+    eikosYX <- eikos(y = yVar, x = xVar,
+                     data = table, main = paste(yVar, xVar, sep =" | "),
+                     xlabs = FALSE, ylabs = FALSE, xaxs = FALSE, yaxs= FALSE, draw = FALSE)
+    eikosYZ <- eikos(y = yVar, x = zVar,
+                     data = table, main = paste(yVar, zVar, sep =" | "),
+                     xlabs = FALSE, ylabs = FALSE, xaxs = FALSE, yaxs= FALSE, draw = FALSE)
+    eikosXY <- eikos(y = xVar, x = yVar, 
+                     data = table, main = paste(xVar, yVar, sep =" | "),
+                     xlabs = FALSE, ylabs = FALSE, xaxs = FALSE, yaxs= FALSE, draw = FALSE)
+    eikosXZ <- eikos(y = xVar, x = zVar, 
+                     data = table, main = paste(xVar, zVar, sep =" | "),
+                     xlabs = FALSE, ylabs = FALSE, xaxs = FALSE, yaxs= FALSE, draw = FALSE)
+    eikosZY <- eikos(y = zVar, x = yVar, 
+                     data = table, main = paste(zVar, yVar, sep =" | "),
+                     xlabs = FALSE, ylabs = FALSE, xaxs = FALSE, yaxs= FALSE, draw = FALSE)
+    eikosZX <- eikos(y = zVar, x = xVar,  
+                     data = table, main = paste(zVar, xVar, sep =" | "),
+                     xlabs = FALSE, ylabs = FALSE, xaxs = FALSE, yaxs= FALSE, draw = FALSE)
+    layout <- rbind(c(1,1, NA, 2, 2, NA,  3, 3),
+                    rep(NA, 8),
+                    c(4, 5, NA, 6, 7, NA, 8, 9))
+    grid.arrange(eikosY, eikosX, eikosZ,
+                 eikosYX, eikosYZ, 
+                 eikosXY, eikosXZ, 
+                 eikosZY, eikosZX,
+                 layout_matrix = layout,
+                 widths = c(2,2,1,2,2,1,2,2), 
+                 heights = c(2, 0.5, 1.1)
+    )
+}
+```
+
+Calling this function on the `complete_indep` table, It is clear that
+
+```{r complete independence layout, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"}
+layout3and2way(complete_indep)
+```
+
+All eikosograms are flat, indicating the complete independence of all three variates from one another $\indep(X, Y, Z)$
+
+### Case 2: one 4-flat, two 2 by 2-flats
+
+As with the first case, it will be simplest to describe this by the shape of the 3-way eiksograms.  In this case, one has the flar crossing all four conditions, the remaining two have flats crossing the values of one of the conditioning variates and not the others.
+
+An example, and its simplified display is the following
+
+```{r Case 2, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"}
+table <- create3WayBinaryTable(widths = c(10/33, 12/33, 5/33, 6/33),
+                               heights = c(7/10, 7/10, 3/10, 3/10))
+
+layout3and2way(table)
+```
+
+
+### Case 3: two 2 by 2-flats, one no-flat
+This happens when there is only one conditional-independence.
+```{r Case 3, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"}
+table <- create3WayBinaryTable(widths = c(2/9, 1/9, 2/9, 4/9),
+                               heights = c(2/3, 2/3, 1/6, 1/6))
+
+layout3and2way(table)
+```
+
+The third dependency, namely $Y \notindep X$, does not always hold unless, as in this case, $Z$ is binary.  See @eikosIndependence for details.
+
+### Case 4: three no-flats
+
+Whenever no flat areas appear in the 3-way eikosograms, there are no **conditional** independencies.
+
+
+#### Case 4.1: No flats; no marginal independence
+```{r Case 4.1, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"}
+table <- create3WayBinaryTable(widths = c(1/7, 1/7, 3/7, 2/7),
+                               heights = c(1/3, 2/3, 1/4, 1/6))
+
+layout3and2way(table)
+```
+
+#### Case 4.2:  No flats; one marginal independence
+```{r Case 4.2, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"}
+table <- create3WayBinaryTable(widths = c(1/4, 1/4, 1/4, 1/4),
+                               heights = c(3/4, 1/2, 1/4, 1/4))
+
+layout3and2way(table)
+```
+
+#### Case 4.3:  No flats; two marginal independences
+```{r Case 4.3, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"}
+table <- create3WayBinaryTable(widths = c(2/6, 1/6, 2/6, 1/6),
+                               heights = c(2/3, 1/2, 5/6, 1/6))
+
+layout3and2way(table)
+```
+
+#### Case 4.4:  No flats; three marginal independences
+```{r Case 4.4, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"}
+table <- create3WayBinaryTable(widths = c(1/6, 2/6, 1/6, 2/6),
+                               heights = c(1/6, 2/3, 5/6, 1/3))
+
+layout3and2way(table)
+```
+
+
+
 
 # References
