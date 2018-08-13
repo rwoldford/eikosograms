@@ -2,6 +2,7 @@
 title: "Introduction to Eikosograms"
 author: "R. W. Oldford"
 date: '`r Sys.Date()`'
+bibliography: eikosograms.bib
 output:
   html_document:
     number_sections: no
@@ -20,6 +21,7 @@ vignette: |
   %\VignetteIndexEntry{Introduction} 
   %\VignetteEngine{knitr::rmarkdown} 
   %\VignetteEncoding{UTF-8}
+  %\VignetteDepends{gridExtra}
 header-includes:
 - \usepackage{graphicx}
 - \usepackage{epic}
@@ -98,6 +100,11 @@ $\renewcommand{\intersect}{\cap}$
 $\renewcommand{\union}{\cup}$
 
 
+
+```{r libraries}
+library(eikosograms)
+library(gridExtra)
+```
 # A picture of probability
 
 The word **eikosogram** is constructed by joining two ancient Greek words:
@@ -185,7 +192,7 @@ eikos("Dept", data = UCBAdmissions[,"Male",],
       main = "Applications from males")
 ```
 
-Probabilities can be determined as before but we can see immediately from the eikosogram that departments `A` and `B` are the most popular departments for male applicants, more so than for all applications combined (in the previous histogram).
+Probabilities can be determined as before but we can see immediately from the eikosogram that departments `A` and `B` are the most popular departments for male applicants, more so than for all applications combined (in the previous eikosogram).
 
 Conditioning on the "Female" applications
 ```{r UCB Dept by female, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%"}
@@ -368,7 +375,7 @@ Pr(Admit = \mbox{"Admitted"} \given Gender = \mbox{"Male"}) &\times&  Pr(Gender 
 Pr(Gender = \mbox{"Male"} \given Admit = \mbox{"Admitted"}) &\times& Pr(Admit = \mbox{"Admitted"}).
 \end{array}
 \]
-Rectangles which identify the *same* joint probability in both histograms must have the same area.  This is Bayes's theorem and is perhaps most simply expressed generically as
+Rectangles which identify the *same* joint probability in both eikosograms must have the same area.  This is Bayes's theorem and is perhaps most simply expressed generically as
 \[Pr(Y \given X) \time Pr(X) = Pr(X ~\&~ Y) = Pr(X \given Y) \times Pr(Y). 
 |]
 Simply, areas of corresponding rectangles must match.
@@ -402,3 +409,207 @@ Now, for $i = 1, 2$
 
 It follows from either of these, and the definition  that a joint probability  is the area of the corresponding rectangle, that independence occurs if and only if for any $i$, $j$,
 \[Pr(X = x_i ~\&~  Y = y_j) = Pr(X = x_i) \times Pr(Y = y_j).\]
+
+For a deeper exploration of independence relationships between categorical variates, see the vignette [IndependenceExploration](IndependenceExploration.html).
+
+# Events
+
+Consider the possibility of two events, $A$ and $B$, each of which either occurs or does not occur.
+Events simply modelled as binary variates taking values `Yes` or `No` depending on whether the corresponding event occurs or not.
+
+As seen above, independence of two events occurs if and only all corresponding eikosograms are flat (see the vignette [IndependenceExploration](IndependenceExploration.html) for more detail). 
+
+As with independence, a number of other fundamental reletionships between events uniquely present as eikosograms.  This makes them both easily detected from the visualization and easily understood interpreted from the eikosogram.   The concepts become clearly distinguished from one another (as opposed to Venn diagrams, see @CherryOldford03)
+
+## Coincident and complementary events
+
+The visual hallmark of the eikosogram of a pair of events which are coincident, or of a pair which are complementary, is that the conditioning rectangles are all of one colour and are different from one another.
+
+**Coincident events** If $A$ and $B$ are coincident events then the eikosograms of their values (`Yes` for occurs; `No` for does not occur) has the form:
+
+```{r coincident events, echo = FALSE, fig.width=8, fig.height=3.7, fig.align="center", out.width="80%"}
+coincident <- array(c(0.3,0,0,0.7), dim = c(2,2),
+                  dimnames = list(A=c("Yes", "No"), B = c("Yes", "No")))
+e1 <- eikos("A", "B", data = coincident, 
+            xaxs = FALSE, yaxs = FALSE, main = "A occurs iff B does", draw=FALSE)
+e2 <- eikos("B", "A", data = coincident, 
+            xaxs = FALSE, yaxs = FALSE, main = "B occurs iff A does", draw=FALSE)
+grid.arrange(e1, e2, nrow = 1)
+```
+
+In the left most eikosogram, if event $B$ occurs then $A$ must occur (probability is 1); if the event $B$ does not occur, then $A$ cannot occur (probability is 0).  The same information appears in the right hand eikosogram where $A$ is now the conditioning event.
+
+**Complementary events** If $A$ and $B$ are complementary events then the eikosograms of their values (`Yes` for occurs; `No` for does not occur) has the form:
+
+```{r complementary events, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="80%"}
+complementary <- array(c(0,0.7,0.3,0), dim = c(2,2),
+                  dimnames = list(A=c("Yes", "No"), B = c("Yes", "No")))
+e1 <- eikos("A", "B", data = complementary, 
+            xaxs = FALSE, yaxs = FALSE, main = paste("If B occurs, A cannot;",
+                                                     "if B does not, A must.",
+                                                     sep = "\n"), draw=FALSE)
+e2 <- eikos("B", "A", data = complementary, 
+            xaxs = FALSE, yaxs = FALSE, main = paste("If A occurs, B cannot;",
+                                                     "if A does not, B must.",
+                                                     sep = "\n"), draw=FALSE)
+grid.arrange(e1, e2, nrow = 1)
+```
+
+In the left most eikosogram, if event $B$ occurs then $A$ cannot occur (probability is 0); if the event $B$ does not occur, then $A$ must occur (probability is 1).  The same information appears in the right hand eikosogram where $A$ is now the conditioning event.
+
+## Mutually exclusive events
+
+Complementary events are a special case of mutually exclusive events.  If $A$ and $B$ are complementary, then one of them must occur (in which case the other will not).  $A$ and $B$ are **mutually exclusive** events, then if one occurs the other cannot however neither *must* occur. The eikosograms will look have the following form:
+
+```{r mutually exclusive events, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="80%"}
+mutualExclusive <- array(c(0,0.3, 0.5, 0.7), dim = c(2,2),
+                  dimnames = list(A=c("Yes", "No"), B = c("Yes", "No")))
+e1 <- eikos("A", "B", data = mutualExclusive, 
+            xaxs = FALSE, yaxs = FALSE, main = paste("If B occurs, A cannot;",
+                                                     "if B does not, A could",
+                                                     sep = "\n"), draw=FALSE)
+e2 <- eikos("B", "A", data = mutualExclusive, 
+            xaxs = FALSE, yaxs = FALSE, main = paste("If A occurs, B cannot;",
+                                                     "if A does not, B could",
+                                                     sep = "\n"), draw=FALSE)
+grid.arrange(e1, e2, nrow = 1)
+```
+
+In the left most eikosogram, if event $B$ occurs then $A$ cannot occur (probability is 0); if the event $B$ does not occur, then $A$ may or may not occur (probability is greater than 0).  The same information appears in the right hand eikosogram where $A$ is now the conditioning event.
+
+Mutually exclusive events only have some non-zero probability for the response event (vertical axis) occurring when the conditioning event does not.  If that non-zero probability is also 1, then the events are complementary as well.
+
+## Positive and negative association
+
+Between coincident and complementary events, we also remark on whether events tend to occur to gether or tend to not occur together.  When events tend to occur together we say that they are **positively associated**; when they tend to not occur together we say that they are **negatively associated**.
+
+**Positive association**  If $A$ and $B$ are positively associated, their eikosograms will have the following form
+
+```{r positively associated events, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="80%"}
+posAsso <- array(c(24, 14, 6, 56), dim = c(2,2),
+                  dimnames = list(A=c("Yes", "No"), B = c("Yes", "No")))
+e1 <- eikos("A", "B", data = posAsso, 
+            xaxs = FALSE, yaxs = FALSE, main = paste("A occurs more often when B occurs",
+                                                     "than when B does not occur.",
+                                                     sep = "\n"), draw=FALSE)
+e2 <- eikos("B", "A", data = posAsso, 
+            xaxs = FALSE, yaxs = FALSE, main = paste("B occurs more often when A occurs",
+                                                     "than when A does not occur.",
+                                                     sep = "\n"), draw=FALSE)
+grid.arrange(e1, e2, nrow = 1)
+```
+
+The visual hallmark is that the leftmost bar is higher than the rightmost. In the left eikosogram, this means that 
+\[Pr(A  \text{ occurs} \given B \text{ occurs}) > Pr(A  \text{ occurs} \given B \text{ does not occur}).\]
+On the right eikosogram, we have the same for the other conditional probabilities, namely that
+\[Pr(B  \text{ occurs} \given A \text{ occurs}) > Pr(B  \text{ occurs} \given A \text{ does not occur}).\]
+
+*Clearly, coincident events are an especially strong case of positively associated events.*
+
+
+
+**Negative association**  If $A$ and $B$ are negatively associated, their eikosograms will have the following form
+
+```{r negatively associated events, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="80%"}
+negAsso <- array(c(6, 56, 24, 14), dim = c(2,2),
+                  dimnames = list(A=c("Yes", "No"), B = c("Yes", "No")))
+e1 <- eikos("A", "B", data = negAsso, 
+            xaxs = FALSE, yaxs = FALSE, main = paste("A occurs less often when B occurs",
+                                                     "than it does when B does not.",
+                                                     sep = "\n"), draw=FALSE)
+e2 <- eikos("B", "A", data = negAsso, 
+            xaxs = FALSE, yaxs = FALSE, main = paste("B occurs less often when A occurs",
+                                                     "than it does when A does not.",
+                                                     sep = "\n"), draw=FALSE)
+grid.arrange(e1, e2, nrow = 1)
+```
+
+The visual hallmark is that the leftmost bar is lower than the rightmost. In the left eikosogram, this means that 
+\[Pr(A  \text{ occurs} \given B \text{ occurs}) < Pr(A  \text{ occurs} \given B \text{ does not occur}).\]
+On the right eikosogram, we have the same for the other conditional probabilities, namely that
+\[Pr(B  \text{ occurs} \given A \text{ occurs}) < Pr(B  \text{ occurs} \given A \text{ does not occur}).\]
+
+*Clearly, complementary events are an especially strong case of negatively associated events.*
+
+## An association spectrum
+
+As the previous sections have shown, there is a range of associations that can be seen using eikosograms:
+
+
+```{r spectrum, echo = FALSE, fig.width=20, fig.height=4, fig.align="center", out.width="80%"}
+coincident <- as.table(array(c(50, 0, 0, 50),
+                        dim = c(2,2),
+                        dimnames = 
+                        list(A =c("Yes", "No"), 
+                             B = c("Yes", "No"))))
+posAsso <- as.table(array(c(35, 15, 15, 35),
+                        dim = c(2,2),
+                        dimnames = 
+                        list(A =c("Yes", "No"), 
+                             B = c("Yes", "No"))))
+indep <- as.table(array(c(25, 25, 25, 25),
+                        dim = c(2,2),
+                        dimnames = 
+                        list(A =c("Yes", "No"), 
+                             B = c("Yes", "No"))))
+negAsso <- as.table(array(c(15, 35, 35, 15),
+                        dim = c(2,2),
+                        dimnames = 
+                        list(A =c("Yes", "No"), 
+                             B = c("Yes", "No"))))
+complementary <- as.table(array(c(0, 50, 50, 0),
+                        dim = c(2,2),
+                        dimnames = 
+                        list(A =c("Yes", "No"), 
+                             B = c("Yes", "No"))))
+e1 <- eikos("A", "B", data = coincident, bottomcol = "steelblue",
+            xaxs = FALSE, yaxs = FALSE, main = "Coincident", draw=FALSE)
+e2 <- eikos("A", "B", data = posAsso, bottomcol = "steelblue", 
+            xaxs = FALSE, yaxs = FALSE, main = "Positive association", draw=FALSE)
+e3 <- eikos("A", "B", data = indep, bottomcol = "steelblue", 
+            xaxs = FALSE, yaxs = FALSE, main = "Independent", draw=FALSE)
+e4 <- eikos("A", "B", data = negAsso, bottomcol = "steelblue", 
+            xaxs = FALSE, yaxs = FALSE, main = "Negative association", draw=FALSE)
+e5 <- eikos("A", "B", data = complementary,  bottomcol = "steelblue",
+            xaxs = FALSE, yaxs = FALSE, main = "Complementary", draw=FALSE)
+
+grid.arrange(e1, e2, e3, e4, e5, nrow = 1)
+```
+
+Here, the proportions have been arranged so that the total area of the bottom colour (i.e. blue) is the same across all five eikosograms.  Similarly, the width of all columns are unchanged across the eikosograms.  This has the effect that the marginal probabilities of the eventa are the same across all eikosograms.
+
+The only differences between the eikosograms is in the association between the events.  Applying the **water container metaphor**, it is only the distribution of the water between the two containers that has changed.  Were the barrier between containers removed (or perforated so that the water can flow to an equilibrium), all resulting eikosograms would match that of the middle one (independence but without the vertical barrier). This reflects that the marginal probability of the event $A$ occurring, or not, is identical in all five cases.
+
+
+# Conditional Independence
+When there are more than two variates (or events) we can see conditional independence of any pair given the values for the other variate(s).  
+The key is to look for flat regions in the eikosogram where some conditioning variate(s) values match. 
+
+For example, consider the following eikosograms for the joint distribution of $X$, $Y$, and $Z$, where each variate in turn appears on the vertical axiz as the response:
+
+```{r conditional independence example, echo = FALSE, fig.width=16, fig.height=5, fig.align="center", out.width="100%"}
+joint <- array(c(6, 3, 12, 6, 10, 15, 10, 15), 
+               dim = c(2,2,2),
+               dimnames = list(X=c("X=x1", "X=x2"), 
+                               Y = c("Y=y1", "Y=y2"), 
+                               Z = c("Z=z1", "Z=z2")))
+e1 <- eikos("Y", c("X", "Z"), data = joint, main = "Y | X & Z",
+            xaxs = FALSE, xlabs = TRUE, yaxs = FALSE, ylabs = TRUE, draw = FALSE)
+e2 <- eikos("X", c("Y", "Z"), data = joint, main = "X | Y & Z",
+            xaxs = FALSE, xlabs = TRUE, yaxs = FALSE, ylabs = TRUE, draw = FALSE)
+e3 <- eikos("Z", c("X", "Y"), data = joint, main = "Z | X & Y",
+            xaxs = FALSE, xlabs = TRUE, yaxs = FALSE, ylabs = TRUE, draw = FALSE)
+grid.arrange(e1, e2, e3, nrow = 1)
+```
+
+For the leftmost eikosogram, two flat regions appear.  One occurs when $Z = z1$ as $X$ changes from $x1$ to $x2$.  This flat region says that given $Z = z1$, $Y$ and $X$ are independently distributed.  The second flat region occurs when  $Z = z2$ and again for all values of $X \in \{x1, x2 \}$.  This implies that $Y$ and $X$ are also independently distributed when $Z = z2$.  When conditional independence between $Y$ and $X$ occurs for all values of the conditioning variate $Z$, as it does here, we say that $Y$ and $X$ are **conditionally independent** given $Z$.
+
+This conditional independence makes it easy to see the conditional distribution of $Y$ for each value of $Z$.  Applying the **water container metaphor**, this time removing the barriers between each value of $X$ but preserving the barrier between the values of $Z$, we see the joint distribution of $Y$ and $Z$ after marginalizing over $X$.  With these barriers erased, the leftmost eikosogram shows a negative association between $Y$ and $Z$ **unconditionally** on $X$.
+
+The middle eikosogram tells the same story, this time with $X$ as the response variate.  Again, the two flat regions demonstrate that $X$ and $Y$ are conditionally independent given $Z$.  Applying the **water container metaphor** as before, now reveals the joint distribution of $X$ and $Z$ after marginalizing over $Y$.  This reveals a posiitive association between $X$ and $Z$ unconditionally on $Y$.
+
+In the rightmost eikosogram, no flats appear and hence no conditional independencies exist. That is $Z$ is neither conditionally independent of $X$ given $Y$ nor conditionally independent of $Y$ given $X$. Rather, in the rightmost eikosogram we can see that conditional on $Y$ (for each of its values) $Z$ and $X$ are positively associated, and that conditional on $X$ (for each of its values; note that the $X$ values are not grouped) $Z$ and $Y$ are negarively associated.
+
+For more investigation of conditional independence among three variates see the vignette [IndependenceExploration](IndependenceExploration.html).
+
+# References

@@ -1,6 +1,7 @@
 ---
 title: "Exploring Independence"
 author: "R.W. Oldford"
+date: '`r Sys.Date()`'
 bibliography: eikosograms.bib
 header-includes:
 - \usepackage{graphicx}
@@ -35,7 +36,7 @@ header-includes:
 - \newcommand{\given}{~\vert~}
 - \newcommand{\and}{~\&~}$
 - \newcommand{\indep}{\bot\hspace{-.5em}\bot}
-- \newcommand{\notindep}{\bot\hspace{-.5em}\bot\hspace{-0.9em} \times \hspace{.4em}}
+- \newcommand{\notindep}{\bot\hspace{-.5em}\bot\hspace{-0.85em} \times }
 - \newcommand{\depend}{\Join}
 - \newcommand{\notdepend}{\Join\hspace{-0.9 em}/\hspace{.4em}}
 - \newcommand{\imply}{\Longrightarrow}
@@ -45,33 +46,32 @@ header-includes:
 - \DeclareMathOperator*{\argmin}{arg\,min}
 - \DeclareMathOperator*{\argmax}{arg\,max}
 - \DeclareMathOperator*{\Ave}{Ave\,}
+- \newcommand{\permpause}{\pause}
 - \newcommand{\suchthat}{~:~}
 - \newcommand{\st}{~:~} 
-- \newcommand{\permpause}{\pause}
 output:
   html_document:
     number_sections: no
     toc: yes
     toc_depth: 4
   html_notebook: default
-  html_vignette:
-    number_sections: no
-    toc: yes
-    toc_depth: 4
   pdf_document:
     keep_tex: yes
     latex_engine: xelatex
     number_sections: no
     toc: yes
     toc_depth: 4
+  html_vignette:
+    number_sections: no
+    toc: yes
+    toc_depth: 4
   word_document: default
 vignette: |
   %\VignetteIndexEntry{Introduction} 
-  %\VignetteEngine{knitr::rmarkdown} 
   %\VignetteEncoding{UTF-8}
   %\VignetteDepends{gridExtra}
   
-
+  %\VignetteEngine{knitr::rmarkdown} 
 ---
   
 ```{r setup, include=FALSE}
@@ -89,7 +89,7 @@ $\renewcommand{\pop}[1]{\mathcal{#1}}$
 $\renewcommand{\samp}[1]{\mathcal{#1}}$
 $\renewcommand{\imply}{\Longrightarrow}$
 $\renewcommand{\indep}{\bot\hspace{-.5em}\bot}$
-$\renewcommand{\notindep}{\bot\hspace{-.5em}\bot\hspace{-0.9em} \times \hspace{.4em}}$
+$\renewcommand{\notindep}{\bot\hspace{-.5em}\bot\hspace{-0.85em} \times }$
 $\renewcommand{\depend}{\Join}$
 $\renewcommand{\notdepend}{\Join\hspace{-0.9 em}/\hspace{.4em}}$
 $\renewcommand{\and}{~\&~}$
@@ -173,8 +173,10 @@ cond_indep <- fig5c_data
 
 # Independence
 
+In this vignette, we explore independence and conditional independence between two or more categorical variates.  It is recommended that the reader be familiar with the [introduction to eikosograms vignette](introduction.html) before continuing.  Independence, including conditional independence is discussed there as well.
+
 ## Of two variates
-As discussed in other vignettes, the probabilistic independence of two categorical random variates clearly appears as a **flat eikosogram**.
+As discussed in the [introduction to eikosograms vignette](introduction.html), the probabilistic independence of two categorical random variates clearly appears as a **flat eikosogram**.
 Two categorical random variates $X$ and $Y$  are distributed **independently** of one another if and only if their corresponding eikosgram is **flat**.
 
 This is because independence is defined by the following relationship
@@ -354,7 +356,10 @@ The rest of the vignette explores eikosograms which show the various possible in
 # Three variates
 
 In this section we explore the possible independence relations between three variates.  
-@eikosIndependence provides some fake data constructed to illustrate the possible independence relationships between three categorical variates.  For each example, there will be a table of joint probabilities from which eikosograms may be determined.  To simplify the presentation, each variate, $X$, $Y$, and $Z$, will be binary, taking values "x1" or "x2", "y1" or "y2", and  "z1" or "z2", respectively.   Then each table will have only $2^3 = 8$ possible combinations of values.
+
+@eikosIndependence provides some fake data constructed to illustrate the possible independence relationships between three categorical variates.  For each example, there will be a table of joint probabilities from which eikosograms may be determined.  
+
+To simplify the presentation, each variate, $X$, $Y$, and $Z$, will be binary, taking values "x1" or "x2", "y1" or "y2", and  "z1" or "z2", respectively. That way the number of combinations of variate values is reduced to $8$, the number of cells in a complete $2 \times 2 \times 2$  table of the joint probabilities.
 
 A function to create the tables with data in the form given in the Appendix of @eikosIndependence is the following:
 ```{r table creation function , echo = TRUE, eval = FALSE}
@@ -451,7 +456,7 @@ To begin with any one of the three variates can be chosen as the response variat
 
 We also need to consider the eikosograms of every pair of variates **unconditionally**. That is, we need to consider the joint distribution of each pair without any consideration of the third variate (i.e. marginalizing over the third). 
 
-It turns out that **there are only nine substantively different types of independence relationships between three categorical variates** @eikosIndependence.  These will be illustrated in turn below.  
+It turns out that **there are only eight substantively different types of independence relationships between three categorical variates**. When all three are binary variates, this is reduced to only seven possibilities.  See @eikosIndependence for details and proofs.  These seven possibilities will be illustrated in turn below.  
 
 ### Case 1: All three 3-way diagrams are flat
 
@@ -517,23 +522,29 @@ layout3and2way <- function(table) {
     xVar <- varNames[2]
     yVar <- varNames[3]
     eikosY <- eikos(y = yVar, x = c(zVar, xVar),
-                     data = table, main = paste0(yVar, " | ", zVar, "&", xVar),
-                     xlabs = FALSE, ylabs = FALSE, xaxs = FALSE, yaxs= FALSE, draw = FALSE)
+                    data = table, main = paste0(yVar, " | ", zVar, "&", xVar),
+                    xlabs = FALSE, ylabs = FALSE, xaxs = FALSE, yaxs= FALSE, 
+                    draw = FALSE)
     eikosX <- eikos(y = xVar, x = c(zVar, yVar), 
-                     data = table, main = paste0(xVar, " | ", zVar, "&", yVar),
-                     xlabs = FALSE, ylabs = FALSE, xaxs = FALSE, yaxs= FALSE, draw = FALSE)
+                    data = table, main = paste0(xVar, " | ", zVar, "&", yVar),
+                    xlabs = FALSE, ylabs = FALSE, xaxs = FALSE, yaxs= FALSE, 
+                    draw = FALSE)
     eikosZ <- eikos(y = zVar, x = c(xVar, yVar), 
-                     data = table, main = paste0(zVar, " | ", xVar, "&", yVar),
-                     xlabs = FALSE, ylabs = FALSE, xaxs = FALSE, yaxs= FALSE, draw = FALSE)
+                    data = table, main = paste0(zVar, " | ", xVar, "&", yVar),
+                    xlabs = FALSE, ylabs = FALSE, xaxs = FALSE, yaxs= FALSE, 
+                    draw = FALSE)
     eikosYX <- eikos(y = yVar, x = xVar,
                      data = table, main = paste(yVar, xVar, sep =" | "),
-                     xlabs = FALSE, ylabs = FALSE, xaxs = FALSE, yaxs= FALSE, draw = FALSE)
+                     xlabs = FALSE, ylabs = FALSE, xaxs = FALSE, yaxs= FALSE, 
+                     draw = FALSE)
     eikosYZ <- eikos(y = yVar, x = zVar,
                      data = table, main = paste(yVar, zVar, sep =" | "),
-                     xlabs = FALSE, ylabs = FALSE, xaxs = FALSE, yaxs= FALSE, draw = FALSE)
+                     xlabs = FALSE, ylabs = FALSE, xaxs = FALSE, yaxs= FALSE, 
+                     draw = FALSE)
     eikosXY <- eikos(y = xVar, x = yVar, 
                      data = table, main = paste(xVar, yVar, sep =" | "),
-                     xlabs = FALSE, ylabs = FALSE, xaxs = FALSE, yaxs= FALSE, draw = FALSE)
+                     xlabs = FALSE, ylabs = FALSE, xaxs = FALSE, yaxs= FALSE, 
+                     draw = FALSE)
     eikosXZ <- eikos(y = xVar, x = zVar, 
                      data = table, main = paste(xVar, zVar, sep =" | "),
                      xlabs = FALSE, ylabs = FALSE, xaxs = FALSE, yaxs= FALSE, draw = FALSE)
@@ -542,7 +553,8 @@ layout3and2way <- function(table) {
                      xlabs = FALSE, ylabs = FALSE, xaxs = FALSE, yaxs= FALSE, draw = FALSE)
     eikosZX <- eikos(y = zVar, x = xVar,  
                      data = table, main = paste(zVar, xVar, sep =" | "),
-                     xlabs = FALSE, ylabs = FALSE, xaxs = FALSE, yaxs= FALSE, draw = FALSE)
+                     xlabs = FALSE, ylabs = FALSE, xaxs = FALSE, yaxs= FALSE, 
+                     draw = FALSE)
     layout <- rbind(c(1,1, NA, 2, 2, NA,  3, 3),
                     rep(NA, 8),
                     c(4, 5, NA, 6, 7, NA, 8, 9))
@@ -578,6 +590,45 @@ table <- create3WayBinaryTable(widths = c(10/33, 12/33, 5/33, 6/33),
 layout3and2way(table)
 ```
 
+Because not all eikosograms are flat, we can conclude that $\notindep(X, Y, Z)$; there are at least some dependencies amongst the three variates.
+
+Recall that the value of the first conditioning variate mentioned changes fastest left to right across the vertical bars of any one eikosogram; the value of the second named conditioning variate changes more slowly.
+
+Reading the top row of eikosograms from left to right, we see 
+
+- from the first top row eikosogram that 
+    - $Y \indep Z \given X$, but that
+    - $Y \notindep X \given Z$;
+    
+- from the second eikosogram in the top row that 
+    - $X \indep Z \given Y$, but that
+    - $X \notindep Y \given Z$; and
+    
+- from the third eikosogram in the top row that 
+    - $Z \indep Y \given X$ **and** $Z \indep X \given Y$.
+    
+The second row reveals the joint dependence structure between two variates **un**conditionally, that is each eikosograms shows the joint distribution of the named pair of variates after marginalizing over the remaining third variate. 
+
+Reading the pairs of eikosograms in the second row from left to right we see 
+
+- from the first pair of eikosograms in the second row that 
+    - $Y \notindep X$, but
+    - $Y \indep Z$;
+- from the second pair of eikosograms in the second row that 
+    - $X \notindep Y$, but
+    - $X \indep Z$;
+- from the third pair of eikosograms in the second row that 
+    - $Z \indep Y$, and
+    - $Z \indep X$.
+    
+In summary, the only independencies presented are  
+
+- $Z \indep X \given Y$, 
+- $Z \indep Y \given X$, 
+- $Z \indep X$, and 
+- $Z \indep Y$.  
+
+For the remaining cases, only the summary independencies will be provided.
 
 ### Case 3: two 2 by 2-flats, one no-flat
 This happens when there is only one conditional-independence.
@@ -588,7 +639,7 @@ table <- create3WayBinaryTable(widths = c(2/9, 1/9, 2/9, 4/9),
 layout3and2way(table)
 ```
 
-The third dependency, namely $Y \notindep X$, does not always hold unless, as in this case, $Z$ is binary.  See @eikosIndependence for details.
+Reading across the eikosograms, there is only a single independence relation of any kind, namely $Y \indep Z \given X$.
 
 ### Case 4: three no-flats
 
@@ -603,6 +654,8 @@ table <- create3WayBinaryTable(widths = c(1/7, 1/7, 3/7, 2/7),
 layout3and2way(table)
 ```
 
+There are **no** independencies present.
+
 #### Case 4.2:  No flats; one marginal independence
 ```{r Case 4.2, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"}
 table <- create3WayBinaryTable(widths = c(1/4, 1/4, 1/4, 1/4),
@@ -610,6 +663,10 @@ table <- create3WayBinaryTable(widths = c(1/4, 1/4, 1/4, 1/4),
 
 layout3and2way(table)
 ```
+
+Only independence is present is the *marginal* independence $Z \indep X$.
+
+Note however that there is also a conditional indepenence but **only for a single value of the conditioning variate**, namely $Y \indep Z \given (X = x2)$, which can be seen in the first eikosogram of the top row.
 
 #### Case 4.3:  No flats; two marginal independences
 ```{r Case 4.3, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"}
@@ -619,6 +676,8 @@ table <- create3WayBinaryTable(widths = c(2/6, 1/6, 2/6, 1/6),
 layout3and2way(table)
 ```
 
+Two marginal independences exist, $X \indep Y$, and $X \indep Z$.
+
 #### Case 4.4:  No flats; three marginal independences
 ```{r Case 4.4, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"}
 table <- create3WayBinaryTable(widths = c(1/6, 2/6, 1/6, 2/6),
@@ -627,7 +686,8 @@ table <- create3WayBinaryTable(widths = c(1/6, 2/6, 1/6, 2/6),
 layout3and2way(table)
 ```
 
-
+All variates are pairwise independent but are not mutually independent.  That is,
+$X \indep Y$, $Y \indep Z$, and $X \indep Z$ but $\notindep (X, Y, Z)$.  No conditional independence exists.
 
 
 # References

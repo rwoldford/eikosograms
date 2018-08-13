@@ -78,7 +78,7 @@ eikos("X", "Y", data = independenceExample)
 ## ----conditional independence, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "Conditional independence of variates X and Y"----
 eikos("Y", c("X",  "Z"), data = cond_indep, xaxs = FALSE, yaxs = FALSE)
 
-## ----conditional independence tables display, echo = TRUE, eval = FALSE----
+## ----table creation function , echo = TRUE, eval = FALSE-----------------
 #  # This function will create all the joint probabilities
 #  # and place them in the appropriate three-way table
 #  create3WayBinaryTable <- function(widths, heights) {
@@ -92,6 +92,18 @@ eikos("Y", c("X",  "Z"), data = cond_indep, xaxs = FALSE, yaxs = FALSE)
 #                    ))
 #      as.table(probs)
 #  }
+
+## ----some table, echo = TRUE, eval = TRUE--------------------------------
+someTable <-   create3WayBinaryTable(widths =  c(10/35, 8/35, 5/35, 12/35),
+                                     heights = c(7/10, 7/10, 7/10, 7/10))
+
+## ----cond_indep table, echo = FALSE--------------------------------------
+knitr::kable(cond_indep)
+
+## ----eikos of someTable, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "What is the independence structure?"----
+eikos(y="Y", x = c("Z", "X"), data = someTable)
+
+## ----conditional independence tables display, echo = FALSE, eval = FALSE----
 #  # Marginal probabilities (widths) for
 #  # the two binary conditioning variates
 #  # are given by the xz values,
@@ -132,27 +144,12 @@ eikos("Y", c("X",  "Z"), data = cond_indep, xaxs = FALSE, yaxs = FALSE)
 #  b10 <- c(1/6, 2/3, 5/6, 1/3)
 #  fig14_data <- create3WayBinaryTable(xz8, b10)
 #  
-#  # Create this now for early illustration
-#  cond_indep <- fig5c_data
 
-## ------------------------------------------------------------------------
-fig14_data
-sum(fig14_data)
+## ----complete independence table, echo = TRUE----------------------------
+complete_indep <- create3WayBinaryTable(widths = c(10/33, 12/33, 5/33, 6/33),
+                                        heights = c(7/10, 7/10, 7/10, 7/10))
 
-## ----complete independence code, eval = FALSE----------------------------
-#  complete_indep <- fig7_data
-#  eikosY <- eikos(y="Y", x = c("Z", "X"),
-#                  xaxs = FALSE, yaxs= FALSE,
-#                  data = complete_indep, draw = FALSE)
-#  eikosX <- eikos(y="X", x = c("Z", "Y"),
-#                  xaxs = FALSE, yaxs= FALSE,
-#                  data = complete_indep, draw = FALSE)
-#  eikosZ <- eikos(y="Z", x = c("X", "Y"),
-#                  xaxs = FALSE, yaxs= FALSE,
-#                  data = complete_indep, draw = FALSE)
-
-## ----complete independence eikos, echo = FALSE, fig.width=12, fig.height=3.5, fig.align="center", out.width="100%"----
-complete_indep <- fig7_data
+## ----complete independence code, eval = TRUE, fig.height = 0.1-----------
 eikosY <- eikos(y="Y", x = c("Z", "X"), 
                 xaxs = FALSE, yaxs= FALSE,
                 data = complete_indep, draw = FALSE)
@@ -163,35 +160,113 @@ eikosZ <- eikos(y="Z", x = c("X", "Y"),
                 xaxs = FALSE, yaxs= FALSE,
                 data = complete_indep, draw = FALSE)
 
-## ----complete independence arrange 3, echo = TRUE, fig.width=12, fig.height=3.5, fig.align="center", fig.cap = "Complete independence", out.width="100%"----
+## ----complete independence arrange 3, echo = TRUE, fig.width=11, fig.height=3.5, fig.align="center", fig.cap = "Complete independence", out.width="100%"----
 grid.arrange(eikosY, eikosX, eikosZ, nrow=1)
 
-## ------------------------------------------------------------------------
-eikos(y="Y", x = c("Z", "X"), 
-      data = create3WayBinaryTable(xz1, b2))
+## ----conditional on one, echo = TRUE, fig.width=9, fig.height=0.1, fig.align="center",  out.width="80%"----
+eikosYX <- eikos(y = "Y", x = "X",
+                 data = complete_indep, main = "Y | X",
+                 xaxs = FALSE, yaxs= FALSE, draw = FALSE)
+eikosYZ <- eikos(y = "Y", x = "Z",
+                 data = complete_indep, main = "Y | Z",
+                 xaxs = FALSE, yaxs= FALSE, draw = FALSE)
+eikosXZ <- eikos(y = "X", x = "Z", 
+                 data = complete_indep, main = "X | Z",
+                 xaxs = FALSE, yaxs= FALSE, draw = FALSE)
 
-eikos(y="Y", x = c("Z", "X"), 
-      data = create3WayBinaryTable(xz1, b3))
-eikos(y="Y", x = c("X", "Z"), 
-      data = create3WayBinaryTable(xz1, b3))
+## ----conditional on one arranged, echo = TRUE, fig.width=10, fig.height=3, fig.align="center", fig.cap = "Pairwise independence", out.width="80%"----
+grid.arrange(eikosYX, eikosYZ, eikosXZ, nrow = 1) 
 
-eikos(y="Y", x = c("Z", "X"), 
-      data = create3WayBinaryTable(xz1, b4))
+## ----grid code, eval = TRUE, fig.height = 0.1----------------------------
+layout3and2way <- function(table) {
+    if(length(dimnames(table))!=3) stop("Must be a three-way table")
+    varNames <- names(dimnames(table))
+    zVar <- varNames[1]
+    xVar <- varNames[2]
+    yVar <- varNames[3]
+    eikosY <- eikos(y = yVar, x = c(zVar, xVar),
+                    data = table, main = paste0(yVar, " | ", zVar, "&", xVar),
+                    xlabs = FALSE, ylabs = FALSE, xaxs = FALSE, yaxs= FALSE, 
+                    draw = FALSE)
+    eikosX <- eikos(y = xVar, x = c(zVar, yVar), 
+                    data = table, main = paste0(xVar, " | ", zVar, "&", yVar),
+                    xlabs = FALSE, ylabs = FALSE, xaxs = FALSE, yaxs= FALSE, 
+                    draw = FALSE)
+    eikosZ <- eikos(y = zVar, x = c(xVar, yVar), 
+                    data = table, main = paste0(zVar, " | ", xVar, "&", yVar),
+                    xlabs = FALSE, ylabs = FALSE, xaxs = FALSE, yaxs= FALSE, 
+                    draw = FALSE)
+    eikosYX <- eikos(y = yVar, x = xVar,
+                     data = table, main = paste(yVar, xVar, sep =" | "),
+                     xlabs = FALSE, ylabs = FALSE, xaxs = FALSE, yaxs= FALSE, 
+                     draw = FALSE)
+    eikosYZ <- eikos(y = yVar, x = zVar,
+                     data = table, main = paste(yVar, zVar, sep =" | "),
+                     xlabs = FALSE, ylabs = FALSE, xaxs = FALSE, yaxs= FALSE, 
+                     draw = FALSE)
+    eikosXY <- eikos(y = xVar, x = yVar, 
+                     data = table, main = paste(xVar, yVar, sep =" | "),
+                     xlabs = FALSE, ylabs = FALSE, xaxs = FALSE, yaxs= FALSE, 
+                     draw = FALSE)
+    eikosXZ <- eikos(y = xVar, x = zVar, 
+                     data = table, main = paste(xVar, zVar, sep =" | "),
+                     xlabs = FALSE, ylabs = FALSE, xaxs = FALSE, yaxs= FALSE, draw = FALSE)
+    eikosZY <- eikos(y = zVar, x = yVar, 
+                     data = table, main = paste(zVar, yVar, sep =" | "),
+                     xlabs = FALSE, ylabs = FALSE, xaxs = FALSE, yaxs= FALSE, draw = FALSE)
+    eikosZX <- eikos(y = zVar, x = xVar,  
+                     data = table, main = paste(zVar, xVar, sep =" | "),
+                     xlabs = FALSE, ylabs = FALSE, xaxs = FALSE, yaxs= FALSE, 
+                     draw = FALSE)
+    layout <- rbind(c(1,1, NA, 2, 2, NA,  3, 3),
+                    rep(NA, 8),
+                    c(4, 5, NA, 6, 7, NA, 8, 9))
+    grid.arrange(eikosY, eikosX, eikosZ,
+                 eikosYX, eikosYZ, 
+                 eikosXY, eikosXZ, 
+                 eikosZY, eikosZX,
+                 layout_matrix = layout,
+                 widths = c(2,2,1,2,2,1,2,2), 
+                 heights = c(2, 0.5, 1.1)
+    )
+}
 
+## ----complete independence layout, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"----
+layout3and2way(complete_indep)
 
-eikos(y="Y", x = c("Z", "X"), 
-      data = create3WayBinaryTable(xz2, b4))
-eikos(y="Y", x = c("Z", "X"), 
-      data = create3WayBinaryTable(xz3, b5))
-eikos(y="Y", x = c("Z", "X"), 
-      data = create3WayBinaryTable(xz4, b6))
-eikos(y="Y", x = c("Z", "X"), 
-      data = create3WayBinaryTable(xz5, b7))
-eikos(y="Y", x = c("Z", "X"), 
-      data = create3WayBinaryTable(xz6, b8))
-eikos(y="Y", x = c("Z", "X"), 
-      data = create3WayBinaryTable(xz7, b9))
-eikos(y="Y", x = c("Z", "X"), 
-      data = create3WayBinaryTable(xz8, b10))
+## ----Case 2, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"----
+table <- create3WayBinaryTable(widths = c(10/33, 12/33, 5/33, 6/33),
+                               heights = c(7/10, 7/10, 3/10, 3/10))
 
+layout3and2way(table)
+
+## ----Case 3, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"----
+table <- create3WayBinaryTable(widths = c(2/9, 1/9, 2/9, 4/9),
+                               heights = c(2/3, 2/3, 1/6, 1/6))
+
+layout3and2way(table)
+
+## ----Case 4.1, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"----
+table <- create3WayBinaryTable(widths = c(1/7, 1/7, 3/7, 2/7),
+                               heights = c(1/3, 2/3, 1/4, 1/6))
+
+layout3and2way(table)
+
+## ----Case 4.2, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"----
+table <- create3WayBinaryTable(widths = c(1/4, 1/4, 1/4, 1/4),
+                               heights = c(3/4, 1/2, 1/4, 1/4))
+
+layout3and2way(table)
+
+## ----Case 4.3, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"----
+table <- create3WayBinaryTable(widths = c(2/6, 1/6, 2/6, 1/6),
+                               heights = c(2/3, 1/2, 5/6, 1/6))
+
+layout3and2way(table)
+
+## ----Case 4.4, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"----
+table <- create3WayBinaryTable(widths = c(1/6, 2/6, 1/6, 2/6),
+                               heights = c(1/6, 2/3, 5/6, 1/3))
+
+layout3and2way(table)
 
