@@ -3,12 +3,42 @@ knitr::opts_chunk$set(echo = TRUE)
 library(knitr)
 set.seed(12314159)
 
+## ----directory, echo = FALSE, eval = TRUE--------------------------------
+imageDirectory <- "./img"
+path_concat <- function(path1, path2, sep="/") {paste(path1, path2, sep = sep)}
+
+## ----figure-helper, eval = TRUE, echo = FALSE----------------------------
+### Helper functions
+is.substring <- function (substring, string) {
+    grepl(substring, string)
+}
+
+devOn <- function (forPrint, width, height, filename, units = "in", filetype=c("png", "pdf")){
+    if (forPrint) {
+        filetype <- match.arg(filetype)
+        switch(filetype,
+               "png" = {
+                   if (!is.substring("png", filename)) {filename <- paste(filename,"png",sep=".")}
+                   png(filename, width=width, height=height, units=units, res=100, bg="transparent")
+                   
+               },
+               "pdf" = {
+                   if (!is.substring("pdf", filename)) {filename <- paste(filename,"pdf",sep=".")}
+                   pdf(filename, width=width, height=height, units = units, bg="transparent")
+               },
+               stop("Unrecognized filetype")
+        )
+    }
+}
+
+
+devOff <- function (forPrint){
+    if (forPrint) {dev.off()}
+}
+
 ## ----libraries-----------------------------------------------------------
 library(eikosograms)
 library(gridExtra)
-
-## ----eikosograms library, echo = TRUE, fig.width=4, fig.height=3, fig.align="center", out.width="50%"----
-library(eikosograms)
 
 ## ---- echo = FALSE, message = FALSE, warning = FALSE, error = FALSE, fig.width=4, fig.height=3, fig.align="center", out.width="50%", fig.cap = "Application to Waterloo's Faculty of Mathematics (2017)"----
 Waterloo <- data.frame(Decision = c(rep("Accepted", 1200), 

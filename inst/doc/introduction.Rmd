@@ -1,5 +1,5 @@
 ---
-title: "Introduction to Eikosograms"
+title: "Introduction to eikosograms"
 author: "R. W. Oldford"
 date: '`r Sys.Date()`'
 bibliography: eikosograms.bib
@@ -18,7 +18,7 @@ output:
     toc: yes
   word_document: default
 vignette: |
-  %\VignetteIndexEntry{Introduction} 
+  %\VignetteIndexEntry{Introduction to eikosograms - construction and interpretation} 
   %\VignetteEngine{knitr::rmarkdown} 
   %\VignetteEncoding{UTF-8}
   %\VignetteDepends{gridExtra}
@@ -99,6 +99,40 @@ $\renewcommand{\norm}[1]{\left|\left|{#1}\right|\right|}$
 $\renewcommand{\intersect}{\cap}$
 $\renewcommand{\union}{\cup}$
 
+```{r directory, echo = FALSE, eval = TRUE}
+imageDirectory <- "./img"
+path_concat <- function(path1, path2, sep="/") {paste(path1, path2, sep = sep)}
+```
+
+```{r figure-helper, eval = TRUE, echo = FALSE}
+### Helper functions
+is.substring <- function (substring, string) {
+    grepl(substring, string)
+}
+
+devOn <- function (forPrint, width, height, filename, units = "in", filetype=c("png", "pdf")){
+    if (forPrint) {
+        filetype <- match.arg(filetype)
+        switch(filetype,
+               "png" = {
+                   if (!is.substring("png", filename)) {filename <- paste(filename,"png",sep=".")}
+                   png(filename, width=width, height=height, units=units, res=100, bg="transparent")
+                   
+               },
+               "pdf" = {
+                   if (!is.substring("pdf", filename)) {filename <- paste(filename,"pdf",sep=".")}
+                   pdf(filename, width=width, height=height, units = units, bg="transparent")
+               },
+               stop("Unrecognized filetype")
+        )
+    }
+}
+
+
+devOff <- function (forPrint){
+    if (forPrint) {dev.off()}
+}
+```
 
 
 ```{r libraries}
@@ -111,10 +145,6 @@ The word **eikosogram** is constructed by joining two ancient Greek words:
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*eikos*: like truth, likely, probable, reasonable, probability, likelihood  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*gramma*: that which is drawn, picture, piece of writing  
-
-```{r eikosograms library, echo = TRUE, fig.width=4, fig.height=3, fig.align="center", out.width="50%"}
-library(eikosograms)
-```
 
 As the name suggests, an **eikosogram** is a **picture of probability**. It visually partitions a unit square into rectangular regions whose areas give the numerical values of various probabilities. The construction is such that each rectangular region is identified with the value of one or more categorical variates.
 
@@ -611,5 +641,18 @@ The middle eikosogram tells the same story, this time with $X$ as the response v
 In the rightmost eikosogram, no flats appear and hence no conditional independencies exist. That is $Z$ is neither conditionally independent of $X$ given $Y$ nor conditionally independent of $Y$ given $X$. Rather, in the rightmost eikosogram we can see that conditional on $Y$ (for each of its values) $Z$ and $X$ are positively associated, and that conditional on $X$ (for each of its values; note that the $X$ values are not grouped) $Z$ and $Y$ are negarively associated.
 
 For more investigation of conditional independence among three variates see the vignette [IndependenceExploration](IndependenceExploration.html).
+
+# Problems, puzzles, and paradoxes
+
+@eikosExamples03 contains a number of problems, puzzles, and paradoxes that are solved/explained via eikosograms.  Many are classic problems, some are variations on these, and some are new.  These include
+
+- witness statement of a crime and the probability of guilt; the green cab blue cab problem from @TverskyKahneman82
+- the gas station problem (a simplified version of the classic "secretary problem")
+- the "Cherry pie" paradox plus a new twist on it (this is a preference paradox involving ordering)
+- a twice reversing Simpson's paradox (artificially constructed)
+- the two envelope problem
+- the Monty Hall problem; and a new variation
+- the prisoner's dilemma (or three prisoner problem); and a new variation
+
 
 # References
