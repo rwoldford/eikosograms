@@ -1,12 +1,11 @@
 Package: eikosograms
 Type: Package
-Title: Eikosograms - probability pictures for categorical variables
+Title: "The Picture of Probability""
 Version: 1.0.0
 Date: 2018-08-01
 Authors@R: c(person(given = "Wayne", family = "Oldford",
                     email = "rwoldford@uwaterloo.ca", 
-                    role = c("aut", "cre"),
-                    comment = c(ORCID = "0000-0002-4053-394X")),
+                    role = c("aut", "cre")),
              person(given = "Erle", family = "Holgersen", 
                     email = "emholgersen@uwaterloo.ca", 
                     role = "aut"),
