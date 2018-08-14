@@ -4,21 +4,25 @@
 \alias{eikos_y_labels}
 \title{eikos helper function. Returns grob with y axis labels.}
 \usage{
-eikos_y_labels(y, data, margin = unit(2, "points"), axis_name_size = 12,
-  lab_rot = 0)
+eikos_y_labels(y, data, margin = unit(2, "points"), yname_size = 12,
+  yvals_size = 10, lab_rot = 0)
 }
 \arguments{
-\item{y}{response variable string.}
+\item{y}{response variable}
 
 \item{data}{data frame from eikos_data.}
 
-\item{margin}{unit specifying margins}
+\item{margin}{unit specifying margin}
 
-\item{axis_name_size}{font size for axis names (points)}
+\item{yname_size}{font size for y axis variable names (in points)}
+
+\item{yvals_size}{font size of labels for values of y variable (in points)}
 
 \item{lab_rot}{integer indicating the rotation of the label, default is horizontal}
 }
 \value{
+gList with x labels and x-axis names as grob frames.
+
 grobFrame with response variable labels and axis text
 }
 \description{

@@ -4,17 +4,19 @@
 \alias{eikos_x_labels}
 \title{eikos helper function. Returns grob with x axis labels.}
 \usage{
-eikos_x_labels(x, data, margin = unit(10, "points"), axis_name_size = 12,
-  lab_rot = 0)
+eikos_x_labels(x, data, margin = unit(10, "points"), xname_size = 12,
+  xvals_size = 10, lab_rot = 0)
 }
 \arguments{
 \item{x}{vector of conditional variables}
 
 \item{data}{data frame from eikos_data.}
 
-\item{margin}{unit specifying margins}
+\item{margin}{unit specifying margin}
 
-\item{axis_name_size}{font size for axis names (points)}
+\item{xname_size}{font size for x axis variable names (in points)}
+
+\item{xvals_size}{font size of labels for values of x variables (in points)}
 
 \item{lab_rot}{integer indicating the rotation of the label, default is horizontal}
 }

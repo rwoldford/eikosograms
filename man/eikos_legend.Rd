@@ -4,12 +4,19 @@
 \alias{eikos_legend}
 \title{Create eikosogram legend}
 \usage{
-eikos_legend(labels, colours, margin = unit(2, "points"), lcol = "black")
+eikos_legend(labels, title = NULL, yname_size = 12, yvals_size = 12, col,
+  margin = unit(2, "points"), lcol = "black")
 }
 \arguments{
 \item{labels}{labels to be included in legend}
 
-\item{colours}{colours}
+\item{title}{if non-NULL a string to give as the legend title}
+
+\item{yname_size}{font size of vertical axis names (in points)}
+
+\item{yvals_size}{font size of labels for values of y variable (in points)}
+
+\item{col}{colours od}
 
 \item{margin}{unit specifying margin between legend entries}
 

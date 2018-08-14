@@ -200,7 +200,7 @@ we see a rather different distribution of probabilities.  Departments `A` and `B
 Knowing the marginal probabilities that an application is from a female or a male, we might put these two eikosograms together in a single eikosogram.
 ```{r UCB Dept by gender, echo = TRUE, fig.width=4.3, fig.height=3.3, fig.align="center", out.width="50%"}
 eikos(y = "Dept", x = "Gender",  data = UCBAdmissions,
-      label_size = 8)
+      xprobs_size = 8, yprobs_size = 8)
 ```
 
 As can be seen the two conditional eikosograms are now fitted into the unit square, the width of each being the marginal probability of that conditioning variable "Gender".   

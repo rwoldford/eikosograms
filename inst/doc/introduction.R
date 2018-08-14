@@ -34,7 +34,7 @@ eikos("Dept", data = UCBAdmissions[,"Female",],
 
 ## ----UCB Dept by gender, echo = TRUE, fig.width=4.3, fig.height=3.3, fig.align="center", out.width="50%"----
 eikos(y = "Dept", x = "Gender",  data = UCBAdmissions,
-      label_size = 8)
+      xprobs_size = 8, yprobs_size = 8)
 
 ## ----UCB Dept by gender joint, echo = TRUE, fig.width=4, fig.height=3.65, fig.align="center", out.width="50%"----
 eikos(y = "Dept", x = "Gender", data = UCBAdmissions, 
