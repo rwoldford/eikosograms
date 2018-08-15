@@ -67,7 +67,7 @@ output:
     toc_depth: 4
   word_document: default
 vignette: |
-  %\VignetteIndexEntry{Introduction} 
+  %\VignetteIndexEntry{Exploring independence relations between two and three variates} 
   %\VignetteEncoding{UTF-8}
   %\VignetteDepends{gridExtra}
   
