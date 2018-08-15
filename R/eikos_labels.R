@@ -27,7 +27,11 @@ eikos_x_labels <- function(x, data, margin = unit(10, "points"),
         # deal with each variable in conditional variables
         variable <- x[i]
         all.following <- x[i:length(x)]
-        tmp <- ddply(data, all.following, transform, xtext=mean((xmin + xmax)/2))
+        tmp <- ddply(data, all.following,
+                     .fun = function (.data) {
+                         .data$xtext <- mean((.data$xmin + .data$xmax)/2)
+                         .data
+                     })
         # takes the unique xtext for conditional variables
         tmp <- unique(tmp[,c(variable,"xtext")])
         tmp$label <- paste(tmp[[variable]])
