@@ -53,7 +53,7 @@ eikos <- function(y, x = NULL, data = NULL, marginalize = NULL,
                   xaxs = TRUE, xprobs = NULL, xprobs_size = 8, vertical_xprobs = TRUE, 
                   ispace = list(bottom = 8, 
                                 left = 2,
-                                top = 5, 
+                                top = 2, 
                                 right = 5 ),
                   legend = FALSE, 
                   col = NULL, bottomcol="steelblue", topcol="snow2", lcol = "black", 
@@ -129,7 +129,7 @@ eikos.default <- function(y, x = NULL, data = NULL, marginalize = NULL,
                           xaxs = TRUE, xprobs = NULL, xprobs_size = 8, vertical_xprobs = TRUE, 
                           ispace = list(bottom = 8, 
                                         left = 2,
-                                        top = 5, 
+                                        top = 2, 
                                         right = 5 ),
                           legend = FALSE, 
                           col = NULL, bottomcol="steelblue", topcol="snow2", lcol = "black", 
@@ -152,7 +152,7 @@ eikos.default <- function(y, x = NULL, data = NULL, marginalize = NULL,
     # Set default ispace values if missing
     if (!"bottom" %in% names(ispace)) ispace$bottom <- unit(8, units = "points") 
     if (!"left" %in% names(ispace)) ispace$left <- unit(2, units = "points")  
-    if (!"top" %in% names(ispace)) ispace$top <- unit(5, units = "points")  
+    if (!"top" %in% names(ispace)) ispace$top <- unit(2, units = "points")  
     if (!"right" %in% names(ispace)) ispace$right<- unit(5, units = "points")
     
     # Make sure they are grid units (default is "points")
@@ -349,6 +349,20 @@ eikos.default <- function(y, x = NULL, data = NULL, marginalize = NULL,
 #'       ispace = list(bottom = 10),
 #'       bottomcol = "grey30", topcol = "grey70",
 #'       lcol = "white")
+#' eikos(Hair ~ ., data=HairEyeColor, xlab_rot = 30,
+#'       marginalize = "Eye",
+#'       yvals_size = 10,
+#'       xvals_size = 8,
+#'       ispace = list(bottom = 10),
+#'       bottomcol = "grey30", topcol = "grey70",
+#'       lcol = "white")
+#' eikos(Hair ~ ., data=HairEyeColor, xlab_rot = 30,
+#'       marginalize = c("Eye", "Sex"),
+#'       yvals_size = 10,
+#'       xvals_size = 8,
+#'       ispace = list(bottom = 10),
+#'       bottomcol = "grey30", topcol = "grey70",
+#'       lcol = "white")
 #'
 #' @export
 eikos.formula <- function(y, x = NULL, data = NULL, marginalize = NULL, 
@@ -359,7 +373,7 @@ eikos.formula <- function(y, x = NULL, data = NULL, marginalize = NULL,
                           xaxs = TRUE, xprobs = NULL, xprobs_size = 8, vertical_xprobs = TRUE, 
                           ispace = list(bottom = 8, 
                                         left = 2,
-                                        top = 5, 
+                                        top = 2, 
                                         right = 5 ),
                           legend = FALSE, 
                           col = NULL, bottomcol="steelblue", topcol="snow2", lcol = "black", 

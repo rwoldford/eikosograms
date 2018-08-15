@@ -9,7 +9,7 @@
   yname_size = 12, yvals_size = 12, yaxs = TRUE, yprobs = NULL,
   yprobs_size = 8, xlabs = TRUE, xlab_rot = 0, xname_size = 12,
   xvals_size = 12, xaxs = TRUE, xprobs = NULL, xprobs_size = 8,
-  vertical_xprobs = TRUE, ispace = list(bottom = 8, left = 2, top = 5, right
+  vertical_xprobs = TRUE, ispace = list(bottom = 8, left = 2, top = 2, right
   = 5), legend = FALSE, col = NULL, bottomcol = "steelblue",
   topcol = "snow2", lcol = "black", draw = TRUE, newpage = TRUE,
   lock_aspect = TRUE)
@@ -89,6 +89,20 @@ eikos(Hair ~ ., data=HairEyeColor,
               "orangered", "lightgoldenrod" ))
 eikos(Hair ~ ., data=HairEyeColor, xlab_rot = 30,
       yprobs = seq(0.1, 1, 0.1),
+      yvals_size = 10,
+      xvals_size = 8,
+      ispace = list(bottom = 10),
+      bottomcol = "grey30", topcol = "grey70",
+      lcol = "white")
+eikos(Hair ~ ., data=HairEyeColor, xlab_rot = 30,
+      marginalize = "Eye",
+      yvals_size = 10,
+      xvals_size = 8,
+      ispace = list(bottom = 10),
+      bottomcol = "grey30", topcol = "grey70",
+      lcol = "white")
+eikos(Hair ~ ., data=HairEyeColor, xlab_rot = 30,
+      marginalize = c("Eye", "Sex"),
       yvals_size = 10,
       xvals_size = 8,
       ispace = list(bottom = 10),

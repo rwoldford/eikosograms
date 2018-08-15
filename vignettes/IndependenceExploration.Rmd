@@ -66,11 +66,10 @@ output:
     toc: yes
     toc_depth: 4
   word_document: default
-vignette: |
+vignette: >
   %\VignetteIndexEntry{Exploring independence relations between two and three variates} 
   %\VignetteEncoding{UTF-8}
   %\VignetteDepends{gridExtra}
-  
   %\VignetteEngine{knitr::rmarkdown} 
 ---
   

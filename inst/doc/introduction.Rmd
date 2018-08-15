@@ -17,11 +17,12 @@ output:
     number_sections: no
     toc: yes
   word_document: default
-vignette: |
+vignette: >
   %\VignetteIndexEntry{Introduction to eikosograms - construction and interpretation} 
   %\VignetteEngine{knitr::rmarkdown} 
   %\VignetteEncoding{UTF-8}
   %\VignetteDepends{gridExtra}
+  
 header-includes:
 - \usepackage{graphicx}
 - \usepackage{epic}
