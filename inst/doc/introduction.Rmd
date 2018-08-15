@@ -99,6 +99,7 @@ $\renewcommand{\norm}[1]{\left|\left|{#1}\right|\right|}$
 $\renewcommand{\intersect}{\cap}$
 $\renewcommand{\union}{\cup}$
 
+Note that eikosograms are `grid` objects and so may be manipulated as any other (e.g. arranging several eikosograms in the same display using `grid.arrange()` from the `gridExtra` package).
 
 ```{r libraries}
 library(eikosograms)
