@@ -34,12 +34,12 @@ eikos_x_labels <- function(x, data, margin = unit(10, "points"),
         # create x axis text grob
         text <- textGrob(tmp$label, x = tmp$xtext, y = unit(1, "npc") - margin, 
                          just = "centre", rot = lab_rot,
-                         gp = gpar(fontsize = xvals_size))
+                         gp = gpar(fontsize = xvals_size), name = "x values")
         height <- grobHeight(text) + margin
 
         # make grob for labelling axes
         name <- textGrob(variable, x = unit(1,"npc") - 4*margin, y = unit(0.6, "npc"),
-                         just = "right", gp = gpar(fontsize = xname_size))
+                         just = "right", gp = gpar(fontsize = xname_size), name = "x vars")
         axis_name_list <- gList(axis_name_list, name)
 
         # set label heights
@@ -65,8 +65,8 @@ eikos_x_labels <- function(x, data, margin = unit(10, "points"),
                                widths = max_name_width,
                                heights = heights)
 
-    xlabs_frame <- frameGrob(layout = xlabs_layout)
-    name_frame <- frameGrob(layout = name_layout)
+    xlabs_frame <- frameGrob(layout = xlabs_layout, name = "x values layout")
+    name_frame <- frameGrob(layout = name_layout, name = "x varnames layout")
 
     for(i in 1:n) {
         xlabs_frame <- placeGrob(xlabs_frame, label_list[[i]], row = i, col = 1)
@@ -108,14 +108,17 @@ eikos_y_labels <- function(y, data,  margin = unit(2, "points"),
                       x = unit(1, "npc") - margin,
                       y = y0, rot = lab_rot,
                       just = "right",
-                      gp = gpar(fontsize = yvals_size))
+                      gp = gpar(fontsize = yvals_size),
+                      name = "y values")
 
     y_name <- textGrob(y, just = "center", rot = 90,
-                      gp = gpar(fontsize = yname_size))
+                      gp = gpar(fontsize = yname_size),
+                      name = "y name")
 
     y_frame <- frameGrob(layout = grid.layout(1, 2,
                                              widths = unit.c(grobWidth(y_name) + 4*margin,
-                                                             grobWidth(y_labs) + margin)))
+                                                             grobWidth(y_labs) + margin)),
+                         name = "left y labels")
 
     y_frame <- placeGrob(y_frame, y_name, 1, 1)
     y_frame <- placeGrob(y_frame, y_labs, 1, 2)

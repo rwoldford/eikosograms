@@ -40,7 +40,7 @@ library(grid)
 #' @param lcol colour of lines
 #' @param draw logical, whether to draw eikosogram.
 #' @param newpage logical, whether to draw on a newpage.
-#' @param lock_aspect logical, whether to force 1:1 aspect ratio.
+#' @param lock_aspect logical, whether to force entire plot to 1:1 aspect ratio.
 #' @seealso \code{\link{eikos.default}}
 #' @seealso \code{\link{eikos.formula}}
 #' @import grid plyr
@@ -58,7 +58,7 @@ eikos <- function(y, x = NULL, data = NULL, marginalize = NULL,
                   legend = FALSE, 
                   col = NULL, bottomcol="steelblue", topcol="snow2", lcol = "black", 
                   draw = TRUE, newpage = TRUE, 
-                  lock_aspect = FALSE) {
+                  lock_aspect = TRUE) {
     UseMethod("eikos")
 }
 
@@ -104,7 +104,7 @@ eikos <- function(y, x = NULL, data = NULL, marginalize = NULL,
 #' @param lcol colour of lines
 #' @param draw logical, whether to draw eikosogram.
 #' @param newpage logical, whether to draw on a newpage.
-#' @param lock_aspect logical, whether to force 1:1 aspect ratio.
+#' @param lock_aspect logical, whether to force entire plot to 1:1 aspect ratio.
 #'
 #' @examples
 #' eikos("Hair", "Eye", data=HairEyeColor, legend = TRUE)
@@ -114,7 +114,11 @@ eikos <- function(y, x = NULL, data = NULL, marginalize = NULL,
 #' eikos("Hair", "Eye", data=HairEyeColor, 
 #'       legend = TRUE, ylabs = FALSE, 
 #'       yprobs = seq(0.2, 1, .2))
-#' eikos("Hair", "Eye", data=HairEyeColor, xname_size = 50)
+#' eikos("Eye", "Hair", data=HairEyeColor, yprobs = seq(0,1,0.25),
+#'       yname_size = 20, xname_size = 20,
+#'       col = c("sienna4", "steelblue", "darkkhaki", "springgreen3"),
+#'       lcol = "grey10",
+#'       lock_aspect = FALSE)
 #'
 #' @export
 eikos.default <- function(y, x = NULL, data = NULL, marginalize = NULL, 
@@ -130,7 +134,7 @@ eikos.default <- function(y, x = NULL, data = NULL, marginalize = NULL,
                           legend = FALSE, 
                           col = NULL, bottomcol="steelblue", topcol="snow2", lcol = "black", 
                           draw = TRUE, newpage = TRUE, 
-                          lock_aspect = FALSE){
+                          lock_aspect = TRUE){
 
 
     # response variable cannot be more than one
@@ -196,17 +200,22 @@ eikos.default <- function(y, x = NULL, data = NULL, marginalize = NULL,
         width = widths,
         height = heights,
         just=c("left", "bottom"),
-        gp =  gpar(fill = colour_palette[ idf[,y] ], col = lcol))
-
+        gp =  gpar(fill = colour_palette[ idf[,y] ], col = lcol),
+        name = "rectangles of joint probability")
+    # rect_layout <- grid.layout(respect = lock_aspect)
+    # rect_layout <- placeGrob(rect_layout, rectangles, col = 1, row = 1)
+    # rectangles <- frameGrob(rect_layout, name = "unitSquare")
     # get axes text
-    labels <- list( x = nullGrob(), y = nullGrob() )
+    labels <- list(x = nullGrob(name = "null: no x labels"), 
+                   y = nullGrob(name = "null: no y labels") 
+                   )
     if(ylabs) {
         labels$y <- eikos_y_labels(y, idf, margin = ylab_margin, 
                                    yname_size = yname_size, yvals_size = yvals_size,
                                    lab_rot=ylab_rot)
     }
 
-    x_names <- nullGrob()
+    x_names <- nullGrob(name = "null: no x names")
     if(xlabs & (!is.null(x))) {
         x_grobs <- eikos_x_labels(x, idf, margin = xlab_margin, 
                                   xname_size = xname_size, xvals_size = xvals_size,
@@ -229,7 +238,7 @@ eikos.default <- function(y, x = NULL, data = NULL, marginalize = NULL,
     }
 
     # get legend
-    lgnd <- nullGrob()
+    lgnd <- nullGrob(name = "null: no legend")
     if(legend) {
         lgnd <- eikos_legend(labels = responses, 
                              title = if (ylabs) NULL else y, yname_size = yname_size, yvals_size = yvals_size,
@@ -237,10 +246,9 @@ eikos.default <- function(y, x = NULL, data = NULL, marginalize = NULL,
     }
 
     # get plot title
-    title <- nullGrob(name = "title")
-    if(main != "") {
-        title <- textGrob(main, gp = gpar(fontsize = main_size), name = "title")
-    }
+    title <- if (main != "") {
+        textGrob(main, gp = gpar(fontsize = main_size), name = "main title")
+    } else nullGrob(name = "null: no main title")
 
     legend_width <- grobWidth(lgnd) + as.numeric(legend)*legend_margin
 
@@ -265,7 +273,7 @@ eikos.default <- function(y, x = NULL, data = NULL, marginalize = NULL,
         respect = lock_aspect)
 
     # assemble eikosogram
-    object <- frameGrob(layout = layout)
+    object <- frameGrob(layout = layout, name = "eikosogram")
     pushViewport(viewport())
 
     object <- placeGrob(object, rectangles, col = 2, row = 3)
@@ -325,7 +333,7 @@ eikos.default <- function(y, x = NULL, data = NULL, marginalize = NULL,
 #' @param lcol colour of lines
 #' @param draw logical, whether to draw eikosogram.
 #' @param newpage logical, whether to draw on a newpage.
-#' @param lock_aspect logical, whether to force 1:1 aspect ratio.
+#' @param lock_aspect logical, whether to force entire plot to 1:1 aspect ratio.
 #'
 #' @examples
 #' eikos(Eye ~ Hair + Sex, data=HairEyeColor)
@@ -356,7 +364,7 @@ eikos.formula <- function(y, x = NULL, data = NULL, marginalize = NULL,
                           legend = FALSE, 
                           col = NULL, bottomcol="steelblue", topcol="snow2", lcol = "black", 
                           draw = TRUE, newpage = TRUE, 
-                          lock_aspect = FALSE) {
+                          lock_aspect = TRUE) {
     formula <- y
     # extract response vaiable from formula
     y <- all.vars(formula[[2]])

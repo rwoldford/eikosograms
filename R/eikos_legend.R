@@ -29,13 +29,15 @@ eikos_legend <- function(labels, title = NULL,
     
     # create label object
     labelGrob <- textGrob(labels, x = 0, y = y, just = "left",
-                          gp = gpar(fontsize = yvals_size))
+                          gp = gpar(fontsize = yvals_size),
+                          name = "response values")
     
     # create square object
     squareGrob <- rectGrob(x = 0.5, y = y,
                            width = square_size,
                            height = square_size,
-                           gp = gpar(fill = col))
+                           gp = gpar(fill = col),
+                           name = "response colours")
     #
     # setting widths
     square_width <- 2*margin + square_size
@@ -48,7 +50,7 @@ eikos_legend <- function(labels, title = NULL,
                                  heights = n*row_height) 
     legend_interior_width <-  square_width + label_width
     legend_interior_height <-  n * row_height
-    legend_interior_frame <- frameGrob(layout = legend_interior_layout)
+    legend_interior_frame <- frameGrob(layout = legend_interior_layout, name = "legend")
     legend_interior_frame <- placeGrob(legend_interior_frame, squareGrob, 1, 1)
     legend_interior_frame <- placeGrob(legend_interior_frame, labelGrob, 1, 2)
     
@@ -59,7 +61,8 @@ eikos_legend <- function(labels, title = NULL,
     {
         # create title object
         titleGrob <- textGrob(title, x = 0.5, y = row_height, just = "centre",
-                              gp = gpar(fontsize = yname_size))
+                              gp = gpar(fontsize = yname_size),
+                              name = "legend title")
         title_width <- unit(1, "grobwidth", titleGrob)
         legend_width <-  unit.pmax(title_width, square_width + label_width)
         legend_heights <- unit.c(unit(1, "grobheight", titleGrob), 
@@ -67,7 +70,7 @@ eikos_legend <- function(labels, title = NULL,
         legend_layout <- grid.layout(2,1,
                                      widths = legend_width,
                                      heights = legend_heights)
-        legend_frame <- frameGrob(layout = legend_layout)
+        legend_frame <- frameGrob(layout = legend_layout, name = "legend title wrap")
         legend_frame <- placeGrob(legend_frame, titleGrob, 1, 1)
         legend_frame <- placeGrob(legend_frame, legend_interior_frame, 2, 1)
     }

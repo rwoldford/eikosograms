@@ -11,7 +11,7 @@ eikos(y, x = NULL, data = NULL, marginalize = NULL, main = "",
   xaxs = TRUE, xprobs = NULL, xprobs_size = 8, vertical_xprobs = TRUE,
   ispace = list(bottom = 8, left = 2, top = 5, right = 5), legend = FALSE,
   col = NULL, bottomcol = "steelblue", topcol = "snow2", lcol = "black",
-  draw = TRUE, newpage = TRUE, lock_aspect = FALSE)
+  draw = TRUE, newpage = TRUE, lock_aspect = TRUE)
 }
 \arguments{
 \item{y}{Either the name of a variable in the data set (eikos.default), or a formula of such variables (eikos.formula).}
@@ -74,7 +74,7 @@ transition from `bottomcol` to `topcol` via `grDevices::colorRampPalette}
 
 \item{newpage}{logical, whether to draw on a newpage.}
 
-\item{lock_aspect}{logical, whether to force 1:1 aspect ratio.}
+\item{lock_aspect}{logical, whether to force entire plot to 1:1 aspect ratio.}
 }
 \description{
 Generic method for creating an eikosogram

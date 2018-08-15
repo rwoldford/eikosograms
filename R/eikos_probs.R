@@ -26,14 +26,16 @@ eikos_x_probs <- function(data, xprobs = NULL, xprobs_size = 8,
         if(rotate) {
             textGrob(labels, x = labels, y = margin, 
                      gp = gpar(fontsize = xprobs_size),
-                     just = "left", rot = 90)
+                     just = "left", rot = 90,
+                     name = "x probs")
         } else {
             # otherwise, the probs are displayed horizontally at the margin
             textGrob(labels, x = labels, y = unit(0.5, "npc") + 0.5*margin,
-                     gp = gpar(fontsize = xprobs_size), just = "center")
+                     gp = gpar(fontsize = xprobs_size), just = "center",
+                     name = "x probs")
         }
         
-    } else nullGrob()
+    } else nullGrob(name = "null: no x probs")
 
 
     return(probs)
@@ -62,8 +64,9 @@ eikos_y_probs <- function(data, yprobs, yprobs_size = 8, margin = unit(2, "point
     probs <- if(length(labels) > 0) {
         textGrob(labels, y = labels, x = margin,
                  gp = gpar(fontsize = yprobs_size),
-                 just = "left")
-    } else nullGrob()
+                 just = "left",
+                 name = "y probs")
+    } else nullGrob(name = "null: no y probs")
 
     return(probs)
 }
