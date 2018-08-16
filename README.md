@@ -1,3 +1,6 @@
+
+[![Build Status](https://travis-ci.org/rwoldford/eikosograms.svg?branch=master)](https://travis-ci.org/rwoldford/eikosograms) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/eikosograms)](https://cran.r-project.org/package=eikosograms)
+
 # eikosograms
 Eikosograms: the picture of probability as the R package "eikosograms"
 
