@@ -17,7 +17,10 @@ Authors@R: c(person(given = "Wayne", family = "Oldford",
                     role = "aut")
              )
 Author: 
-    Wayne Oldford [aut, cre], Erle Holgersen [aut], Ben Lafreniere [aut], Tianlu Zhu [aut]
+    Wayne Oldford [aut, cre], 
+    Erle Holgersen [aut], 
+    Ben Lafreniere [aut], 
+    Tianlu Zhu [aut]
 Maintainer: Wayne Oldford <rwoldford@uwaterloo.ca>
 URL: https://github.com/rwoldford/eikosograms
 Description: An eikosogram (ancient Greek for probability picture) divides the unit square 
@@ -46,7 +49,13 @@ Description: An eikosogram (ancient Greek for probability picture) divides the u
     Of course, eikosograms are also suited to discrete multivariate analysis with each variate in turn 
     appearing as the response. 
     This makes it better suited than Mosaic plots to discrete graphical models based on conditional 
-    independence graphs (i.e. "Bayesian Networks" or "BayesNets").
+    independence graphs (i.e. "Bayesian Networks" or "BayesNets").  
+    The eikosogram and its superiority to Venn diagrams in teaching probability is described in
+    W.H. Cherry and R.W. Oldford (2003) <https://math.uwaterloo.ca/~rwoldfor/papers/eikosograms/paper.pdf>, 
+    its value in exploring conditional independence structure and relation to graphical and log-linear models
+    is described in R.W. Oldford (2003) <https://math.uwaterloo.ca/~rwoldfor/papers/eikosograms/independence/paper.pdf>,
+    and a number of problems, puzzles, and paradoxes that are easily explained with eikosograms are given in
+    R.W. Oldford (2003) <https://math.uwaterloo.ca/~rwoldfor/papers/eikosograms/examples/paper.pdf>.
 License: GPL-3
 Depends: R (>= 3.1.0)
 Imports: plyr, grid
