@@ -1,7 +1,7 @@
 ---
 title: "Exploring Independence"
 author: "R.W. Oldford"
-date: '`r Sys.Date()`'
+date: "August 16, 2018"
 bibliography: eikosograms.bib
 header-includes:
 - \usepackage{graphicx}
