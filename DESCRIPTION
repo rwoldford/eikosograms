@@ -1,6 +1,6 @@
 Package: eikosograms
 Type: Package
-Title: "The Picture of Probability""
+Title: The Picture of Probability
 Version: 0.1.0
 Date: 2018-08-01
 Authors@R: c(person(given = "Wayne", family = "Oldford",
