@@ -1,0 +1,9 @@
+species     perch_height_ft perch_diameter_inches count
+sagrei          ">= 3"        "<= 4.25"            15
+sagrei          ">= 3"         "> 4.25"            18
+sagrei           "< 3"        "<= 4.25"            48
+sagrei           "< 3"         "> 4.25"            84
+augusticeps     ">= 3"        "<= 4.25"            21
+augusticeps     ">= 3"         "> 4.25"             1
+augusticeps      "< 3"        "<= 4.25"             3
+augusticeps      "< 3"         "> 4.25"             2
