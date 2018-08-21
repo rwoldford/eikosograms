@@ -98,7 +98,23 @@ eikos_data <- function(y, x, data, marginalize = NULL) {
         # value is important. It should be sorted first by the response variable, and then
         # by the reverse of the conditioning variables list (so that we split on the
         # first conditioning variable, then the second, then the third, etc)
-        idf <- idf[do.call(order, idf[,c(y,rev(x))]),]
+        # 
+        # Have to be careful here with the do.call 
+        # If (and it will happen) the idf contains variable names that
+        # match the arguments to order, then the do.call will fail on a match.arg error.
+        # ... must/should be some base R function somewhere that does this ... rwo
+        # 
+        eikos_vars <- c(y, rev(x))
+        if (any(eikos_vars %in% names(formals(order)))) {
+            idfCopy <- idf[, eikos_vars]
+            newNames <- paste0("eikos_var_", eikos_vars)
+            names(idfCopy) <- newNames
+            newOrder <- do.call(order, idfCopy)
+        } else {
+            newOrder <- do.call(order, idf[, eikos_vars])
+        }
+        idf <- idf[newOrder,]
+        
     } else {
         idf$MarginProb <- idf$Freq/sum(idf$Freq)
         idf$ymax <- cumsum(idf$MarginProb)
