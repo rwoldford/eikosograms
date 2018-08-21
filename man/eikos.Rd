@@ -79,6 +79,15 @@ transition from `bottomcol` to `topcol` via `grDevices::colorRampPalette}
 \description{
 Generic method for creating an eikosogram
 }
+\examples{
+eikos("Hair", "Eye", data=HairEyeColor, legend = TRUE)
+eikos(gear ~ cyl, data = mtcars)
+eikos(Admit ~  Gender + Dept, data = UCBAdmissions,  
+      yaxs = FALSE, xaxs = FALSE, 
+      lock_aspect = FALSE, 
+      xlab_rot = 90, xvals_size = 8,
+      ispace = list(bottom = 15))
+}
 \seealso{
 \code{\link{eikos.default}}
 
