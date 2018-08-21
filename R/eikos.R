@@ -41,6 +41,14 @@ library(grid)
 #' @param draw logical, whether to draw eikosogram.
 #' @param newpage logical, whether to draw on a newpage.
 #' @param lock_aspect logical, whether to force entire plot to 1:1 aspect ratio.
+#' @examples
+#' eikos("Hair", "Eye", data=HairEyeColor, legend = TRUE)
+#' eikos(gear ~ cyl, data = mtcars)
+#' eikos(Admit ~  Gender + Dept, data = UCBAdmissions,  
+#'       yaxs = FALSE, xaxs = FALSE, 
+#'       lock_aspect = FALSE, 
+#'       xlab_rot = 90, xvals_size = 8,
+#'       ispace = list(bottom = 15))
 #' @seealso \code{\link{eikos.default}}
 #' @seealso \code{\link{eikos.formula}}
 #' @import grid plyr
