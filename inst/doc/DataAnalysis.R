@@ -99,13 +99,13 @@ include_graphics("img/DataAnalysis/amvs.png")
 ## ----am and ordinal 1, eval = FALSE, echo = TRUE, fig.width=12, fig.height=4, fig.align="center", out.width="80%"----
 #  eikos(am ~ cyl, data = mtcars)
 
-## ----png am and ordinal 1, eval = TRUE, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="50%"----
+## ----png am and ordinal 1, eval = TRUE, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="40%"----
 include_graphics("img/DataAnalysis/amordinal1.png")
 
 ## ----ordinal 2, eval = FALSE, echo = TRUE, fig.width=12, fig.height=4, fig.align="center", out.width="80%"----
 #  eikos(gear ~ cyl, data = mtcars)
 
-## ----png ordinal 2, eval = TRUE, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="60%"----
+## ----png ordinal 2, eval = TRUE, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="37%"----
 include_graphics("img/DataAnalysis/ordinal2.png")
 
 ## ----poisson model, echo = TRUE, fig.width=12, fig.height=4, fig.align="center", out.width="80%"----
@@ -119,8 +119,11 @@ lizardsFit <- data.frame(lizards,  fit = fittedModel$fitted.values)
 # and create the table
 fitTable <- xtabs(fit ~  species + perch_height_ft,  data=lizardsFit)
 
-## ----poisson model asserts, echo = TRUE, fig.width=12, fig.height=4, fig.align="center", out.width="80%"----
-eikos("species", "perch_height_ft", data = fitTable)
+## ----poisson model asserts, eval = FALSE, echo = TRUE, fig.width=12, fig.height=4, fig.align="center", out.width="80%"----
+#  eikos("species", "perch_height_ft", data = fitTable)
+
+## ----png poisson model asserts, eval = TRUE, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="60%"----
+include_graphics("img/DataAnalysis/poisson1.png")
 
 ## ----poisson model 3way, echo = TRUE, fig.width=12, fig.height=4, fig.align="center", out.width="80%"----
 fittedModel3way <- glm(count ~ species + perch_height_ft + perch_diameter_inches +
@@ -129,12 +132,15 @@ fittedModel3way <- glm(count ~ species + perch_height_ft + perch_diameter_inches
                        family="poisson", 
                        data = lizards)
 
-## ----poisson model fitted data 3way, echo = TRUE, fig.width=12, fig.height=4, fig.align="center", out.width="80%"----
-# Can simply append the fitted values to the lizards to get a new data frame
-lizardsFit3way <- data.frame(lizards,  fit = fittedModel3way$fitted.values)
-# and create the table
-fitTable3way <- xtabs(fit ~  species + perch_height_ft + perch_diameter_inches,  data=lizardsFit3way)
-# and show the eikosograms
-eikos(y = "perch_diameter_inches", x = c("perch_height_ft", "species"), data = fitTable3way,
-      xlab_rot = 30)
+## ----poisson model fitted data 3way, eval = FALSE, echo = TRUE, fig.width=12, fig.height=4, fig.align="center", out.width="80%"----
+#  # Can simply append the fitted values to the lizards to get a new data frame
+#  lizardsFit3way <- data.frame(lizards,  fit = fittedModel3way$fitted.values)
+#  # and create the table
+#  fitTable3way <- xtabs(fit ~  species + perch_height_ft + perch_diameter_inches,  data=lizardsFit3way)
+#  # and show the eikosograms
+#  eikos(y = "perch_diameter_inches", x = c("perch_height_ft", "species"), data = fitTable3way,
+#        xlab_rot = 30)
+
+## ----png poisson model fitted data 3way, eval = TRUE, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="60%"----
+include_graphics("img/DataAnalysis/poisson2.png")
 
