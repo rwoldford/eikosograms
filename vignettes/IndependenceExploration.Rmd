@@ -508,7 +508,7 @@ grid.arrange(eikosY, eikosX, eikosZ, nrow=1)
 ```
 
 ```{r png complete independence arrange 3, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "Complete independence"}
-include_graphics("img/IndependenceExploration/completeindep.png")
+include_graphics("img/IndependenceExploration/completeIndep.png")
 ```
 Note that each of the three eikosograms is completely flat.  This is the hallmark of complete independence.  In fact, it can be proved that $\indep(X,Y,Z)$ occurs if, and only if, all three of these 3-way eikosograms is flat.
 
