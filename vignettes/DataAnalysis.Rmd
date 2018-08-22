@@ -18,7 +18,7 @@ output:
     toc: yes
   word_document: default
 vignette: >
-  %\VignetteIndexEntry{Introduction to eikosograms - construction and interpretation} 
+  %\VignetteIndexEntry{Data analysis with eikosograms - different data structure examples} 
   %\VignetteEngine{knitr::rmarkdown} 
   %\VignetteEncoding{UTF-8}
   %\VignetteDepends{gridExtra}
