@@ -309,7 +309,7 @@ fittedModel <- glm(count ~ species + perch_height_ft,
 
 This is a "main effects" only model and contains no interaction term.  To see what this model asserts about the 
 relationship between `species` and `perch_height`, we need to use the `fitted.values` from the model as the **expected counts**.
-A new `data.fram` is constructed from the fit as follows:
+A new `data.frame` is constructed from the fit as follows:
 
 ```{r poisson model fitted data, echo = TRUE, fig.width=12, fig.height=4, fig.align="center", out.width="80%"}
 # Can simply append the fitted values to the lizards to get a new data frame

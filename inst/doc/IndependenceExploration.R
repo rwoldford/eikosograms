@@ -178,7 +178,7 @@ eikosZ <- eikos(y="Z", x = c("X", "Y"),
 #  grid.arrange(eikosY, eikosX, eikosZ, nrow=1)
 
 ## ----png complete independence arrange 3, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "Complete independence"----
-include_graphics("img/IndependenceExploration/completeindep.png")
+include_graphics("img/IndependenceExploration/completeIndep.png")
 
 ## ----conditional on one, echo = TRUE, fig.width=9, fig.height=0.1, fig.align="center",  out.width="80%"----
 eikosYX <- eikos(y = "Y", x = "X",
