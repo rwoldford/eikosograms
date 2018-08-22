@@ -1,1 +1,3 @@
-This is the first release of the eikosograms package.
+August 16, 2008  eikosograms 0.1.0 released on CRAN
+
+
