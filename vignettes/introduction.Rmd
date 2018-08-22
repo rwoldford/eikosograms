@@ -1,7 +1,7 @@
 ---
 title: "Introduction to eikosograms"
 author: "R. W. Oldford"
-date: "August 16, 2018"
+date: "August 21, 2018"
 bibliography: eikosograms.bib
 output:
   html_document:
@@ -116,7 +116,7 @@ The word **eikosogram** is constructed by joining two ancient Greek words:
 As the name suggests, an **eikosogram** is a **picture of probability**. It visually partitions a unit square into rectangular regions whose areas give the numerical values of various probabilities. The construction is such that each rectangular region is identified with the value of one or more categorical variates.
 
 For example, consider the probability that an application  for admission to university is accepted.  Different universities and programs of study can have different admission rates.  For example, in 2017 there were about 15,200 applications to the Faculty of Mathematics at the University of Waterloo for only 1200 first year places, suggesting the probability that an application is accepted is about `r round(1200/15200, 2)`.  Suppose this to be the case, then the eikosogram representing the application process is given by
-```{r, echo = FALSE, message = FALSE, warning = FALSE, error = FALSE, fig.width=4, fig.height=3, fig.align="center", out.width="50%", fig.cap = "Application to Waterloo's Faculty of Mathematics (2017)"}
+```{r, echo = FALSE, message = FALSE, warning = FALSE, error = FALSE, fig.width=4, fig.height=3, fig.align="center", out.width="30%", fig.cap = "Application to Waterloo's Faculty of Mathematics (2017)"}
 Waterloo <- data.frame(Decision = c(rep("Accepted", 1200), 
                                     rep("Rejected", 15200-1200)))
 eikos("Decision", data = Waterloo)
@@ -155,14 +155,14 @@ str(UCBAdmissions)
 ```
 
 The `eikos()` function is used to produce the eikosogram showing the probability of admission, 
-```{r UCB admissions, echo = TRUE, fig.width=4, fig.height=3, fig.align="center", out.width="50%"}
+```{r UCB admissions, echo = TRUE, fig.width=4, fig.height=3, fig.align="center", out.width="30%"}
 eikos("Admit", data = UCBAdmissions)
 ```
 
 The proportion of applications admitted to these graduate programs at Berkeley in 1973 was 0.39.  The probability of an application being admitted is represented by the area (or height) of the bottom (blue) rectangle and the probability of rejection by the area (or height) of the top (grey) rectangle which is 1 - 0.39 = 0.61. 
 
 The first argument to `eikos()` is the `y` or "response" variate and determines the positions on the vertical axis.  There will be as many horizontal rectangles stacked up the vertical axis as there are distinct values for `y`.   For example, the probability that any application is submitted to each of the six graduate departments is
-```{r UCB departments, echo = TRUE, fig.width=4, fig.height=3, fig.align="center", out.width="50%"}
+```{r UCB departments, echo = TRUE, fig.width=4, fig.height=3, fig.align="center", out.width="30%"}
 eikos("Dept", data = UCBAdmissions)
 ```
 
@@ -177,14 +177,14 @@ Note that this was because not all Berkeley departments are being considered her
 In a very direct sense, the unit square of the eikosogram *frames* the probabilities expressed within it and these are **always conditional on whatever background information determines the unit square**.  
 
 For example, in addition to considering only the six largest departments, we could also restrict consideration by sex. The number of applications from each gender is 
-```{r UCB gender marginals, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%"}
+```{r UCB gender marginals, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="30%"}
 eikos("Gender", data = UCBAdmissions)
 ```
 
 showing that there are unequal numbers of applications from each sex with $Pr(Gender = Male) = 0.59$ and $Pr(Gender = Female) = 0.41$.
 
 The eikosogram conditional only on "Male" applicants is
-```{r UCB Dept by male, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%"}
+```{r UCB Dept by male, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="30%"}
 eikos("Dept", data = UCBAdmissions[,"Male",], 
       main = "Applications from males")
 ```
@@ -192,7 +192,7 @@ eikos("Dept", data = UCBAdmissions[,"Male",],
 Probabilities can be determined as before but we can see immediately from the eikosogram that departments `A` and `B` are the most popular departments for male applicants, more so than for all applications combined (in the previous eikosogram).
 
 Conditioning on the "Female" applications
-```{r UCB Dept by female, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%"}
+```{r UCB Dept by female, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="30%"}
 eikos("Dept", data = UCBAdmissions[,"Female",], 
       main = "Applications from females")
 ```
@@ -200,7 +200,7 @@ eikos("Dept", data = UCBAdmissions[,"Female",],
 we see a rather different distribution of probabilities.  Departments `A` and `B` are much less popular with female applicants than with male (e.g. only 1 in 100 applications from females are to `B` compared to 1 in 5 for males).  Instead departments `C` and `E` are much more likely to receive an application if it is from a female than if it is from a male.
 
 Knowing the marginal probabilities that an application is from a female or a male, we might put these two eikosograms together in a single eikosogram.
-```{r UCB Dept by gender, echo = TRUE, fig.width=4.3, fig.height=3.3, fig.align="center", out.width="50%"}
+```{r UCB Dept by gender, echo = TRUE, fig.width=4.3, fig.height=3.3, fig.align="center", out.width="30%"}
 eikos(y = "Dept", x = "Gender",  data = UCBAdmissions,
       xprobs_size = 8, yprobs_size = 8)
 ```
@@ -274,7 +274,7 @@ Marginalization can sometimes seems mysterious when first encountered.  Fortunat
 
 Consider again the joint probability distribution of $Dept$ and $Gender$ given by the eikosogram
 
-```{r UCB Dept by gender joint, echo = TRUE, fig.width=4, fig.height=3.65, fig.align="center", out.width="50%"}
+```{r UCB Dept by gender joint, echo = TRUE, fig.width=4, fig.height=3.65, fig.align="center", out.width="30%"}
 eikos(y = "Dept", x = "Gender", data = UCBAdmissions, 
       xlabs = FALSE, yaxs = FALSE, xaxs = FALSE)
 
@@ -282,7 +282,7 @@ eikos(y = "Dept", x = "Gender", data = UCBAdmissions,
 Only the department labels are shown and we now imagine that the picture shows two containers beside one another, each containing liquids of differing density so that the denser liquid, being heavier (and here darker in colour), sinks to the bottom in each container.  Each density of liquid (colour of rectangle) corresponds to a department and each container a gender (male on left, female on right).
 
 Marginalization is simply removing the distinction between the two genders; or equivalently removing the barrier which separates the two containers.   If these were liquids, then removing the barrier (or perforating the barrier) would cause the liquids to mix and then settle again according to density.  The corresponding (now single combined) container would look like 
-```{r UCB Dept marginalized, echo = TRUE, fig.width=4, fig.height=3.65, fig.align="center", out.width="50%"}
+```{r UCB Dept marginalized, echo = TRUE, fig.width=4, fig.height=3.65, fig.align="center", out.width="30%"}
 eikos("Dept", data = UCBAdmissions, 
       xlabs = FALSE, yaxs = FALSE, xaxs = FALSE)
 ```
@@ -297,7 +297,7 @@ The eikosogram gives the joint probability of the response and conditioning vari
 
 For example, consider again the probability of admission to Berkeley graduate school, but this time condition on the sex of the applicant.
 
-```{r admit given gender, echo = TRUE, fig.width=4, fig.height=3, fig.align="center", out.width="50%"}
+```{r admit given gender, echo = TRUE, fig.width=4, fig.height=3, fig.align="center", out.width="30%"}
 eikos(y = "Admit", x = "Gender", data = UCBAdmissions)
 ```
 
@@ -349,7 +349,7 @@ The sum of these four probabilities is of course 1.
 
 Alternatively, the joint distribution of the variates `Admit` and `Gender` could be expressed by conditioning on the values or `Admit` rather than on those of `Gender`:
 
-```{r gender given admit, echo = TRUE, fig.width=4, fig.height=3, fig.align="center", out.width="50%"}
+```{r gender given admit, echo = TRUE, fig.width=4, fig.height=3, fig.align="center", out.width="30%"}
 eikos(y = "Gender", x = "Admit", data = UCBAdmissions)
 ```
 
@@ -374,7 +374,7 @@ Pr(Gender = \mbox{"Male"} \given Admit = \mbox{"Admitted"}) &\times& Pr(Admit = 
 \]
 Rectangles which identify the *same* joint probability in both eikosograms must have the same area.  This is Bayes's theorem and is perhaps most simply expressed generically as
 \[Pr(Y \given X) \time Pr(X) = Pr(X ~\&~ Y) = Pr(X \given Y) \times Pr(Y). 
-|]
+\]
 Simply, areas of corresponding rectangles must match.
 
 # Independence
@@ -382,7 +382,8 @@ Simply, areas of corresponding rectangles must match.
 Two random variates $X$ and $Y$  are said to be distributed **independently** of one another if their corresponding eikosgram is **flat**.
 
 For example, consider the following eikosogram
-```{r independence Y given X, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "Independence of variates X and Y"}
+
+```{r independence Y given X, echo = TRUE, fig.width=4,fig.height=3.5, fig.align="center",out.width="30%",fig.cap = "Independence of variates X and Y" }
 indep <- as.table(array(c(10, 40, 15, 60),
                         dim = c(2,2),
                         dimnames = 
@@ -398,7 +399,7 @@ This is what we mean by independence - whatever the value of $X$ the probability
 By definition, this presents itself as all regions being flat across the values of the conditioning variate.
 
 Of course, if we reverse the conditioning, flatness in the eikosogram must happen because of the independence. And this is what we see:
-```{r independence X given Y, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "Independence of variates X and Y"}
+```{r independence X given Y, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="30%", fig.cap = "Independence of variates X and Y"}
 eikos("X", "Y", data = indep)
 ```
 Now, for $i = 1, 2$
@@ -424,7 +425,7 @@ The visual hallmark of the eikosogram of a pair of events which are coincident, 
 
 **Coincident events** If $A$ and $B$ are coincident events then the eikosograms of their values (`Yes` for occurs; `No` for does not occur) has the form:
 
-```{r coincident events, echo = FALSE, fig.width=8, fig.height=3.7, fig.align="center", out.width="80%"}
+```{r coincident events, echo = FALSE, fig.width=8, fig.height=3.7, fig.align="center", out.width="50%"}
 coincident <- array(c(0.3,0,0,0.7), dim = c(2,2),
                   dimnames = list(A=c("Yes", "No"), B = c("Yes", "No")))
 e1 <- eikos("A", "B", data = coincident, 
@@ -438,7 +439,7 @@ In the left most eikosogram, if event $B$ occurs then $A$ must occur (probabilit
 
 **Complementary events** If $A$ and $B$ are complementary events then the eikosograms of their values (`Yes` for occurs; `No` for does not occur) has the form:
 
-```{r complementary events, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="80%"}
+```{r complementary events, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="50%"}
 complementary <- array(c(0,0.7,0.3,0), dim = c(2,2),
                   dimnames = list(A=c("Yes", "No"), B = c("Yes", "No")))
 e1 <- eikos("A", "B", data = complementary, 
@@ -458,7 +459,7 @@ In the left most eikosogram, if event $B$ occurs then $A$ cannot occur (probabil
 
 Complementary events are a special case of mutually exclusive events.  If $A$ and $B$ are complementary, then one of them must occur (in which case the other will not).  $A$ and $B$ are **mutually exclusive** events, then if one occurs the other cannot however neither *must* occur. The eikosograms will look have the following form:
 
-```{r mutually exclusive events, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="80%"}
+```{r mutually exclusive events, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="50%"}
 mutualExclusive <- array(c(0,0.3, 0.5, 0.7), dim = c(2,2),
                   dimnames = list(A=c("Yes", "No"), B = c("Yes", "No")))
 e1 <- eikos("A", "B", data = mutualExclusive, 
@@ -482,7 +483,7 @@ Between coincident and complementary events, we also remark on whether events te
 
 **Positive association**  If $A$ and $B$ are positively associated, their eikosograms will have the following form
 
-```{r positively associated events, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="80%"}
+```{r positively associated events, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="50%"}
 posAsso <- array(c(24, 14, 6, 56), dim = c(2,2),
                   dimnames = list(A=c("Yes", "No"), B = c("Yes", "No")))
 e1 <- eikos("A", "B", data = posAsso, 
@@ -507,7 +508,7 @@ On the right eikosogram, we have the same for the other conditional probabilitie
 
 **Negative association**  If $A$ and $B$ are negatively associated, their eikosograms will have the following form
 
-```{r negatively associated events, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="80%"}
+```{r negatively associated events, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="50%"}
 negAsso <- array(c(6, 56, 24, 14), dim = c(2,2),
                   dimnames = list(A=c("Yes", "No"), B = c("Yes", "No")))
 e1 <- eikos("A", "B", data = negAsso, 
@@ -584,7 +585,7 @@ The key is to look for flat regions in the eikosogram where some conditioning va
 
 For example, consider the following eikosograms for the joint distribution of $X$, $Y$, and $Z$, where each variate in turn appears on the vertical axiz as the response:
 
-```{r conditional independence example, echo = FALSE, fig.width=16, fig.height=5, fig.align="center", out.width="100%"}
+```{r conditional independence example, echo = FALSE, fig.width=16, fig.height=5, fig.align="center", out.width="70%"}
 joint <- array(c(6, 3, 12, 6, 10, 15, 10, 15), 
                dim = c(2,2,2),
                dimnames = list(X=c("X=x1", "X=x2"), 
