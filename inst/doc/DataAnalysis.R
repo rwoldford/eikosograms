@@ -10,25 +10,34 @@ path_concat <- function(path1, path2, sep="/") {paste(path1, path2, sep = sep)}
 library(eikosograms)
 library(gridExtra)
 
-## ----UCBAdmissions 2 way, echo = TRUE, fig.width=8, fig.height=4, fig.align="center", out.width="80%"----
-e1 <- eikos(Admit ~ Gender, data = UCBAdmissions, 
-            yaxs = FALSE, xaxs = FALSE, 
-            draw = FALSE)
-e2 <- eikos(Admit ~ Dept, data = UCBAdmissions,  
-            yaxs = FALSE, xaxs = FALSE,
-            draw = FALSE)
-# Using the gridExtra package, draw these in a single plot
-grid.arrange(e1, e2, nrow = 1)
+## ----UCBAdmissions 2 way, eval = FALSE, echo = TRUE, fig.width=8, fig.height=4, fig.align="center", out.width="80%"----
+#  e1 <- eikos(Admit ~ Gender, data = UCBAdmissions,
+#              yaxs = FALSE, xaxs = FALSE,
+#              draw = FALSE)
+#  e2 <- eikos(Admit ~ Dept, data = UCBAdmissions,
+#              yaxs = FALSE, xaxs = FALSE,
+#              draw = FALSE)
+#  # Using the gridExtra package, draw these in a single plot
+#  grid.arrange(e1, e2, nrow = 1)
 
-## ----UCBAdmissions 3 way, echo = TRUE, fig.width=12, fig.height=4, fig.align="center", out.width="80%"----
-eikos(Admit ~  Gender + Dept, data = UCBAdmissions,  
-      yaxs = FALSE, xaxs = FALSE, 
-      lock_aspect = FALSE, 
-      xlab_rot = 90, xvals_size = 8,
-      ispace = list(bottom = 15))
+## ----png UCBAdmissions 2 way, eval = TRUE, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="80%"----
+include_graphics("img/DataAnalysis/UCB2way.png")
 
-## ----UCBAdmissions, echo = TRUE, fig.width=8, fig.height=4, fig.align="center", out.width="80%"----
-eikos(Gender ~ Dept, data = UCBAdmissions, yprobs = seq(0,1,0.25), xaxs = FALSE)
+## ----UCBAdmissions 3 way, echo = TRUE, eval = FALSE, fig.width=12, fig.height=4, fig.align="center", out.width="80%"----
+#  eikos(Admit ~  Gender + Dept, data = UCBAdmissions,
+#        yaxs = FALSE, xaxs = FALSE,
+#        lock_aspect = FALSE,
+#        xlab_rot = 90, xvals_size = 8,
+#        ispace = list(bottom = 15))
+
+## ----png UCBAdmissions 3 way, eval = TRUE, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="80%"----
+include_graphics("img/DataAnalysis/UCB3way.png")
+
+## ----UCBAdmissions, eval = FALSE, echo = TRUE, fig.width=8, fig.height=4, fig.align="center", out.width="80%"----
+#  eikos(Gender ~ Dept, data = UCBAdmissions, yprobs = seq(0,1,0.25), xaxs = FALSE)
+
+## ----png UCBAdmissions, eval = TRUE, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="50%"----
+include_graphics("img/DataAnalysis/UCBAdmissions.png")
 
 ## ----read lizard data----------------------------------------------------
 lizards <- read.table("data/AnolisLizards.txt", header=TRUE)
@@ -38,23 +47,38 @@ lizards
 sagrei <- lizards[lizards$species == "sagrei", -1]
 augusticeps <- lizards[lizards$species == "augusticeps", -1]
 
-## ----sagrei perch, echo = TRUE, fig.width=12, fig.height=4, fig.align="center", out.width="80%"----
+## ----sagreiTable, eval = TRUE, echo = TRUE, fig.width=12, fig.height=4, fig.align="center", out.width="80%"----
 sagreiTable <- xtabs(count ~ perch_height_ft + perch_diameter_inches, data = sagrei)
-eikos(perch_height_ft ~ perch_diameter_inches, data = sagreiTable, 
-      main = "Habitat of adult male anolis sagrei lizards")
+
+## ----sagrei perch, eval = FALSE, echo = TRUE, fig.width=12, fig.height=4, fig.align="center", out.width="80%"----
+#  eikos(perch_height_ft ~ perch_diameter_inches, data = sagreiTable,
+#        main = "Habitat of adult male anolis sagrei lizards")
+
+## ----png sagrei perch, eval = TRUE, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="50%"----
+include_graphics("img/DataAnalysis/sagreiPerch.png")
 
 ## ----sagrei independence-------------------------------------------------
 chisq.test(sagreiTable)
 
-## ----augusticeps perch, echo = TRUE, fig.width=12, fig.height=4, fig.align="center", out.width="80%"----
+## ----augusticepsTable, echo = TRUE, fig.width=12, fig.height=4, fig.align="center", out.width="80%"----
 augusticepsTable <- xtabs(count ~ perch_height_ft + perch_diameter_inches, data = augusticeps)
-eikos(perch_height_ft ~ perch_diameter_inches, data = augusticepsTable, 
-      main = "Habitat of adult male anolis augusticeps lizards")
 
-## ----lizards three way, eval = TRUE, echo = TRUE, fig.width=7, fig.height=4, fig.align="center", out.width="80%"----
+## ----augusticeps perch, eval = FALSE, echo = TRUE, fig.width=12, fig.height=4, fig.align="center", out.width="80%"----
+#  eikos(perch_height_ft ~ perch_diameter_inches, data = augusticepsTable,
+#        main = "Habitat of adult male anolis augusticeps lizards")
+
+## ----png augusticeps perch, eval = TRUE, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="50%"----
+include_graphics("img/DataAnalysis/augusticepsPerch.png")
+
+## ----lizards three way table, eval = TRUE, echo = TRUE, fig.width=7, fig.height=4, fig.align="center", out.width="80%"----
 lizardsTable <- xtabs(count ~ species + perch_height_ft + perch_diameter_inches,
                       data = lizards)
-eikos(species ~ . , data = lizardsTable, lock_aspect = FALSE, yprobs = seq(0,1, 0.1))
+
+## ----lizards three way, eval = FALSE, echo = TRUE, fig.width=7, fig.height=4, fig.align="center", out.width="80%"----
+#  eikos(species ~ . , data = lizardsTable, lock_aspect = FALSE, yprobs = seq(0,1, 0.1))
+
+## ----png lizards three way, eval = TRUE, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="50%"----
+include_graphics("img/DataAnalysis/lizards3way.png")
 
 ## ---- echo = FALSE-------------------------------------------------------
 knitr::kable(head(mtcars))
@@ -66,14 +90,23 @@ mtcars$am <- factor(mtcars$am, labels = c("automatic", "manual"))
 ## ---- echo = FALSE-------------------------------------------------------
 knitr::kable(head(mtcars))
 
-## ----am vs, echo = TRUE, fig.width=12, fig.height=4, fig.align="center", out.width="80%"----
-eikos(am ~ vs, data = mtcars)
+## ----am vs, eval = FALSE, echo = TRUE, fig.width=12, fig.height=4, fig.align="center", out.width="80%"----
+#  eikos(am ~ vs, data = mtcars)
 
-## ----am and ordinal, echo = TRUE, fig.width=12, fig.height=4, fig.align="center", out.width="80%"----
-eikos(am ~ cyl, data = mtcars)
-eikos(am ~ gear, data = mtcars)
-eikos(am ~ carb, data = mtcars)
-eikos(gear ~ cyl, data = mtcars)
+## ----png r am vs, eval = TRUE, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="50%"----
+include_graphics("img/DataAnalysis/amvs.png")
+
+## ----am and ordinal 1, eval = FALSE, echo = TRUE, fig.width=12, fig.height=4, fig.align="center", out.width="80%"----
+#  eikos(am ~ cyl, data = mtcars)
+
+## ----png am and ordinal 1, eval = TRUE, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="50%"----
+include_graphics("img/DataAnalysis/amordinal1.png")
+
+## ----ordinal 2, eval = FALSE, echo = TRUE, fig.width=12, fig.height=4, fig.align="center", out.width="80%"----
+#  eikos(gear ~ cyl, data = mtcars)
+
+## ----png ordinal 2, eval = TRUE, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="60%"----
+include_graphics("img/DataAnalysis/ordinal2.png")
 
 ## ----poisson model, echo = TRUE, fig.width=12, fig.height=4, fig.align="center", out.width="80%"----
 fittedModel <- glm(count ~ species + perch_height_ft, 

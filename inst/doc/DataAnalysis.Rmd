@@ -123,7 +123,7 @@ library(gridExtra)
 
 University administrators were apparently alarmed (as they often are) when they looked at the numbers and saw the relationship between gender and admission rates.
 
-```{r UCBAdmissions 2 way, echo = TRUE, fig.width=8, fig.height=4, fig.align="center", out.width="80%"}
+```{r UCBAdmissions 2 way, eval = FALSE, echo = TRUE, fig.width=8, fig.height=4, fig.align="center", out.width="80%"}
 e1 <- eikos(Admit ~ Gender, data = UCBAdmissions, 
             yaxs = FALSE, xaxs = FALSE, 
             draw = FALSE)
@@ -134,10 +134,14 @@ e2 <- eikos(Admit ~ Dept, data = UCBAdmissions,
 grid.arrange(e1, e2, nrow = 1)
 ```
 
+```{r png UCBAdmissions 2 way, eval = TRUE, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="80%"}
+include_graphics("img/DataAnalysis/UCB2way.png")
+```
+
 At left we see that male applicants are admitted more frequently than female applicants, suggesting a possible gender bias to university administrators.  At right, we see that some departments admit more applicants than others, suggesting some may be more difficult to get into than others.
 
 When all three variates are considered together, the true story emerges
-```{r UCBAdmissions 3 way, echo = TRUE, fig.width=12, fig.height=4, fig.align="center", out.width="80%"}
+```{r UCBAdmissions 3 way, echo = TRUE, eval = FALSE, fig.width=12, fig.height=4, fig.align="center", out.width="80%"}
 eikos(Admit ~  Gender + Dept, data = UCBAdmissions,  
       yaxs = FALSE, xaxs = FALSE, 
       lock_aspect = FALSE, 
@@ -145,9 +149,16 @@ eikos(Admit ~  Gender + Dept, data = UCBAdmissions,
       ispace = list(bottom = 15))
 ```
 
+```{r png UCBAdmissions 3 way, eval = TRUE, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="80%"}
+include_graphics("img/DataAnalysis/UCB3way.png")
+```
 In all departments but C and E (which are near equal), a greater proportion of female applicants were accepted than males.  This is a famous example of Simpson's paradox.  As can be seen perhaps more clearly from the following eikosogram, the reason for the apparent favouritism towards male applicants occured only because a great many more males than females applied to those departments with the highest admission rates.  And in those departments (A and B) the admission rates for females was much higher than that for males!
-```{r UCBAdmissions, echo = TRUE, fig.width=8, fig.height=4, fig.align="center", out.width="80%"}
+```{r UCBAdmissions, eval = FALSE, echo = TRUE, fig.width=8, fig.height=4, fig.align="center", out.width="80%"}
 eikos(Gender ~ Dept, data = UCBAdmissions, yprobs = seq(0,1,0.25), xaxs = FALSE)
+```
+
+```{r png UCBAdmissions, eval = TRUE, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="50%"}
+include_graphics("img/DataAnalysis/UCBAdmissions.png")
 ```
 Female applicants outnumber male applicants only in departments C and E.
 
@@ -173,10 +184,19 @@ augusticeps <- lizards[lizards$species == "augusticeps", -1]
 ```
 
 Following @fienberg80, we might first consider the relation between perch height and perch diameter for the `sagrei`  species.  To look at the eikosigram, these need to be turned into a table using the cross-tabulation `xtabs()` function:
-```{r sagrei perch, echo = TRUE, fig.width=12, fig.height=4, fig.align="center", out.width="80%"}
+```{r sagreiTable, eval = TRUE, echo = TRUE, fig.width=12, fig.height=4, fig.align="center", out.width="80%"}
 sagreiTable <- xtabs(count ~ perch_height_ft + perch_diameter_inches, data = sagrei)
+```
+and draw it
+
+```{r sagrei perch, eval = FALSE, echo = TRUE, fig.width=12, fig.height=4, fig.align="center", out.width="80%"}
 eikos(perch_height_ft ~ perch_diameter_inches, data = sagreiTable, 
       main = "Habitat of adult male anolis sagrei lizards")
+```
+
+
+```{r png sagrei perch, eval = TRUE, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="50%"}
+include_graphics("img/DataAnalysis/sagreiPerch.png")
 ```
 
 The two heights of the bars are very nearly the same, suggesting that the height and the diameter of the perch might be independent variates for the *anolis sagrei* lizard of Bimini.  Indeed, a formal test of independence gives no evidence against this hypothesis.
@@ -184,21 +204,37 @@ The two heights of the bars are very nearly the same, suggesting that the height
 chisq.test(sagreiTable)
 ```
 
-Now, were we to consider the same for *anolis augusticeps* 
-```{r augusticeps perch, echo = TRUE, fig.width=12, fig.height=4, fig.align="center", out.width="80%"}
+Now, were we to consider the same for *anolis augusticeps*, first the table
+```{r augusticepsTable, echo = TRUE, fig.width=12, fig.height=4, fig.align="center", out.width="80%"}
 augusticepsTable <- xtabs(count ~ perch_height_ft + perch_diameter_inches, data = augusticeps)
+```
+and then its probability picture
+```{r augusticeps perch, eval = FALSE, echo = TRUE, fig.width=12, fig.height=4, fig.align="center", out.width="80%"}
 eikos(perch_height_ft ~ perch_diameter_inches, data = augusticepsTable, 
       main = "Habitat of adult male anolis augusticeps lizards")
 ```
-the bars do not appear to be of equal height.  That the eikosogram is not even nearly flat is **suggestive** that perch height and diameter are not independent for the species *anolis augusticeps*.
+
+
+```{r png augusticeps perch, eval = TRUE, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="50%"}
+include_graphics("img/DataAnalysis/augusticepsPerch.png")
+```
+
+Clearly, the bars do not appear to be of equal height.  That the eikosogram is not even nearly flat is **suggestive** that perch height and diameter are not independent for the species *anolis augusticeps*.
 However, there needs to be some **caution** exercised here.  As with *anolis sagrei*, one needs to formally test the hypothesis of independence for a sample of counts.  There are so few observations (1,2, and 3 in three cells and 21 in the largest) that any formal test will also show **no evidence against the hypothesis of independence** in this case. (This includes a line up test using eikosograms as the display for each generated data set!)
 
 All three variates could be examined at once by  producing the three way cross-classified table and the corresponding eikosograms.
-Following @fienberg80, we first consider the relation between perch height and perch diameter for the `sagrei`  species of the anolis lizard
-```{r lizards three way, eval = TRUE, echo = TRUE, fig.width=7, fig.height=4, fig.align="center", out.width="80%"}
+Following @fienberg80, we first consider the relation between perch height and perch diameter for the `sagrei`  species of the anolis lizard.  The table
+```{r lizards three way table, eval = TRUE, echo = TRUE, fig.width=7, fig.height=4, fig.align="center", out.width="80%"}
 lizardsTable <- xtabs(count ~ species + perch_height_ft + perch_diameter_inches,
                       data = lizards)
+```
+and its picture
+```{r lizards three way, eval = FALSE, echo = TRUE, fig.width=7, fig.height=4, fig.align="center", out.width="80%"}
 eikos(species ~ . , data = lizardsTable, lock_aspect = FALSE, yprobs = seq(0,1, 0.1))
+```
+
+```{r png lizards three way, eval = TRUE, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="50%"}
+include_graphics("img/DataAnalysis/lizards3way.png")
 ```
 
 
@@ -228,21 +264,36 @@ knitr::kable(head(mtcars))
 ```
 
 The eikosogram of these two factors can be compared without contructing a table; `eikos()` does the counting of matching rows to produce the picture.
-```{r am vs, echo = TRUE, fig.width=12, fig.height=4, fig.align="center", out.width="80%"}
+```{r am vs, eval = FALSE, echo = TRUE, fig.width=12, fig.height=4, fig.align="center", out.width="80%"}
 eikos(am ~ vs, data = mtcars)
+```
+
+```{r png r am vs, eval = TRUE, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="50%"}
+include_graphics("img/DataAnalysis/amvs.png")
 ```
 
 This matching **does not depend on the variables being factors**.
 Any variable in a `data.frame` would do and would be treated as if it were categorical.
 In the `mtcars` data, there are several variables that are effectively *ordinal categorical* variates, namely `cyl`, `gear`, and `carb`.
 
-These too could be explored using eikosograms:
+These too could be explored using eikosograms. Transmission type versus number of cylinders
 
-```{r am and ordinal, echo = TRUE, fig.width=12, fig.height=4, fig.align="center", out.width="80%"}
+```{r am and ordinal 1, eval = FALSE, echo = TRUE, fig.width=12, fig.height=4, fig.align="center", out.width="80%"}
 eikos(am ~ cyl, data = mtcars)
-eikos(am ~ gear, data = mtcars)
-eikos(am ~ carb, data = mtcars)
+```
+
+```{r png am and ordinal 1, eval = TRUE, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="50%"}
+include_graphics("img/DataAnalysis/amordinal1.png")
+```
+
+and number of forward gears versus number of cylinders
+
+```{r ordinal 2, eval = FALSE, echo = TRUE, fig.width=12, fig.height=4, fig.align="center", out.width="80%"}
 eikos(gear ~ cyl, data = mtcars)
+```
+
+```{r png ordinal 2, eval = TRUE, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="60%"}
+include_graphics("img/DataAnalysis/ordinal2.png")
 ```
 
 # fitted models

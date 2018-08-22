@@ -195,9 +195,20 @@ independenceExample <- as.table(array(c(10, 40, 15, 60),
                              Y = c("y_1", "y_2"))))
 ```
 
-```{r bivariate independence, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "Independence of variates X and Y"}
+```{r bivariate independence 1, eval = FALSE, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%"}
 eikos("Y", "X", data = independenceExample)
+```
+
+```{r png bivariate independence 1, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "Independence of variates Y and X"}
+include_graphics("img/IndependenceExploration/indepYX.png")
+```
+
+```{r bivariate independence 2, eval = FALSE, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%"}
 eikos("X", "Y", data = independenceExample)
+```
+
+```{r png bivariate independence 2, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "Independence of variates X and Y"}
+include_graphics("img/IndependenceExploration/indepXY.png")
 ```
 
 Following @Dawid1979, we concisely denote the independence of $X$ and $Y$ by $X \indep Y$ or, being symmetric, equivalently $Y \indep X$. 
@@ -216,8 +227,12 @@ When we have three variates, say $X$, $Y$, and $Z$, the pairwise independences  
 But we can also construct eikosograms that have more than one conditioning variate and so examine, for example, the conditional probabilities of $Y$ **given the pair of variates** $X$ **and** $Y$.  Some interesting features may result.
 
 For example, consider the following eikosogram
-```{r conditional independence, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "Conditional independence of variates X and Y"}
+```{r conditional independence, eval = FALSE, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%"}
 eikos("Y", c("X",  "Z"), data = cond_indep, xaxs = FALSE, yaxs = FALSE)
+```
+
+```{r png conditional independence, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "Conditional independence of variates Y and X given Z"}
+include_graphics("img/IndependenceExploration/indepYgivenXZ.png")
 ```
 The eikosogram has two flat sections, one when $Z = z1$, the other when $Z=z2$.  
 
@@ -393,10 +408,13 @@ knitr::kable(cond_indep)
 from which, for example, the following eikosogram can be produced 
 (note that left to right in the eikosogram, the values of the conditioning variates change from most to least frequently in the call to `eikos()` according to the order in Which they appear in its argument `x`).
 
-```{r eikos of someTable, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "What is the independence structure?"}
+```{r eikos of someTable, eval = FALSE, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%"}
 eikos(y="Y", x = c("Z", "X"), data = someTable)
 ```
 
+```{r png eikos of someTable, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "What is the independence structure?"}
+include_graphics("img/IndependenceExploration/someTableYgivenZX.png")
+```
 This eikosogram suggests some sort of independence.  Certainly, applying the water container metaphor makes it easy to see the "flat water" in the diagram implies that $Y \indep Z \given X$ and also that $Y \indep X \given Z$.  That all of the levels are identical also allows us to see that any perforation of vertical barriers would have no effect on any of the heights and hence we can conclude that pairwise independencies $\indep(Y, X)$ and $\indep(Y, Z)$ also hold.  
 
 One might be tempted to jump to the conclusion that the flat structure across all values of $X$ and $Z$ implies that $\indep(X,Y,Z)$ also holds (i.e. that $X$, $Y$, and $Z$ are **completely independent**).  This would be a mistake.  What this eikosogram fails to reveal immediately is the **pairwise relationship** between $X$ and $Z$ and what effect it might have, if any, on the remaining conditional relations $X \given (Y, Z)$ and $Z \given (X, Z)$.
@@ -485,10 +503,13 @@ eikosZ <- eikos(y="Z", x = c("X", "Y"),
 
 These can be displayed in a single figure using the function `grid.arrange()` from the package `gridExtra`.
 
-```{r complete independence arrange 3, echo = TRUE, fig.width=11, fig.height=3.5, fig.align="center", fig.cap = "Complete independence", out.width="100%"}
+```{r complete independence arrange 3, eval = FALSE, echo = TRUE, fig.width=11, fig.height=3.5, fig.align="center", out.width="100%"}
 grid.arrange(eikosY, eikosX, eikosZ, nrow=1)
 ```
 
+```{r png complete independence arrange 3, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "Complete independence"}
+include_graphics("img/IndependenceExploration/completeindep.png")
+```
 Note that each of the three eikosograms is completely flat.  This is the hallmark of complete independence.  In fact, it can be proved that $\indep(X,Y,Z)$ occurs if, and only if, all three of these 3-way eikosograms is flat.
 
 The conditional independencies are obvious from the diagrams, as are the marginal pairwise independencies.  To check the latter we could construct the corresponding histograms.
@@ -506,11 +527,14 @@ eikosXZ <- eikos(y = "X", x = "Z",
 ```
 
 
-```{r conditional on one arranged, echo = TRUE, fig.width=10, fig.height=3, fig.align="center", fig.cap = "Pairwise independence", out.width="80%"}
+```{r conditional on one arranged, eval = FALSE, echo = TRUE, fig.width=10, fig.height=3, fig.align="center", out.width="80%"}
 grid.arrange(eikosYX, eikosYZ, eikosXZ, nrow = 1) 
 ```
 
 
+```{r png conditional on one arranged, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "Pairwise independence"}
+include_graphics("img/IndependenceExploration/pairwise.png")
+```
 For the other cases, it will be more convenient to produce all of these eikosograms at once.
 To that end, the following function will put simplified versions of all 3-way and all 2-way eikosograms together in one display.
 ```{r grid code, eval = TRUE, fig.height = 0.1}
@@ -570,10 +594,13 @@ layout3and2way <- function(table) {
 
 Calling this function on the `complete_indep` table, It is clear that
 
-```{r complete independence layout, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"}
+```{r complete independence layout, eval = FALSE, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"}
 layout3and2way(complete_indep)
 ```
 
+```{r png complete independence layout, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "Complete independence"}
+include_graphics("img/IndependenceExploration/complete_indep.png")
+```
 All eikosograms are flat, indicating the complete independence of all three variates from one another $\indep(X, Y, Z)$
 
 ### Case 2: one 4-flat, two 2 by 2-flats
@@ -582,13 +609,16 @@ As with the first case, it will be simplest to describe this by the shape of the
 
 An example, and its simplified display is the following
 
-```{r Case 2, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"}
+```{r Case 2, eval = FALSE, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"}
 table <- create3WayBinaryTable(widths = c(10/33, 12/33, 5/33, 6/33),
                                heights = c(7/10, 7/10, 3/10, 3/10))
 
 layout3and2way(table)
 ```
 
+```{r png Case2, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "One 4-flat; two 2 by 2 flats"}
+include_graphics("img/IndependenceExploration/case2.png")
+```
 Because not all eikosograms are flat, we can conclude that $\notindep(X, Y, Z)$; there are at least some dependencies amongst the three variates.
 
 Recall that the value of the first conditioning variate mentioned changes fastest left to right across the vertical bars of any one eikosogram; the value of the second named conditioning variate changes more slowly.
@@ -631,13 +661,16 @@ For the remaining cases, only the summary independencies will be provided.
 
 ### Case 3: two 2 by 2-flats, one no-flat
 This happens when there is only one conditional-independence.
-```{r Case 3, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"}
+```{r Case 3, eval = FALSE, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"}
 table <- create3WayBinaryTable(widths = c(2/9, 1/9, 2/9, 4/9),
                                heights = c(2/3, 2/3, 1/6, 1/6))
 
 layout3and2way(table)
 ```
 
+```{r png Case 3, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "One no-flat; two 2 by 2 flats"}
+include_graphics("img/IndependenceExploration/case3.png")
+```
 Reading across the eikosograms, there is only a single independence relation of any kind, namely $Y \indep Z \given X$.
 
 ### Case 4: three no-flats
@@ -646,21 +679,27 @@ Whenever no flat areas appear in the 3-way eikosograms, there are no **condition
 
 
 #### Case 4.1: No flats; no marginal independence
-```{r Case 4.1, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"}
+```{r Case 4.1, eval = FALSE, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"}
 table <- create3WayBinaryTable(widths = c(1/7, 1/7, 3/7, 2/7),
                                heights = c(1/3, 2/3, 1/4, 1/6))
 
 layout3and2way(table)
 ```
 
+```{r png Case 4.1, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "No flats; no marginal independence"}
+include_graphics("img/IndependenceExploration/case41.png")
+```
 There are **no** independencies present.
 
 #### Case 4.2:  No flats; one marginal independence
-```{r Case 4.2, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"}
+```{r Case 4.2, eval = FALSE, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"}
 table <- create3WayBinaryTable(widths = c(1/4, 1/4, 1/4, 1/4),
                                heights = c(3/4, 1/2, 1/4, 1/4))
 
 layout3and2way(table)
+```
+```{r png Case 4.2, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "No flats; one marginal independence"}
+include_graphics("img/IndependenceExploration/case42.png")
 ```
 
 Only independence is present is the *marginal* independence $Z \indep X$.
@@ -668,23 +707,29 @@ Only independence is present is the *marginal* independence $Z \indep X$.
 Note however that there is also a conditional indepenence but **only for a single value of the conditioning variate**, namely $Y \indep Z \given (X = x2)$, which can be seen in the first eikosogram of the top row.
 
 #### Case 4.3:  No flats; two marginal independences
-```{r Case 4.3, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"}
+```{r Case 4.3, eval = FALSE, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"}
 table <- create3WayBinaryTable(widths = c(2/6, 1/6, 2/6, 1/6),
                                heights = c(2/3, 1/2, 5/6, 1/6))
 
 layout3and2way(table)
 ```
 
+```{r png Case 4.3, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "No flats; two marginal independences"}
+include_graphics("img/IndependenceExploration/case43.png")
+```
 Two marginal independences exist, $X \indep Y$, and $X \indep Z$.
 
 #### Case 4.4:  No flats; three marginal independences
-```{r Case 4.4, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"}
+```{r Case 4.4, eval = FALSE, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"}
 table <- create3WayBinaryTable(widths = c(1/6, 2/6, 1/6, 2/6),
                                heights = c(1/6, 2/3, 5/6, 1/3))
 
 layout3and2way(table)
 ```
 
+```{r png Case 4.4, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "No flats; three marginal independences"}
+include_graphics("img/IndependenceExploration/case44.png")
+```
 All variates are pairwise independent but are not mutually independent.  That is,
 $X \indep Y$, $Y \indep Z$, and $X \indep Z$ but $\notindep (X, Y, Z)$.  No conditional independence exists.
 
