@@ -29,7 +29,11 @@ navbar:
       - text: understanding independence
         href: https://math.uwaterloo.ca/~rwoldfor/papers/eikosograms/independence/paper.pdf
 
-
+    - text: Slides
+      menu:
+      - text: Eikosograms - The picture of probability
+        href: https://www.math.uwaterloo.ca/~rwoldfor/talks/SSC2009/talk/
+        
   right:
     - icon: fa-github fa-lg
       href: https://github.com/rwoldford/eikosograms
