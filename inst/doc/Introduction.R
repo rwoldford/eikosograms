@@ -123,7 +123,7 @@ e2 <- eikos("B", "A", data = negAsso,
                                                      sep = "\n"), draw=FALSE)
 grid.arrange(e1, e2, nrow = 1)
 
-## ----spectrum, echo = FALSE, fig.width=20, fig.height=4, fig.align="center", out.width="80%"----
+## ----spectrum, echo = FALSE, fig.width=20, fig.height=4, fig.align="center", out.width="80%"-------
 coincident <- as.table(array(c(50, 0, 0, 50),
                         dim = c(2,2),
                         dimnames = 

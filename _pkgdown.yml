@@ -17,6 +17,7 @@ navbar:
         href: articles/IndependenceExploration.html
       - text: Data analysis examples
         href: articles/DataAnalysis.html
+        
     - text: Papers
       menu:
       - text: poverty of venn (original)
@@ -36,4 +37,4 @@ navbar:
 development:
   mode: release
 
-destination: ../docs/
+destination: ./docs/
