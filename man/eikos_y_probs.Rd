@@ -4,7 +4,8 @@
 \alias{eikos_y_probs}
 \title{Create grob with eikosogram y-axis probabilities}
 \usage{
-eikos_y_probs(data, yprobs, yprobs_size = 8, margin = unit(2, "points"))
+eikos_y_probs(data, yprobs, yprobs_size = 8, margin = unit(2,
+  "points"))
 }
 \arguments{
 \item{data}{data frame from eikos_data object}

@@ -4,8 +4,8 @@
 \alias{eikos_legend}
 \title{Create eikosogram legend}
 \usage{
-eikos_legend(labels, title = NULL, yname_size = 12, yvals_size = 12, col,
-  margin = unit(2, "points"), lcol = "black")
+eikos_legend(labels, title = NULL, yname_size = 12, yvals_size = 12,
+  col, margin = unit(2, "points"), lcol = "black")
 }
 \arguments{
 \item{labels}{labels to be included in legend}

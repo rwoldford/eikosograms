@@ -9,8 +9,8 @@
   yname_size = 12, yvals_size = 12, yaxs = TRUE, yprobs = NULL,
   yprobs_size = 8, xlabs = TRUE, xlab_rot = 0, xname_size = 12,
   xvals_size = 12, xaxs = TRUE, xprobs = NULL, xprobs_size = 8,
-  vertical_xprobs = TRUE, ispace = list(bottom = 8, left = 2, top = 2, right
-  = 5), legend = FALSE, col = NULL, bottomcol = "steelblue",
+  vertical_xprobs = TRUE, ispace = list(bottom = 8, left = 2, top = 2,
+  right = 5), legend = FALSE, col = NULL, bottomcol = "steelblue",
   topcol = "snow2", lcol = "black", draw = TRUE, newpage = TRUE,
   lock_aspect = TRUE)
 }
