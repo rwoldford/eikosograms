@@ -373,7 +373,7 @@ Pr(Gender = \mbox{"Male"} \given Admit = \mbox{"Admitted"}) &\times& Pr(Admit = 
 \end{array}
 \]
 Rectangles which identify the *same* joint probability in both eikosograms must have the same area.  This is Bayes's theorem and is perhaps most simply expressed generically as
-\[Pr(Y \given X) \time Pr(X) = Pr(X ~\&~ Y) = Pr(X \given Y) \times Pr(Y). 
+\[Pr(Y \given X) \times Pr(X) = Pr(X ~\&~ Y) = Pr(X \given Y) \times Pr(Y). 
 \]
 Simply, areas of corresponding rectangles must match.
 
