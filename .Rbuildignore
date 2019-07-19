@@ -3,5 +3,5 @@
 .travis.yml
 README.md
 NEWS.md
-./inst/doc
+./inst
 ./docs
