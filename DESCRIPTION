@@ -1,8 +1,8 @@
 Package: eikosograms
 Type: Package
 Title: The Picture of Probability
-Version: 0.1.1
-Date: 2018-08-21
+Version: 0.1.1.9000
+Date: 2019-07-19
 Authors@R: c(person(given = "Wayne", family = "Oldford",
                     email = "rwoldford@uwaterloo.ca", 
                     role = c("aut", "cre")),

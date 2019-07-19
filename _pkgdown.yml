@@ -1,0 +1,28 @@
+home:
+  strip_header: true
+
+navbar:
+  type: default
+
+  left:
+    - text: Intro
+      href: articles/Introduction.html
+    - text: Reference
+      href: reference/index.html
+    - text: Articles
+      menu:
+      - text: Introduction
+        href: articles/Introduction.html
+      - text: Exploring independence
+        href: articles/IndependenceExploration.html
+      - text: Data analysis examples
+        href: articles/DataAnalysis.html
+
+  right:
+    - icon: fa-github fa-lg
+      href: https://github.com/rwoldford/eikosograms
+
+development:
+  mode: release
+
+destination: ../docs/
