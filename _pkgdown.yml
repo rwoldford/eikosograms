@@ -17,6 +17,17 @@ navbar:
         href: articles/IndependenceExploration.html
       - text: Data analysis examples
         href: articles/DataAnalysis.html
+    - text: Papers
+      menu:
+      - text: poverty of venn (original)
+        href: https://math.uwaterloo.ca/~rwoldfor/papers/eikosograms/paper-ssnew.pdf
+      - text: picturing probability (extended poverty manuscript)
+        href: https://math.uwaterloo.ca/~rwoldfor/papers/eikosograms/paperpdf.pdf
+      - text: problems and paradoxes
+        href: https://math.uwaterloo.ca/~rwoldfor/papers/eikosograms/examples/paper.pdf
+      - text: understanding independence
+        href: https://math.uwaterloo.ca/~rwoldfor/papers/eikosograms/independence/paper.pdf
+
 
   right:
     - icon: fa-github fa-lg
