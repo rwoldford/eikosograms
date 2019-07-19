@@ -12,46 +12,46 @@ Waterloo <- data.frame(Decision = c(rep("Accepted", 1200),
                                     rep("Rejected", 15200-1200)))
 eikos("Decision", data = Waterloo)
 
-## ----Berkeley table, echo = FALSE----------------------------------------
+## ----Berkeley_table, echo = FALSE----------------------------------------
 str(UCBAdmissions)
 
-## ----UCB admissions, echo = TRUE, fig.width=4, fig.height=3, fig.align="center", out.width="30%"----
+## ----UCB_admissions, echo = TRUE, fig.width=4, fig.height=3, fig.align="center", out.width="30%"----
 eikos("Admit", data = UCBAdmissions)
 
-## ----UCB departments, echo = TRUE, fig.width=4, fig.height=3, fig.align="center", out.width="30%"----
+## ----UCB_departments, echo = TRUE, fig.width=4, fig.height=3, fig.align="center", out.width="30%"----
 eikos("Dept", data = UCBAdmissions)
 
-## ----UCB gender marginals, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="30%"----
+## ----UCB_gender_marginals, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="30%"----
 eikos("Gender", data = UCBAdmissions)
 
-## ----UCB Dept by male, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="30%"----
+## ----UCB_Dept_by_male, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="30%"----
 eikos("Dept", data = UCBAdmissions[,"Male",], 
       main = "Applications from males")
 
-## ----UCB Dept by female, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="30%"----
+## ----UCB_Dept_by_female, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="30%"----
 eikos("Dept", data = UCBAdmissions[,"Female",], 
       main = "Applications from females")
 
-## ----UCB Dept by gender, echo = TRUE, fig.width=4.3, fig.height=3.3, fig.align="center", out.width="30%"----
+## ----UCB_Dept_by_gender, echo = TRUE, fig.width=4.3, fig.height=3.3, fig.align="center", out.width="30%"----
 eikos(y = "Dept", x = "Gender",  data = UCBAdmissions,
       xprobs_size = 8, yprobs_size = 8)
 
-## ----UCB Dept by gender joint, echo = TRUE, fig.width=4, fig.height=3.65, fig.align="center", out.width="30%"----
+## ----UCB_Dept_by_gender_joint, echo = TRUE, fig.width=4, fig.height=3.65, fig.align="center", out.width="30%"----
 eikos(y = "Dept", x = "Gender", data = UCBAdmissions, 
       xlabs = FALSE, yaxs = FALSE, xaxs = FALSE)
 
 
-## ----UCB Dept marginalized, echo = TRUE, fig.width=4, fig.height=3.65, fig.align="center", out.width="30%"----
+## ----UCB_Dept_marginalized, echo = TRUE, fig.width=4, fig.height=3.65, fig.align="center", out.width="30%"----
 eikos("Dept", data = UCBAdmissions, 
       xlabs = FALSE, yaxs = FALSE, xaxs = FALSE)
 
-## ----admit given gender, echo = TRUE, fig.width=4, fig.height=3, fig.align="center", out.width="30%"----
+## ----admit_given_gender, echo = TRUE, fig.width=4, fig.height=3, fig.align="center", out.width="30%"----
 eikos(y = "Admit", x = "Gender", data = UCBAdmissions)
 
-## ----gender given admit, echo = TRUE, fig.width=4, fig.height=3, fig.align="center", out.width="30%"----
+## ----gender_given_admit, echo = TRUE, fig.width=4, fig.height=3, fig.align="center", out.width="30%"----
 eikos(y = "Gender", x = "Admit", data = UCBAdmissions)
 
-## ----independence Y given X, echo = TRUE, fig.width=4,fig.height=3.5, fig.align="center",out.width="30%",fig.cap = "Independence of variates X and Y"----
+## ----independence_Y_given_X, echo = TRUE, fig.width=4,fig.height=3.5, fig.align="center",out.width="30%",fig.cap = "Independence of variates X and Y"----
 indep <- as.table(array(c(10, 40, 15, 60),
                         dim = c(2,2),
                         dimnames = 
@@ -59,10 +59,10 @@ indep <- as.table(array(c(10, 40, 15, 60),
                              Y = c("y_1", "y_2"))))
 eikos("Y", "X", data = indep)
 
-## ----independence X given Y, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="30%", fig.cap = "Independence of variates X and Y"----
+## ----independence_X_given_Y, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="30%", fig.cap = "Independence of variates X and Y"----
 eikos("X", "Y", data = indep)
 
-## ----coincident events, echo = FALSE, fig.width=8, fig.height=3.7, fig.align="center", out.width="50%"----
+## ----coincident_events, echo = FALSE, fig.width=8, fig.height=3.7, fig.align="center", out.width="50%"----
 coincident <- array(c(0.3,0,0,0.7), dim = c(2,2),
                   dimnames = list(A=c("Yes", "No"), B = c("Yes", "No")))
 e1 <- eikos("A", "B", data = coincident, 
@@ -71,7 +71,7 @@ e2 <- eikos("B", "A", data = coincident,
             xaxs = FALSE, yaxs = FALSE, main = "B occurs iff A does", draw=FALSE)
 grid.arrange(e1, e2, nrow = 1)
 
-## ----complementary events, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="50%"----
+## ----complementary_events, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="50%"----
 complementary <- array(c(0,0.7,0.3,0), dim = c(2,2),
                   dimnames = list(A=c("Yes", "No"), B = c("Yes", "No")))
 e1 <- eikos("A", "B", data = complementary, 
@@ -84,7 +84,7 @@ e2 <- eikos("B", "A", data = complementary,
                                                      sep = "\n"), draw=FALSE)
 grid.arrange(e1, e2, nrow = 1)
 
-## ----mutually exclusive events, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="50%"----
+## ----mutually_exclusive_events, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="50%"----
 mutualExclusive <- array(c(0,0.3, 0.5, 0.7), dim = c(2,2),
                   dimnames = list(A=c("Yes", "No"), B = c("Yes", "No")))
 e1 <- eikos("A", "B", data = mutualExclusive, 
@@ -97,7 +97,7 @@ e2 <- eikos("B", "A", data = mutualExclusive,
                                                      sep = "\n"), draw=FALSE)
 grid.arrange(e1, e2, nrow = 1)
 
-## ----positively associated events, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="50%"----
+## ----positively_associated_events, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="50%"----
 posAsso <- array(c(24, 14, 6, 56), dim = c(2,2),
                   dimnames = list(A=c("Yes", "No"), B = c("Yes", "No")))
 e1 <- eikos("A", "B", data = posAsso, 
@@ -110,7 +110,7 @@ e2 <- eikos("B", "A", data = posAsso,
                                                      sep = "\n"), draw=FALSE)
 grid.arrange(e1, e2, nrow = 1)
 
-## ----negatively associated events, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="50%"----
+## ----negatively_associated_events, echo = FALSE, fig.width=8, fig.height=4, fig.align="center", out.width="50%"----
 negAsso <- array(c(6, 56, 24, 14), dim = c(2,2),
                   dimnames = list(A=c("Yes", "No"), B = c("Yes", "No")))
 e1 <- eikos("A", "B", data = negAsso, 
@@ -162,7 +162,7 @@ e5 <- eikos("A", "B", data = complementary,  bottomcol = "steelblue",
 
 grid.arrange(e1, e2, e3, e4, e5, nrow = 1)
 
-## ----conditional independence example, echo = FALSE, fig.width=16, fig.height=5, fig.align="center", out.width="70%"----
+## ----conditional_independence_example, echo = FALSE, fig.width=16, fig.height=5, fig.align="center", out.width="70%"----
 joint <- array(c(6, 3, 12, 6, 10, 15, 10, 15), 
                dim = c(2,2,2),
                dimnames = list(X=c("X=x1", "X=x2"), 

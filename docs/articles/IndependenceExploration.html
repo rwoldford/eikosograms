@@ -11,6 +11,7 @@
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><meta property="og:title" content="Exploring Independence">
 <meta property="og:description" content="">
+<meta property="og:image" content="/logo.png">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -409,7 +410,7 @@ eikosX &lt;-<span class="st"> </span><span class="kw"><a href="../reference/eiko
 eikosZ &lt;-<span class="st"> </span><span class="kw"><a href="../reference/eikos.html">eikos</a></span>(<span class="dt">y=</span><span class="st">"Z"</span>, <span class="dt">x =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"X"</span>, <span class="st">"Y"</span>), 
                 <span class="dt">xaxs =</span> <span class="ot">FALSE</span>, <span class="dt">yaxs=</span> <span class="ot">FALSE</span>,
                 <span class="dt">data =</span> complete_indep, <span class="dt">draw =</span> <span class="ot">FALSE</span>)</code></pre></div>
-<p><img src="IndependenceExploration_files/figure-html/complete%20independence%20code-1.png" width="700"></p>
+<p><img src="IndependenceExploration_files/figure-html/complete_independence_code-1.png" width="700"></p>
 <p>These can be displayed in a single figure using the function <code><a href="https://www.rdocumentation.org/packages/gridExtra/topics/arrangeGrob">grid.arrange()</a></code> from the package <code>gridExtra</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/gridExtra/topics/arrangeGrob">grid.arrange</a></span>(eikosY, eikosX, eikosZ, <span class="dt">nrow=</span><span class="dv">1</span>)</code></pre></div>
 <div class="figure" style="text-align: center">
@@ -428,7 +429,7 @@ eikosYZ &lt;-<span class="st"> </span><span class="kw"><a href="../reference/eik
 eikosXZ &lt;-<span class="st"> </span><span class="kw"><a href="../reference/eikos.html">eikos</a></span>(<span class="dt">y =</span> <span class="st">"X"</span>, <span class="dt">x =</span> <span class="st">"Z"</span>, 
                  <span class="dt">data =</span> complete_indep, <span class="dt">main =</span> <span class="st">"X | Z"</span>,
                  <span class="dt">xaxs =</span> <span class="ot">FALSE</span>, <span class="dt">yaxs=</span> <span class="ot">FALSE</span>, <span class="dt">draw =</span> <span class="ot">FALSE</span>)</code></pre></div>
-<p><img src="IndependenceExploration_files/figure-html/conditional%20on%20one-1.png" width="80%" style="display: block; margin: auto;"></p>
+<p><img src="IndependenceExploration_files/figure-html/conditional_on_one-1.png" width="80%" style="display: block; margin: auto;"></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/gridExtra/topics/arrangeGrob">grid.arrange</a></span>(eikosYX, eikosYZ, eikosXZ, <span class="dt">nrow =</span> <span class="dv">1</span>) </code></pre></div>
 <div class="figure" style="text-align: center">
 <img src="img/IndependenceExploration/pairwise.png" alt="Pairwise independence" width="50%"><p class="caption">

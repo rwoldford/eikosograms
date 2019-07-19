@@ -7,7 +7,7 @@ set.seed(12314159)
 library(eikosograms)
 library(gridExtra)
 
-## ----set up conditional independence tables, eval = TRUE, echo = FALSE----
+## ----setup_conditional_independence_tables, eval = TRUE, echo = FALSE----
 # This function will create all the joint probabilities
 # and place them in the appropriate three-way table
 create3WayBinaryTable <- function(widths, heights) {
@@ -64,32 +64,32 @@ fig14_data <- create3WayBinaryTable(xz8, b10)
 # Create this now for early illustration
 cond_indep <- fig5c_data
 
-## ----independence Y given X, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "Independence of variates X and Y"----
+## ----independence_Y_given_X, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "Independence of variates X and Y"----
 independenceExample <- as.table(array(c(10, 40, 15, 60),
                         dim = c(2,2),
                         dimnames = 
                         list(X =c("x_1", "x_2"), 
                              Y = c("y_1", "y_2"))))
 
-## ----bivariate independence 1, eval = FALSE, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%"----
+## ----bivariate_independence_1, eval = FALSE, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%"----
 #  eikos("Y", "X", data = independenceExample)
 
-## ----png bivariate independence 1, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "Independence of variates Y and X"----
+## ----png_bivariate_independence_1, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "Independence of variates Y and X"----
 include_graphics("img/IndependenceExploration/indepYX.png")
 
-## ----bivariate independence 2, eval = FALSE, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%"----
+## ----bivariate_independence_2, eval = FALSE, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%"----
 #  eikos("X", "Y", data = independenceExample)
 
-## ----png bivariate independence 2, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "Independence of variates X and Y"----
+## ----png_bivariate_independence_2, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "Independence of variates X and Y"----
 include_graphics("img/IndependenceExploration/indepXY.png")
 
-## ----conditional independence, eval = FALSE, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%"----
+## ----conditional_independence, eval = FALSE, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%"----
 #  eikos("Y", c("X",  "Z"), data = cond_indep, xaxs = FALSE, yaxs = FALSE)
 
-## ----png conditional independence, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "Conditional independence of variates Y and X given Z"----
+## ----png_conditional_independence, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "Conditional independence of variates Y and X given Z"----
 include_graphics("img/IndependenceExploration/indepYgivenXZ.png")
 
-## ----table creation function , echo = TRUE, eval = FALSE-----------------
+## ----table_creation_function , echo = TRUE, eval = FALSE-----------------
 #  # This function will create all the joint probabilities
 #  # and place them in the appropriate three-way table
 #  create3WayBinaryTable <- function(widths, heights) {
@@ -104,20 +104,20 @@ include_graphics("img/IndependenceExploration/indepYgivenXZ.png")
 #      as.table(probs)
 #  }
 
-## ----some table, echo = TRUE, eval = TRUE--------------------------------
+## ----some_table, echo = TRUE, eval = TRUE--------------------------------
 someTable <-   create3WayBinaryTable(widths =  c(10/35, 8/35, 5/35, 12/35),
                                      heights = c(7/10, 7/10, 7/10, 7/10))
 
-## ----cond_indep table, echo = FALSE--------------------------------------
+## ----cond_indep_table, echo = FALSE--------------------------------------
 knitr::kable(cond_indep)
 
-## ----eikos of someTable, eval = FALSE, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%"----
+## ----eikos_of_someTable, eval = FALSE, echo = TRUE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%"----
 #  eikos(y="Y", x = c("Z", "X"), data = someTable)
 
-## ----png eikos of someTable, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "What is the independence structure?"----
+## ----png_eikos_of_someTable, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "What is the independence structure?"----
 include_graphics("img/IndependenceExploration/someTableYgivenZX.png")
 
-## ----conditional independence tables display, echo = FALSE, eval = FALSE----
+## ----conditional_independence_tables_display, echo = FALSE, eval = FALSE----
 #  # Marginal probabilities (widths) for
 #  # the two binary conditioning variates
 #  # are given by the xz values,
@@ -159,11 +159,11 @@ include_graphics("img/IndependenceExploration/someTableYgivenZX.png")
 #  fig14_data <- create3WayBinaryTable(xz8, b10)
 #  
 
-## ----complete independence table, echo = TRUE----------------------------
+## ----complete_independence_table, echo = TRUE----------------------------
 complete_indep <- create3WayBinaryTable(widths = c(10/33, 12/33, 5/33, 6/33),
                                         heights = c(7/10, 7/10, 7/10, 7/10))
 
-## ----complete independence code, eval = TRUE, fig.height = 0.1-----------
+## ----complete_independence_code, eval = TRUE, fig.height = 0.1-----------
 eikosY <- eikos(y="Y", x = c("Z", "X"), 
                 xaxs = FALSE, yaxs= FALSE,
                 data = complete_indep, draw = FALSE)
@@ -174,13 +174,13 @@ eikosZ <- eikos(y="Z", x = c("X", "Y"),
                 xaxs = FALSE, yaxs= FALSE,
                 data = complete_indep, draw = FALSE)
 
-## ----complete independence arrange 3, eval = FALSE, echo = TRUE, fig.width=11, fig.height=3.5, fig.align="center", out.width="100%"----
+## ----complete_independence_arrange_3, eval = FALSE, echo = TRUE, fig.width=11, fig.height=3.5, fig.align="center", out.width="100%"----
 #  grid.arrange(eikosY, eikosX, eikosZ, nrow=1)
 
-## ----png complete independence arrange 3, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "Complete independence"----
+## ----png_complete_independence_arrange_3, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "Complete independence"----
 include_graphics("img/IndependenceExploration/completeIndep.png")
 
-## ----conditional on one, echo = TRUE, fig.width=9, fig.height=0.1, fig.align="center",  out.width="80%"----
+## ----conditional_on_one, echo = TRUE, fig.width=9, fig.height=0.1, fig.align="center",  out.width="80%"----
 eikosYX <- eikos(y = "Y", x = "X",
                  data = complete_indep, main = "Y | X",
                  xaxs = FALSE, yaxs= FALSE, draw = FALSE)
@@ -191,13 +191,13 @@ eikosXZ <- eikos(y = "X", x = "Z",
                  data = complete_indep, main = "X | Z",
                  xaxs = FALSE, yaxs= FALSE, draw = FALSE)
 
-## ----conditional on one arranged, eval = FALSE, echo = TRUE, fig.width=10, fig.height=3, fig.align="center", out.width="80%"----
+## ----conditional_on_one_arranged, eval = FALSE, echo = TRUE, fig.width=10, fig.height=3, fig.align="center", out.width="80%"----
 #  grid.arrange(eikosYX, eikosYZ, eikosXZ, nrow = 1)
 
-## ----png conditional on one arranged, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "Pairwise independence"----
+## ----png_conditional_on_one_arranged, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "Pairwise independence"----
 include_graphics("img/IndependenceExploration/pairwise.png")
 
-## ----grid code, eval = TRUE, fig.height = 0.1----------------------------
+## ----grid_code, eval = TRUE, fig.height = 0.1----------------------------
 layout3and2way <- function(table) {
     if(length(dimnames(table))!=3) stop("Must be a three-way table")
     varNames <- names(dimnames(table))
@@ -251,63 +251,63 @@ layout3and2way <- function(table) {
     )
 }
 
-## ----complete independence layout, eval = FALSE, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"----
+## ----complete_independence_layout, eval = FALSE, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"----
 #  layout3and2way(complete_indep)
 
-## ----png complete independence layout, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "Complete independence"----
+## ----png_complete_independence_layout, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "Complete independence"----
 include_graphics("img/IndependenceExploration/complete_indep.png")
 
-## ----Case 2, eval = FALSE, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"----
+## ----Case_2, eval = FALSE, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"----
 #  table <- create3WayBinaryTable(widths = c(10/33, 12/33, 5/33, 6/33),
 #                                 heights = c(7/10, 7/10, 3/10, 3/10))
 #  
 #  layout3and2way(table)
 
-## ----png Case2, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "One 4-flat; two 2 by 2 flats"----
+## ----png_Case_2, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "One 4-flat; two 2 by 2 flats"----
 include_graphics("img/IndependenceExploration/case2.png")
 
-## ----Case 3, eval = FALSE, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"----
+## ----Case_3, eval = FALSE, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"----
 #  table <- create3WayBinaryTable(widths = c(2/9, 1/9, 2/9, 4/9),
 #                                 heights = c(2/3, 2/3, 1/6, 1/6))
 #  
 #  layout3and2way(table)
 
-## ----png Case 3, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "One no-flat; two 2 by 2 flats"----
+## ----png_Case_3, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "One no-flat; two 2 by 2 flats"----
 include_graphics("img/IndependenceExploration/case3.png")
 
-## ----Case 4.1, eval = FALSE, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"----
+## ----Case_4_1, eval = FALSE, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"----
 #  table <- create3WayBinaryTable(widths = c(1/7, 1/7, 3/7, 2/7),
 #                                 heights = c(1/3, 2/3, 1/4, 1/6))
 #  
 #  layout3and2way(table)
 
-## ----png Case 4.1, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "No flats; no marginal independence"----
+## ----png_Case_4_1, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "No flats; no marginal independence"----
 include_graphics("img/IndependenceExploration/case41.png")
 
-## ----Case 4.2, eval = FALSE, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"----
+## ----Case_4_2, eval = FALSE, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"----
 #  table <- create3WayBinaryTable(widths = c(1/4, 1/4, 1/4, 1/4),
 #                                 heights = c(3/4, 1/2, 1/4, 1/4))
 #  
 #  layout3and2way(table)
 
-## ----png Case 4.2, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "No flats; one marginal independence"----
+## ----png_Case_4_2, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "No flats; one marginal independence"----
 include_graphics("img/IndependenceExploration/case42.png")
 
-## ----Case 4.3, eval = FALSE, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"----
+## ----Case_4_3, eval = FALSE, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"----
 #  table <- create3WayBinaryTable(widths = c(2/6, 1/6, 2/6, 1/6),
 #                                 heights = c(2/3, 1/2, 5/6, 1/6))
 #  
 #  layout3and2way(table)
 
-## ----png Case 4.3, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "No flats; two marginal independences"----
+## ----png_Case_4_3, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "No flats; two marginal independences"----
 include_graphics("img/IndependenceExploration/case43.png")
 
-## ----Case 4.4, eval = FALSE, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"----
+## ----Case_4_4, eval = FALSE, echo = TRUE, fig.width=11, fig.height=5.5, fig.align="center", out.width="80%"----
 #  table <- create3WayBinaryTable(widths = c(1/6, 2/6, 1/6, 2/6),
 #                                 heights = c(1/6, 2/3, 5/6, 1/3))
 #  
 #  layout3and2way(table)
 
-## ----png Case 4.4, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "No flats; three marginal independences"----
+## ----png_Case_4_4, eval = TRUE, echo = FALSE, fig.width=4, fig.height=3.5, fig.align="center", out.width="50%", fig.cap = "No flats; three marginal independences"----
 include_graphics("img/IndependenceExploration/case44.png")
 
