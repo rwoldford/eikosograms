@@ -6,7 +6,7 @@ Eikosograms: the picture of probability as the R package "eikosograms" <img src=
 
 * Online documentation is available [here](http://rwoldford.github.io/eikosograms/)
 
-An eikosogram (ancient Greek for probability picture) divides the unit square into rectangular regions whose areas, sides, and widths, represent various probabilities associated with the values of one or more categorical variates.
+An eikosogram [eye-*KOSS*-oh-gram] (ancient Greek for probability picture) divides the unit square into rectangular regions whose areas, sides, and widths, represent various probabilities associated with the values of one or more categorical variates.
 
 Rectangle areas are joint probabilities, widths are **always** marginal (though possibly joint margins, i.e. marginal joint distributions of two or more variates), and heights of rectangles are **always** conditional probabilities.
 
