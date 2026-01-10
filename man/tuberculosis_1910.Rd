@@ -14,20 +14,6 @@ A 2 x 2 x 2 table of counts involving three binary variables
 }
 \source{
 "An Introduction to Logic and Scientific Method" by Morris R. Cohen and Ernest Nagel, (1934), Harcourt, Brace and Company, New York.
-
-'@references
-  Blyth, Colin R. 1972.
-  On Simpson's Paradox and the Sure-Thing Principle.
-  Journal of the American Statistical Association, 67, pp.364-366.
-  
-  Cohen, Morris R.; Nagel, Ernest 1934.
-  An Introduction to Logic and Scientific Method.
-  Harcourt, Brace and Company.
-  New York.
-  
-  Simpson, E.H. 1951.
-  The Interpretation of Interaction in Contingency Tables.
-  Journal of the Royal Statistical Society, Series B, 13, pp. 238-241.
 }
 \description{
 Tuberculosis 1910 death rates in New York and in Richmond
@@ -55,13 +41,24 @@ In their words, Cohen and Nagel (1934, p. 449) pose the following two questions 
   than in New York, although the *total* death rate was *higher*. 
   Are the two populations compared really *comparable*, that is, homogeneous?"
 }
+\references{
+Blyth, Colin R. 1972.
+On Simpson's Paradox and the Sure-Thing Principle.
+Journal of the American Statistical Association, 67, pp.364-366.
+
+Cohen, Morris R.; Nagel, Ernest. 1934.
+An Introduction to Logic and Scientific Method.
+Harcourt, Brace and Company.
+New York.
+
+Simpson, E.H. 1951.
+The Interpretation of Interaction in Contingency Tables.
+Journal of the Royal Statistical Society, Series B, 13, pp. 238-241.
+}
 \author{
 R.W. Oldford.
 }
-\keyword{Simpson's}
-\keyword{contingency}
+\keyword{Simpson_paradox}
+\keyword{contingency_tables}
+\keyword{datasets}
 \keyword{history}
-\keyword{of}
-\keyword{paradox,}
-\keyword{statistics,}
-\keyword{tables}

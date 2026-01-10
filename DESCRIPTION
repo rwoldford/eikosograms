@@ -1,6 +1,6 @@
 Package: eikosograms
 Type: Package
-Title: Eikosograms: Pictures of Probability and Frequencies for Categorical Variates
+Title: Visualizing Probabilities, Frequencies, and Conditional Independence for Categorical Variates
 Version: 1.0.0
 Authors@R: c(
     person(given = "Wayne", family = "Oldford",

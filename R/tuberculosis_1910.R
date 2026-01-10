@@ -40,19 +40,23 @@
 #' @source 
 #' "An Introduction to Logic and Scientific Method" by Morris R. Cohen and Ernest Nagel, (1934), Harcourt, Brace and Company, New York.
 #' 
-#' '@references
-#'   Blyth, Colin R. 1972.
-#'   On Simpson's Paradox and the Sure-Thing Principle.
-#'   Journal of the American Statistical Association, 67, pp.364-366.
-#'   
-#'   Cohen, Morris R.; Nagel, Ernest 1934.
-#'   An Introduction to Logic and Scientific Method.
-#'   Harcourt, Brace and Company.
-#'   New York.
-#'   
-#'   Simpson, E.H. 1951.
-#'   The Interpretation of Interaction in Contingency Tables.
-#'   Journal of the Royal Statistical Society, Series B, 13, pp. 238-241.
+#' @references
+#' Blyth, Colin R. 1972.
+#' On Simpson's Paradox and the Sure-Thing Principle.
+#' Journal of the American Statistical Association, 67, pp.364-366.
 #'
-#' @keywords history of statistics, Simpson's paradox, contingency tables
+#' Cohen, Morris R.; Nagel, Ernest. 1934.
+#' An Introduction to Logic and Scientific Method.
+#' Harcourt, Brace and Company.
+#' New York.
+#'
+#' Simpson, E.H. 1951.
+#' The Interpretation of Interaction in Contingency Tables.
+#' Journal of the Royal Statistical Society, Series B, 13, pp. 238-241.
+#'
+#' @keywords datasets
+#' @keywords contingency_tables
+#' @keywords Simpson_paradox
+#' @keywords history
 NULL
+
