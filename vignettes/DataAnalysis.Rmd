@@ -166,7 +166,7 @@ Female applicants outnumber male applicants only in departments C and E.
 
 Sometimes the counts appear as a column in a spreadsheet (or `data.frame`).
 Here we consider the counts for habitat type of adult male **anolis** lizards from Bimini.
-These are taken frpm @Schoener_1968 and are saved here as a text file.
+These are taken from @Schoener_1968 and are saved here as a text file.
 
 ```{r read lizard data}
 lizards <- read.table("data/AnolisLizards.txt", header=TRUE)
@@ -357,7 +357,7 @@ eikos(y = "perch_diameter_inches", x = c("perch_height_ft", "species"), data = f
 include_graphics("img/DataAnalysis/poisson2.png")
 ```
 and the conditional independence asserted by the model becomes obvious. See also 
-[vignette on independence exploration](../inst/doc/IndependenceExploration.html).
+[vignette on independence exploration](../doc/IndependenceExploration.html).
 
 
 

@@ -1,10 +1,12 @@
 
-[![Build Status](https://travis-ci.org/rwoldford/eikosograms.svg?branch=master)](https://travis-ci.org/rwoldford/eikosograms) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/eikosograms)](https://cran.r-project.org/package=eikosograms)
+[![Total downloads](https://cranlogs.r-pkg.org/badges/grand-total/eikosograms?color=blue)](https://cran.r-project.org/package=eikosograms) 
+[![Monthly downloads](https://cranlogs.r-pkg.org/badges/eikosograms)](https://cran.r-project.org/package=eikosograms)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/eikosograms)](https://cran.r-project.org/package=eikosograms)
 
 # eikosograms
-Eikosograms: the picture of probability as the R package "eikosograms" <img src="man/figures/logo.png" align="right" width="300" />
+Eikosograms: the picture of probability <img src="man/figures/logo.png" align="right" width="300" />
 
-* Online documentation is available [here](http://rwoldford.github.io/eikosograms/)
+* Online documentation is available [here](https://rwoldford.github.io/eikosograms/)
 
 An eikosogram [eye-*KOSS*-oh-gram] (ancient Greek for probability picture) divides the unit square into rectangular regions whose areas, sides, and widths, represent various probabilities associated with the values of one or more categorical variates.
 

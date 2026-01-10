@@ -80,25 +80,6 @@ set.seed(12314159)
 
 ---
 
-$\renewcommand{\tr}[1]{{#1}^{\mkern-1.5mu\mathsf{T}}}$
-$\renewcommand{\ve}[1]{\mathbf{#1}}$
-$\renewcommand{\sv}[1]{\boldsymbol{#1}}$
-$\renewcommand{\pop}[1]{\mathcal{#1}}$
-$\renewcommand{\samp}[1]{\mathcal{#1}}$
-$\renewcommand{\imply}{\Longrightarrow}$
-$\renewcommand{\given}{~\vert~}$
-$\renewcommand{\suchthat}{~:~}$
-$\renewcommand{\widebar}[1]{\overline{#1}}$
-$\renewcommand{\wig}[1]{\tilde{#1}}$
-$\renewcommand{\bigwig}[1]{\widetilde{#1}}$
-$\renewcommand{\field}[1]{\mathbb{#1}}$
-$\renewcommand{\Reals}{\field{R}}$
-$\renewcommand{\abs}[1]{\left\lvert ~{#1} ~\right\rvert}$
-$\renewcommand{\size}[1]{\left\lvert {#1} \right\rvert}$
-$\renewcommand{\tr}[1]{{#1}^{\mkern-1.5mu\mathsf{T}}}$
-$\renewcommand{\norm}[1]{\left|\left|{#1}\right|\right|}$
-$\renewcommand{\intersect}{\cap}$
-$\renewcommand{\union}{\cup}$
 
 Note that eikosograms are `grid` objects and so may be manipulated as any other (e.g. arranging several eikosograms in the same display using `grid.arrange()` from the `gridExtra` package).
 
@@ -149,7 +130,7 @@ These two areas give the probability distribution of the binary random variate `
 
 # Grad admissions to Berkeley (1973)
 
-A well known data set in `R` is `UCBAdmissions` which recorde the number of applications and admissions to several large graduate at the University of California (Berkeley) in 1973.  This is a table of counts cross classified by three different factors:
+A well known data set in `R` is `UCBAdmissions` which records the number of applications and admissions to several large graduate at the University of California (Berkeley) in 1973.  This is a table of counts cross classified by three different factors:
 ```{r Berkeley_table, echo = FALSE}
 str(UCBAdmissions)
 ```

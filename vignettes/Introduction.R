@@ -1,18 +1,18 @@
-## ----setup, include=FALSE------------------------------------------------
+## ----setup, include=FALSE-----------------------------------------------------
 knitr::opts_chunk$set(echo = TRUE)
 library(knitr)
 set.seed(12314159)
 
-## ----libraries-----------------------------------------------------------
+## ----libraries----------------------------------------------------------------
 library(eikosograms)
 library(gridExtra)
 
-## ---- echo = FALSE, message = FALSE, warning = FALSE, error = FALSE, fig.width=4, fig.height=3, fig.align="center", out.width="30%", fig.cap = "Application to Waterloo's Faculty of Mathematics (2017)"----
+## ----echo = FALSE, message = FALSE, warning = FALSE, error = FALSE, fig.width=4, fig.height=3, fig.align="center", out.width="30%", fig.cap = "Application to Waterloo's Faculty of Mathematics (2017)"----
 Waterloo <- data.frame(Decision = c(rep("Accepted", 1200), 
                                     rep("Rejected", 15200-1200)))
 eikos("Decision", data = Waterloo)
 
-## ----Berkeley_table, echo = FALSE----------------------------------------
+## ----Berkeley_table, echo = FALSE---------------------------------------------
 str(UCBAdmissions)
 
 ## ----UCB_admissions, echo = TRUE, fig.width=4, fig.height=3, fig.align="center", out.width="30%"----
@@ -123,7 +123,7 @@ e2 <- eikos("B", "A", data = negAsso,
                                                      sep = "\n"), draw=FALSE)
 grid.arrange(e1, e2, nrow = 1)
 
-## ----spectrum, echo = FALSE, fig.width=20, fig.height=4, fig.align="center", out.width="80%"-------
+## ----spectrum, echo = FALSE, fig.width=20, fig.height=4, fig.align="center", out.width="80%"----
 coincident <- as.table(array(c(50, 0, 0, 50),
                         dim = c(2,2),
                         dimnames = 

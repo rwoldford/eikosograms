@@ -4,8 +4,13 @@
 \alias{eikos_x_probs}
 \title{Create grob with eikosogram x-axis probabilities}
 \usage{
-eikos_x_probs(data, xprobs = NULL, xprobs_size = 8, margin = unit(2,
-  "points"), rotate = TRUE)
+eikos_x_probs(
+  data,
+  xprobs = NULL,
+  xprobs_size = 8,
+  margin = unit(2, "points"),
+  rotate = TRUE
+)
 }
 \arguments{
 \item{data}{data frame from eikos_data object}

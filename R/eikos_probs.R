@@ -1,4 +1,3 @@
-library(grid)
 #' Create grob with eikosogram x-axis probabilities
 #'
 #' @description Creates x axis grob to be placed on eikosogram. Called by eikos functions.

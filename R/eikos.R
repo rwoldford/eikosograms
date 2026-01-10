@@ -1,5 +1,3 @@
-library(grid)
-
 #' Generic method for creating an eikosogram
 #'
 #' @param y Either the name of a variable in the data set (eikos.default), or a formula of such variables (eikos.formula).
@@ -51,7 +49,8 @@ library(grid)
 #'       ispace = list(bottom = 15))
 #' @seealso \code{\link{eikos.default}}
 #' @seealso \code{\link{eikos.formula}}
-#' @import grid plyr
+#' @import grid
+
 #' @export
 eikos <- function(y, x = NULL, data = NULL, marginalize = NULL, 
                   main = "", main_size = 16,

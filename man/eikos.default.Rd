@@ -4,15 +4,38 @@
 \alias{eikos.default}
 \title{Create a new eikosogram}
 \usage{
-\method{eikos}{default}(y, x = NULL, data = NULL, marginalize = NULL,
-  main = "", main_size = 16, ylabs = TRUE, ylab_rot = 0,
-  yname_size = 12, yvals_size = 12, yaxs = TRUE, yprobs = NULL,
-  yprobs_size = 8, xlabs = TRUE, xlab_rot = 0, xname_size = 12,
-  xvals_size = 12, xaxs = TRUE, xprobs = NULL, xprobs_size = 8,
-  vertical_xprobs = TRUE, ispace = list(bottom = 8, left = 2, top = 2,
-  right = 5), legend = FALSE, col = NULL, bottomcol = "steelblue",
-  topcol = "snow2", lcol = "black", draw = TRUE, newpage = TRUE,
-  lock_aspect = TRUE)
+\method{eikos}{default}(
+  y,
+  x = NULL,
+  data = NULL,
+  marginalize = NULL,
+  main = "",
+  main_size = 16,
+  ylabs = TRUE,
+  ylab_rot = 0,
+  yname_size = 12,
+  yvals_size = 12,
+  yaxs = TRUE,
+  yprobs = NULL,
+  yprobs_size = 8,
+  xlabs = TRUE,
+  xlab_rot = 0,
+  xname_size = 12,
+  xvals_size = 12,
+  xaxs = TRUE,
+  xprobs = NULL,
+  xprobs_size = 8,
+  vertical_xprobs = TRUE,
+  ispace = list(bottom = 8, left = 2, top = 2, right = 5),
+  legend = FALSE,
+  col = NULL,
+  bottomcol = "steelblue",
+  topcol = "snow2",
+  lcol = "black",
+  draw = TRUE,
+  newpage = TRUE,
+  lock_aspect = TRUE
+)
 }
 \arguments{
 \item{y}{Either the name of a variable in the data set (eikos.default), or a formula of such variables (eikos.formula).}

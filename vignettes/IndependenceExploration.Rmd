@@ -81,30 +81,6 @@ set.seed(12314159)
 
 ---
 
-$\renewcommand{\tr}[1]{{#1}^{\mkern-1.5mu\mathsf{T}}}$
-$\renewcommand{\ve}[1]{\mathbf{#1}}$
-$\renewcommand{\sv}[1]{\boldsymbol{#1}}$
-$\renewcommand{\pop}[1]{\mathcal{#1}}$
-$\renewcommand{\samp}[1]{\mathcal{#1}}$
-$\renewcommand{\imply}{\Longrightarrow}$
-$\renewcommand{\indep}{\bot\hspace{-.5em}\bot}$
-$\renewcommand{\notindep}{\bot\hspace{-.5em}\bot\hspace{-0.85em} \times }$
-$\renewcommand{\depend}{\Join}$
-$\renewcommand{\notdepend}{\Join\hspace{-0.9 em}/\hspace{.4em}}$
-$\renewcommand{\and}{~\&~}$
-$\renewcommand{\given}{~\vert~}$
-$\renewcommand{\suchthat}{~:~}$
-$\renewcommand{\widebar}[1]{\overline{#1}}$
-$\renewcommand{\wig}[1]{\tilde{#1}}$
-$\renewcommand{\bigwig}[1]{\widetilde{#1}}$
-$\renewcommand{\field}[1]{\mathbb{#1}}$
-$\renewcommand{\Reals}{\field{R}}$
-$\renewcommand{\abs}[1]{\left\lvert ~{#1} ~\right\rvert}$
-$\renewcommand{\size}[1]{\left\lvert {#1} \right\rvert}$
-$\renewcommand{\tr}[1]{{#1}^{\mkern-1.5mu\mathsf{T}}}$
-$\renewcommand{\norm}[1]{\left|\left|{#1}\right|\right|}$
-$\renewcommand{\intersect}{\cap}$
-$\renewcommand{\union}{\cup}$
 
 ```{r libraries}
 library(eikosograms)

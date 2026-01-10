@@ -1,3 +1,7 @@
+url: https://rwoldford.github.io/eikosograms/
+template:
+  bootstrap: 5
+
 home:
   strip_header: true
 
@@ -33,12 +37,45 @@ navbar:
       menu:
       - text: Eikosograms - The picture of probability
         href: https://www.math.uwaterloo.ca/~rwoldfor/talks/SSC2009/talk/
+    
+    - text: Changelog
+      href: news/index.html
         
   right:
     - icon: fa-github fa-lg
       href: https://github.com/rwoldford/eikosograms
+      aria-label: "GitHub repository for eikosograms"
 
 development:
   mode: release
 
 destination: ./docs/
+
+reference:
+
+  - title: Main function
+    desc: The main generic function
+    contents:
+    - eikos
+    
+  - title: S3 methods
+    desc: Implemented methods
+    - eikos.default
+    - eikos.formula
+    
+  - title: Helper functions
+    desc: Functions not generally called by user, but by eikos
+    - eikos_data
+    - eikos_legend
+    - eikos_x_labels
+    - eikos_x_probs
+    - eikos_y_labels
+    - eikos_y_probs
+    
+
+  - title: Data
+    desc: Data sets
+    contents:
+    - medicalRecords
+    - tuberculosis_1910
+

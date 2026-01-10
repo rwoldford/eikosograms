@@ -1,7 +1,5 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-.travis.yml
-README.md
-NEWS.md
-./inst
-./docs
+^_pkgdown\.yml$
+^docs$
+^\.DS_Store$

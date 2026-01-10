@@ -4,8 +4,14 @@
 \alias{eikos_x_labels}
 \title{eikos helper function. Returns grob with x axis labels.}
 \usage{
-eikos_x_labels(x, data, margin = unit(10, "points"), xname_size = 12,
-  xvals_size = 10, lab_rot = 0)
+eikos_x_labels(
+  x,
+  data,
+  margin = unit(10, "points"),
+  xname_size = 12,
+  xvals_size = 10,
+  lab_rot = 0
+)
 }
 \arguments{
 \item{x}{vector of conditional variables}
