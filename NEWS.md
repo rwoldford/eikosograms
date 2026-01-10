@@ -1,4 +1,4 @@
-# eikosograms 0.1.2
+# eikosograms 1.0.0
 
 * Updating of local URL references in vignettes to meet CRAN standards
 

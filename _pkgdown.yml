@@ -1,9 +1,6 @@
-url: https://rwoldford.github.io/eikosograms/
+url: "https://rwoldford.github.io/eikosograms/"
 template:
   bootstrap: 5
-
-home:
-  strip_header: true
 
 navbar:
   type: default
@@ -11,71 +8,69 @@ navbar:
   left:
     - text: Intro
       href: articles/Introduction.html
+
     - text: Reference
       href: reference/index.html
+
     - text: Articles
       menu:
-      - text: Introduction
-        href: articles/Introduction.html
-      - text: Exploring independence
-        href: articles/IndependenceExploration.html
-      - text: Data analysis examples
-        href: articles/DataAnalysis.html
-        
-    - text: Papers
-      menu:
-      - text: poverty of venn (original)
-        href: https://math.uwaterloo.ca/~rwoldfor/papers/eikosograms/paper-ssnew.pdf
-      - text: picturing probability (extended poverty manuscript)
-        href: https://math.uwaterloo.ca/~rwoldfor/papers/eikosograms/paperpdf.pdf
-      - text: problems and paradoxes
-        href: https://math.uwaterloo.ca/~rwoldfor/papers/eikosograms/examples/paper.pdf
-      - text: understanding independence
-        href: https://math.uwaterloo.ca/~rwoldfor/papers/eikosograms/independence/paper.pdf
+        - text: Exploring Independence
+          href: articles/IndependenceExploration.html
+        - text: Data Analysis Examples
+          href: articles/DataAnalysis.html
 
-    - text: Slides
+    - text: Resources
       menu:
-      - text: Eikosograms - The picture of probability
-        href: https://www.math.uwaterloo.ca/~rwoldfor/talks/SSC2009/talk/
-    
-    - text: Changelog
+        - text: Talk Slides (SSC 2009)
+          href: "https://www.math.uwaterloo.ca/~rwoldfor/talks/SSC2009/talk/"
+        - text: Picturing Probability (extended manuscript)
+          href: "https://math.uwaterloo.ca/~rwoldfor/papers/eikosograms/paperpdf.pdf"
+        - text: Understanding Independence
+          href: "https://math.uwaterloo.ca/~rwoldfor/papers/eikosograms/independence/paper.pdf"
+        - text: Problems and Paradoxes
+          href: "https://math.uwaterloo.ca/~rwoldfor/papers/eikosograms/examples/paper.pdf"
+        - text: Poverty of Venn (original)
+          href: "https://math.uwaterloo.ca/~rwoldfor/papers/eikosograms/paper-ssnew.pdf"
+        - text: Poverty of Venn (revised with formal axioms)
+          href: "https://math.uwaterloo.ca/~rwoldfor/papers/eikosograms/paper.pdf"
+
+    - text: News
       href: news/index.html
-        
+
   right:
     - icon: fa-github fa-lg
-      href: https://github.com/rwoldford/eikosograms
+      href: "https://github.com/rwoldford/eikosograms"
       aria-label: "GitHub repository for eikosograms"
 
 development:
   mode: release
 
-destination: ./docs/
+destination: "docs"
 
 reference:
-
   - title: Main function
     desc: The main generic function
     contents:
-    - eikos
-    
+      - eikos
+
   - title: S3 methods
     desc: Implemented methods
-    - eikos.default
-    - eikos.formula
-    
+    contents:
+      - eikos.default
+      - eikos.formula
+
   - title: Helper functions
     desc: Functions not generally called by user, but by eikos
-    - eikos_data
-    - eikos_legend
-    - eikos_x_labels
-    - eikos_x_probs
-    - eikos_y_labels
-    - eikos_y_probs
-    
+    contents:
+      - eikos_data
+      - eikos_legend
+      - eikos_x_labels
+      - eikos_x_probs
+      - eikos_y_labels
+      - eikos_y_probs
 
   - title: Data
     desc: Data sets
     contents:
-    - medicalRecords
-    - tuberculosis_1910
-
+      - medicalRecords
+      - tuberculosis_1910

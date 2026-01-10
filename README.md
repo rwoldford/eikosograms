@@ -4,7 +4,7 @@
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/eikosograms)](https://cran.r-project.org/package=eikosograms)
 
 # eikosograms
-Eikosograms: the picture of probability <img src="man/figures/logo.png" align="right" width="300" />
+Eikosograms: the picture of probability
 
 * Online documentation is available [here](https://rwoldford.github.io/eikosograms/)
 

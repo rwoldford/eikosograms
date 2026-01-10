@@ -1,7 +1,7 @@
 Package: eikosograms
 Type: Package
 Title: Eikosograms: Pictures of Probability and Frequencies for Categorical Variates
-Version: 0.1.2
+Version: 1.0.0
 Authors@R: c(
     person(given = "Wayne", family = "Oldford",
            email = "rwoldford@uwaterloo.ca",
@@ -20,7 +20,7 @@ URL: https://github.com/rwoldford/eikosograms, https://rwoldford.github.io/eikos
 BugReports: https://github.com/rwoldford/eikosograms/issues
 Description: An eikosogram (ancient Greek for probability picture) divides the unit square into rectangular regions whose areas, sides, and widths represent various probabilities associated with the values of one or more categorical variates. Rectangle areas are joint probabilities, widths are always marginal (though possibly joint margins, i.e. marginal joint distributions of two or more variates), and heights of rectangles are always conditional probabilities. Eikosograms embed the rules of probability and are useful for introducing elementary probability theory, including axioms, marginal, conditional, and joint probabilities, and their relationships (including Bayes' theorem as a completely trivial consequence). They provide advantages over Venn diagrams for this purpose, particularly in distinguishing probabilistic independence, mutually exclusive events, coincident events, and associations. They also are useful for identifying and understanding conditional independence structure. Eikosograms can be thought of as mosaic plots when only two categorical variates are involved; the layout is quite different when there are more than two variates. Only one categorical variate, designated the "response", presents on the vertical axis and all others, designated the "conditioning" variates, appear on the horizontal. In this way, conditional probability appears only as height and marginal probabilities as widths. The eikosogram is ideal for response models (e.g. logistic models) but equally useful when no variate is distinguished as the response. In such cases, each variate can appear in turn as the response, which is handy for assessing conditional independence in discrete graphical models (i.e. "Bayesian networks" or "BayesNets"). The eikosogram and its value over Venn diagrams in teaching probability is described in W.H. Cherry and R.W. Oldford (2003) <https://math.uwaterloo.ca/~rwoldfor/papers/eikosograms/paper.pdf>, its value in exploring conditional independence structure and relation to graphical and log-linear models is described in R.W. Oldford (2003) <https://math.uwaterloo.ca/~rwoldfor/papers/eikosograms/independence/paper.pdf>, and a number of problems, puzzles, and paradoxes that are easily explained with eikosograms are given in R.W. Oldford (2003) <https://math.uwaterloo.ca/~rwoldfor/papers/eikosograms/examples/paper.pdf>.
 License: GPL-3
-Depends: R (>= 3.1.0)
+Depends: R (>= 3.5.0)
 Imports: grid, stats
 Suggests: knitr, rmarkdown, gridExtra
 VignetteBuilder: knitr, rmarkdown

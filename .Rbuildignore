@@ -1,5 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^pkgdown$
 ^_pkgdown\.yml$
 ^docs$
 ^\.DS_Store$

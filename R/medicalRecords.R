@@ -81,8 +81,6 @@
 #' 
 #' @name medicalRecords
 #' 
-#' @seealso  
-#' \code{\link{pandemic}}  \code{\link{covidNZ}}
 #' 
 #' @keywords fictional medicine categorical paradox teaching
 #' 
