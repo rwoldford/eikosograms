@@ -188,7 +188,7 @@ eikos(y = "Dept", x = "Gender",  data = UCBAdmissions,
 
 As can be seen the two conditional eikosograms are now fitted into the unit square, the width of each being the marginal probability of that conditioning variable "Gender".   
 
-The conditioning variate(s) values appear across the bottom horizontal axis and the response along the left hand vertical axis.  This arrangement makes reading the conditional probabilities follow visually left to right, top to bottom.  For example, $Pr(Dept = A \given Gender = Male) = 0.31)$ visually followa the display left to right and dropping down to the bottom edge for the value of the conditioning variate(s).
+The conditioning variate(s) values appear across the bottom horizontal axis and the response along the left hand vertical axis.  This arrangement makes reading the conditional probabilities follow visually left to right, top to bottom.  For example, $Pr(Dept = A \given Gender = Male) = 0.31)$ visually follows the display left to right and dropping down to the bottom edge for the value of the conditioning variate(s).
 
 *Numerical values along the top* horizontal edge are the *cumulative marginal probabilities* associated with the values of the (bottom) conditioning variate.  For example
   - the probability that an application is from a male applicant is $0.59$ and 
