@@ -27,3 +27,5 @@ rsconnect/
 .Rproj.user
 .DS_Store
 Eikosograms.Rproj
+/doc/
+/Meta/

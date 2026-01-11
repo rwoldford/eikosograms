@@ -49,6 +49,20 @@ better suited than Mosaic plots to discrete graphical models based on
 conditional independence graphs (i.e. “Bayesian Networks” or
 “BayesNets”).
 
+## Citation
+
+If you use **eikosograms** in academic work, please cite the package:
+
+``` r
+citation("eikosograms")
+```
+
+This will return the recommended citation for the software and the
+related unpublished manuscripts. The related unpublished manuscripts
+provide theoretical background, historical context, and pedagogical
+motivation for eikosograms and are available at:
+<https://math.uwaterloo.ca/~rwoldfor/papers/eikosograms/>.
+
 # Package index
 
 ## Main function

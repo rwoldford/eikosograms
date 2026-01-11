@@ -55,8 +55,9 @@
 #' Journal of the Royal Statistical Society, Series B, 13, pp. 238-241.
 #'
 #' @keywords datasets
-#' @keywords contingency_tables
-#' @keywords Simpson_paradox
-#' @keywords history
+#' @concept Simpson's paradox
+#' @concept contingency tables
+#' @concept history of statistics
+
 NULL
 

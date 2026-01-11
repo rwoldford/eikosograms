@@ -1,0 +1,65 @@
+citHeader("To cite the eikosograms package and related unpublished manuscripts:")
+
+## ------------------------------------------------------------------
+## Software citation
+## ------------------------------------------------------------------
+
+bibentry(
+  bibtype = "Manual",
+  title   = "Visualizing probabilities, frequencies, and conditional independence for categorical variates",
+  author  = c(
+    person("Wayne",  "Oldford"),
+    person("Erle",   "Holgersen"),
+    person("Ben",    "Lafreniere"),
+    person("Tianlu", "Zhu")
+  ),
+  year    = "2026",
+  note    = "R package eikosograms, version 1.0.0",
+  url     = "https://rwoldford.github.io/eikosograms/",
+  textVersion =
+    "Oldford, W., Holgersen, E., Lafreniere, B., and Zhu, T. (2025). Visualizing probabilities, frequencies, and conditional independence for categorical variates. R package eikosograms (version 1.0.0)."
+)
+
+## ------------------------------------------------------------------
+## Unpublished manuscripts on eikosograms
+## ------------------------------------------------------------------
+
+bibentry(
+  bibtype = "Unpublished",
+  title   = "Picturing probability: The poverty of Venn diagrams, the richness of eikosograms",
+  author  = c(
+    person("W. H.", "Cherry"),
+    person("R. W.", "Oldford")
+  ),
+  year    = "2003",
+  month   = "Sep",
+  note    = "Unpublished manuscript (dated September 10, 2003).",
+  url     = "https://math.uwaterloo.ca/~rwoldfor/papers/eikosograms/paper.pdf",
+  textVersion =
+    "Cherry, W. H. and Oldford, R. W. (2003). Picturing probability: The poverty of Venn diagrams, the richness of eikosograms. Unpublished manuscript, September 10, 2003."
+)
+
+
+bibentry(
+  bibtype = "Unpublished",
+  title   = "Understanding probabilistic independence and its modelling via eikosograms and graphs",
+  author  = person("R. W.", "Oldford"),
+  year    = "2003",
+  month   = "Jan",
+  note    = "Unpublished manuscript (dated January 17, 2003).",
+  url     = "https://math.uwaterloo.ca/~rwoldfor/papers/eikosograms/independence/paper.pdf",
+  textVersion =
+    "Oldford, R. W. (2003). Understanding probabilistic independence and its modelling via eikosograms and graphs. Unpublished manuscript, January 17, 2003."
+)
+
+bibentry(
+  bibtype = "Unpublished",
+  title   = "Probability, problems, and paradoxes pictured by eikosograms",
+  author  = person("R. W.", "Oldford"),
+  year    = "2003",
+  month   = "Apr",
+  note    = "Unpublished manuscript (dated April 21, 2003).",
+  url     = "https://math.uwaterloo.ca/~rwoldfor/papers/eikosograms/examples/paper.pdf",
+  textVersion =
+    "Oldford, R. W. (2003). Probability, problems, and paradoxes pictured by eikosograms. Unpublished manuscript, April 21, 2003."
+)

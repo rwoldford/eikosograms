@@ -12,14 +12,14 @@ library(gridExtra)
 In this vignette, we explore independence and conditional independence
 between two or more categorical variates. It is recommended that the
 reader be familiar with the [introduction to eikosograms
-vignette](https://rwoldford.github.io/eikosograms/articles/introduction.md)
+vignette](https://rwoldford.github.io/eikosograms/articles/Introduction.md)
 before continuing. Independence, including conditional independence is
 discussed there as well.
 
 ### Of two variates
 
 As discussed in the [introduction to eikosograms
-vignette](https://rwoldford.github.io/eikosograms/articles/introduction.md),
+vignette](https://rwoldford.github.io/eikosograms/articles/Introduction.md),
 the probabilistic independence of two categorical random variates
 clearly appears as a **flat eikosogram**. Two categorical random
 variates $`X`$ and $`Y`$ are distributed **independently** of one

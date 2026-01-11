@@ -148,10 +148,10 @@ cond_indep <- fig5c_data
 
 # Independence
 
-In this vignette, we explore independence and conditional independence between two or more categorical variates.  It is recommended that the reader be familiar with the [introduction to eikosograms vignette](introduction.html) before continuing.  Independence, including conditional independence is discussed there as well.
+In this vignette, we explore independence and conditional independence between two or more categorical variates.  It is recommended that the reader be familiar with the [introduction to eikosograms vignette](Introduction.html) before continuing.  Independence, including conditional independence is discussed there as well.
 
 ## Of two variates
-As discussed in the [introduction to eikosograms vignette](introduction.html), the probabilistic independence of two categorical random variates clearly appears as a **flat eikosogram**.
+As discussed in the [introduction to eikosograms vignette](Introduction.html), the probabilistic independence of two categorical random variates clearly appears as a **flat eikosogram**.
 Two categorical random variates $X$ and $Y$  are distributed **independently** of one another if and only if their corresponding eikosgram is **flat**.
 
 This is because independence is defined by the following relationship

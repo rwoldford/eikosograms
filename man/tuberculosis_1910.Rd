@@ -58,7 +58,7 @@ Journal of the Royal Statistical Society, Series B, 13, pp. 238-241.
 \author{
 R.W. Oldford.
 }
-\keyword{Simpson_paradox}
-\keyword{contingency_tables}
+\concept{Simpson's paradox}
+\concept{contingency tables}
+\concept{history of statistics}
 \keyword{datasets}
-\keyword{history}

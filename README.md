@@ -26,3 +26,16 @@ Mosaic plots are better suited to log-linear style modelling as in discrete mult
 
 Of course, eikosograms are also suited to discrete multivariate analysis with each variate in turn appearing as the response. 
 This makes it better suited than Mosaic plots to discrete graphical models based on conditional independence graphs (i.e. "Bayesian Networks" or "BayesNets").
+
+## Citation
+
+If you use **eikosograms** in academic work, please cite the package:
+
+```r
+citation("eikosograms")
+```
+
+This will return the recommended citation for the software and the related unpublished manuscripts.
+The related unpublished manuscripts provide theoretical background, historical context, 
+and pedagogical motivation for eikosograms and are available at:
+[https://math.uwaterloo.ca/~rwoldfor/papers/eikosograms/](https://math.uwaterloo.ca/~rwoldfor/papers/eikosograms/).
