@@ -103,7 +103,7 @@ Waterloo <- data.frame(Decision = c(rep("Accepted", 1200),
 eikos("Decision", data = Waterloo)
 ```
 
-Only two decisions are possible --  an application is either accepted (and an offer of admission made) or it is rejected, as identified by the abels on the left side of eikosogram.  On the right side of the eikosogram a single number appears, `r round(sum(Waterloo$Decision == "Accepted")/nrow(Waterloo), 2)`, marking the vertical height of the bottom (blue) rectangle.
+Only two decisions are possible --  an application is either accepted (and an offer of admission made) or it is rejected, as identified by the labels on the left side of eikosogram.  On the right side of the eikosogram a single number appears, `r round(sum(Waterloo$Decision == "Accepted")/nrow(Waterloo), 2)`, marking the vertical height of the bottom (blue) rectangle.
 
 An eikosogram always has unit area (whatever its aspect ratio) and represents the  totality of its probability with each side of the eikosogram extending from 0 to 1.  The bottom (blue) rectangle is associated with the event that an application is accepted and its area the probability of acceptance.  This probability is determined by simply calculating this area from the eikosogram as
 \[ 

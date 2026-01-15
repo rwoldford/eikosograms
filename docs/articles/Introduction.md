@@ -43,7 +43,7 @@ Application to Waterloo’s Faculty of Mathematics (2017)
 
 Only two decisions are possible – an application is either accepted (and
 an offer of admission made) or it is rejected, as identified by the
-abels on the left side of eikosogram. On the right side of the
+labels on the left side of eikosogram. On the right side of the
 eikosogram a single number appears, 0.08, marking the vertical height of
 the bottom (blue) rectangle.
 
