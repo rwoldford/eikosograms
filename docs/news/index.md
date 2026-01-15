@@ -2,6 +2,8 @@
 
 ## eikosograms 1.0.0
 
+CRAN release: 2026-01-11
+
 - Updating of local URL references in vignettes to meet CRAN standards
 
 - Added some data sets
