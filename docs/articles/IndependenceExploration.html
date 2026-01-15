@@ -11,7 +11,13 @@
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
 <link rel="icon" sizes="any" href="../favicon.ico">
 <link rel="manifest" href="../site.webmanifest">
-<script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- mathjax math --><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script><script>
+  window.MathJax = {
+    chtml: {
+      fontURL: "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2"
+    }
+  };
+</script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
@@ -100,27 +106,17 @@ discussed there as well.</p>
 <p>As discussed in the <a href="Introduction.html">introduction to
 eikosograms vignette</a>, the probabilistic independence of two
 categorical random variates clearly appears as a <strong>flat
-eikosogram</strong>. Two categorical random variates
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
-are distributed <strong>independently</strong> of one another if and
-only if their corresponding eikosgram is <strong>flat</strong>.</p>
+eikosogram</strong>. Two categorical random variates <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are distributed
+<strong>independently</strong> of one another if and only if their
+corresponding eikosgram is <strong>flat</strong>.</p>
 <p>This is because independence is defined by the following relationship
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">Pr(Y ~\vert~X) = Pr(Y) </annotation></semantics></math>
-so that the conditional probabilities do not change as the value of the
-conditioning variate
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>)
-change. In fact, the conditional probabilities are identical to the
-marginal probabilities (as if
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
-were not there).</p>
-<p>Equivalently,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
-are independent if and only if
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mi>Y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mo>Pr</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">Pr(X ~\vert~Y) = \Pr(X). </annotation></semantics></math></p>
+<span class="math display">\[Pr(Y ~\vert~X) = Pr(Y) \]</span> so that
+the conditional probabilities do not change as the value of the
+conditioning variate (<span class="math inline">\(X\)</span>) change. In
+fact, the conditional probabilities are identical to the marginal
+probabilities (as if <span class="math inline">\(X\)</span> were not
+there).</p>
+<p>Equivalently, <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent if and only if <span class="math display">\[Pr(X ~\vert~Y) = \Pr(X). \]</span></p>
 <p>These mathematical equivalences arise as flat eikosograms are
 flat:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
@@ -138,31 +134,20 @@ Independence of variates X and Y
 </p>
 </div>
 <p>Following <span class="citation">Dawid (1979)</span>, we concisely
-denote the independence of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
-by <span class="math inline">$X \bot\hspace{-.5em}\bot Y$</span> or,
-being symmetric, equivalently <span class="math inline">$Y
-\bot\hspace{-.5em}\bot X$</span>. Similarly, when
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
-are known <strong>not</strong> to be independent we write <span class="math inline">$X \bot\hspace{-.5em}\bot\hspace{-0.85em} \times
-Y$</span>.</p>
-<p><strong>Note</strong>: In the example both
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
-were chosen to be <em>binary</em> random variates. This was done for two
-reasons.</p>
+denote the independence of <span class="math inline">\(X\)</span> and
+<span class="math inline">\(Y\)</span> by <span class="math inline">\(X
+\bot\hspace{-.5em}\bot Y\)</span> or, being symmetric, equivalently
+<span class="math inline">\(Y \bot\hspace{-.5em}\bot X\)</span>.
+Similarly, when <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are known <strong>not</strong> to be
+independent we write <span class="math inline">\(X
+\bot\hspace{-.5em}\bot\hspace{-0.85em} \times Y\)</span>.</p>
+<p><strong>Note</strong>: In the example both <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> were chosen to be <em>binary</em>
+random variates. This was done for two reasons.</p>
 <ul>
 <li>For simplicity of presentation: had there been more values of either
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
-or
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
-there would have just been more columns in the eikosogram for the
-conditioning variate and more flat layers for the response variate.</li>
+<span class="math inline">\(X\)</span> or <span class="math inline">\(Y\)</span> there would have just been more columns
+in the eikosogram for the conditioning variate and more flat layers for
+the response variate.</li>
 <li>In some problems, we prefer to talk about events rather than random
 variates. The same diagram can be used to discuss events: e.g. we could
 define the event <code>A</code> as occurring whenever
@@ -175,23 +160,14 @@ whenever <code>Y</code> takes values <code>y_1</code> or
 <div class="section level3">
 <h3 id="conditionally">Conditionally<a class="anchor" aria-label="anchor" href="#conditionally"></a>
 </h3>
-<p>When we have three variates, say
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>,
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Z</mi><annotation encoding="application/x-tex">Z</annotation></semantics></math>,
-the pairwise independences <span class="math inline">$Y
-\bot\hspace{-.5em}\bot X$</span>, <span class="math inline">$Y
-\bot\hspace{-.5em}\bot Z$</span>, and <span class="math inline">$Z
-\bot\hspace{-.5em}\bot X$</span> can be examined by looking at the
-corresponding eikosograms.</p>
+<p>When we have three variates, say <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span>, and <span class="math inline">\(Z\)</span>, the pairwise independences <span class="math inline">\(Y \bot\hspace{-.5em}\bot X\)</span>, <span class="math inline">\(Y \bot\hspace{-.5em}\bot Z\)</span>, and <span class="math inline">\(Z \bot\hspace{-.5em}\bot X\)</span> can be
+examined by looking at the corresponding eikosograms.</p>
 <p>But we can also construct eikosograms that have more than one
 conditioning variate and so examine, for example, the conditional
-probabilities of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math><strong>given the pair of variates</strong>
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math><strong>and</strong>
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>.
-Some interesting features may result.</p>
+probabilities of <span class="math inline">\(Y\)</span> <strong>given
+the pair of variates</strong> <span class="math inline">\(X\)</span>
+<strong>and</strong> <span class="math inline">\(Y\)</span>. Some
+interesting features may result.</p>
 <p>For example, consider the following eikosogram</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/eikos.html">eikos</a></span><span class="op">(</span><span class="st">"Y"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"X"</span>,  <span class="st">"Z"</span><span class="op">)</span>, data <span class="op">=</span> <span class="va">cond_indep</span>, xaxs <span class="op">=</span> <span class="cn">FALSE</span>, yaxs <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
@@ -200,28 +176,16 @@ Some interesting features may result.</p>
 Conditional independence of variates Y and X given Z
 </p>
 </div>
-<p>The eikosogram has two flat sections, one when
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo>=</mo><mi>z</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">Z = z1</annotation></semantics></math>,
-the other when
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo>=</mo><mi>z</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">Z=z2</annotation></semantics></math>.</p>
+<p>The eikosogram has two flat sections, one when <span class="math inline">\(Z = z1\)</span>, the other when <span class="math inline">\(Z=z2\)</span>.</p>
 <p>Looking only at the left hand flat first, we see from the eikosogram
-that
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mi>X</mi><mo>=</mo><mi>x</mi><mn>1</mn><mspace width="0.222em"></mspace><mi>&amp;</mi><mspace width="0.222em"></mspace><mi>Z</mi><mo>=</mo><mi>z</mi><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mi>X</mi><mo>=</mo><mi>x</mi><mn>2</mn><mspace width="0.222em"></mspace><mi>&amp;</mi><mspace width="0.222em"></mspace><mi>Z</mi><mo>=</mo><mi>z</mi><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">Pr(Y ~\vert~X = x1 ~\&amp;~Z = z1) = Pr(Y ~\vert~X = x2 ~\&amp;~Z = z1)</annotation></semantics></math>
-for all values of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>.
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
-is therefore <strong>conditionally independent</strong> of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
-when
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo>=</mo><mi>z</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">Z = z1</annotation></semantics></math>,
-which we denote as <span class="math display">$$ Y
-\bot\hspace{-.5em}\bot X ~\vert~(Z = z1). $$</span> It follows
-mathematically that
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mi>X</mi><mspace width="0.222em"></mspace><mi>&amp;</mi><mspace width="0.222em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mi>Z</mi><mo>=</mo><mi>z</mi><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mi>Z</mi><mo>=</mo><mi>z</mi><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">Pr(Y ~\vert~X ~\&amp;~(Z = z1)) = Pr(Y ~\vert~Z = z1)</annotation></semantics></math>
-for all values of of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>.</p>
+that <span class="math display">\[Pr(Y ~\vert~X = x1 ~\&amp;~Z = z1) =
+Pr(Y ~\vert~X = x2 ~\&amp;~Z = z1)\]</span> for all values of <span class="math inline">\(Y\)</span>. <span class="math inline">\(Y\)</span>
+is therefore <strong>conditionally independent</strong> of <span class="math inline">\(X\)</span> when <span class="math inline">\(Z =
+z1\)</span>, which we denote as <span class="math display">\[ Y
+\bot\hspace{-.5em}\bot X ~\vert~(Z = z1). \]</span> It follows
+mathematically that <span class="math display">\[Pr(Y ~\vert~X
+~\&amp;~(Z = z1)) = Pr(Y ~\vert~Z = z1)\]</span> for all values of of
+<span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span>.</p>
 <div class="section level4">
 <h4 id="water-container-metaphor">Water container metaphor<a class="anchor" aria-label="anchor" href="#water-container-metaphor"></a>
 </h4>
@@ -230,53 +194,28 @@ eikosogram by applying the <strong>water container metaphor</strong> to
 the left hand flat.</p>
 <p>To do so, think of the eikosogram as a series of columnar containers
 with a varying amounts of water each, as shown by the bottom blue
-rectangles (if
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
-had more values, think of the containers having liquids of various
-density to give the layers in each column). Were the boundary between
-two neighbouring containers to be perforated, then the liquid in the two
-containers would redistribute to find a new level across both
-containers.</p>
+rectangles (if <span class="math inline">\(Y\)</span> had more values,
+think of the containers having liquids of various density to give the
+layers in each column). Were the boundary between two neighbouring
+containers to be perforated, then the liquid in the two containers would
+redistribute to find a new level across both containers.</p>
 <p>If, for example, the boundary between the two neighbouring containers
-at left (between
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mi>x</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">X = x1</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mi>x</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">X = x2</annotation></semantics></math>
-when
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo>=</mo><mi>z</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">Z = z1</annotation></semantics></math>)
-were to be removed, then the resulting level would unchanged. Removing
-this boundary removes the effect of changing
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
-when
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo>=</mo><mi>z</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">Z = z1</annotation></semantics></math>;
-that is, we have marginalized over
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
-with the resulting level becoming
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo>=</mo><mi>y</mi><mn>1</mn><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mi>Z</mi><mo>=</mo><mi>z</mi><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">Pr(Y = y1 ~\vert~Z = z1)</annotation></semantics></math>.
-The unchanging level for this particular eikosogram implies the previous
-result, namely
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mi>X</mi><mspace width="0.222em"></mspace><mi>&amp;</mi><mspace width="0.222em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mi>Z</mi><mo>=</mo><mi>z</mi><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mi>Z</mi><mo>=</mo><mi>z</mi><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">Pr(Y ~\vert~X ~\&amp;~(Z = z1)) = Pr(Y ~\vert~Z = z1)</annotation></semantics></math>.</p>
+at left (between <span class="math inline">\(X = x1\)</span> and <span class="math inline">\(X = x2\)</span> when <span class="math inline">\(Z
+= z1\)</span>) were to be removed, then the resulting level would
+unchanged. Removing this boundary removes the effect of changing <span class="math inline">\(X\)</span> when <span class="math inline">\(Z =
+z1\)</span>; that is, we have marginalized over <span class="math inline">\(X\)</span> with the resulting level becoming <span class="math inline">\(Pr(Y = y1 ~\vert~Z = z1)\)</span>. The unchanging
+level for this particular eikosogram implies the previous result, namely
+<span class="math inline">\(Pr(Y ~\vert~X ~\&amp;~(Z = z1)) = Pr(Y
+~\vert~Z = z1)\)</span>.</p>
 <p>The same can be said about the right hand side of the eikosogram
-where
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo>=</mo><mi>z</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">Z = z2</annotation></semantics></math>.
-That is, it follows from the mathematics and/or eikosogram that we also
-have <span class="math display">$$ Y \bot\hspace{-.5em}\bot X ~\vert~(Z
-= z2). $$</span></p>
-<p>Since the conditional independence holds whatever value
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Z</mi><annotation encoding="application/x-tex">Z</annotation></semantics></math>
-takes, we say more generally that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
-are conditionally independent of one another given the value of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Z</mi><annotation encoding="application/x-tex">Z</annotation></semantics></math>
-and more succinctly write <span class="math display">$$ Y
-\bot\hspace{-.5em}\bot X ~\vert~Z $$</span> to assert that this holds no
-matter what the values of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>,
-or
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Z</mi><annotation encoding="application/x-tex">Z</annotation></semantics></math>.</p>
+where <span class="math inline">\(Z = z2\)</span>. That is, it follows
+from the mathematics and/or eikosogram that we also have <span class="math display">\[ Y \bot\hspace{-.5em}\bot X ~\vert~(Z = z2).
+\]</span></p>
+<p>Since the conditional independence holds whatever value <span class="math inline">\(Z\)</span> takes, we say more generally that <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span> are conditionally independent of one
+another given the value of <span class="math inline">\(Z\)</span> and
+more succinctly write <span class="math display">\[ Y
+\bot\hspace{-.5em}\bot X ~\vert~Z \]</span> to assert that this holds no
+matter what the values of <span class="math inline">\(Y\)</span>, <span class="math inline">\(X\)</span>, or <span class="math inline">\(Z\)</span>.</p>
 <p>Clearly a number of independence relationships are possiblie for any
 collection of three variates which suggests a broader notation for
 probabilistic independence might be of some help.</p>
@@ -297,37 +236,31 @@ capture all of these possibilities – see <span class="citation">Oldford
 representations.</p>
 <p>However, the variants can be illustrated symbolically if we only
 slightly adjust the standard notation, switching from the standard
-“infix” use of <span class="math inline">$\bot\hspace{-.5em}\bot$</span>
-to a “prefix” version.</p>
+“infix” use of <span class="math inline">\(\bot\hspace{-.5em}\bot\)</span> to a “prefix”
+version.</p>
 <div class="section level4">
 <h4 id="a-prefix-notation-for-independence">A prefix notation for independence<a class="anchor" aria-label="anchor" href="#a-prefix-notation-for-independence"></a>
 </h4>
-<p><span class="math inline">$X \bot\hspace{-.5em}\bot Y$</span> is the
-common notation to express the fact that random variates
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
-are probabilistically independent of one another.</p>
+<p><span class="math inline">\(X \bot\hspace{-.5em}\bot Y\)</span> is
+the common notation to express the fact that random variates <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are probabilistically independent of
+one another.</p>
 <p>A slight variant of this notation can be used to convey more than
-pairwise independence. The idea is to switch to using <span class="math inline">$\bot\hspace{-.5em}\bot$</span> as a function of any
-number of variates. For a pair of variates <span class="math inline">$\bot\hspace{-.5em}\bot(X, Y)$</span> means, as
-before, that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
-are probabilistically independent of one another. The notation becomes
-useful when there it has more than two arguments (or variates); it then
-indicates that all variates are probabilistically independent in every
-way, a <em>complete independence</em> of one another. This idea is made
-more precise in this section.</p>
+pairwise independence. The idea is to switch to using <span class="math inline">\(\bot\hspace{-.5em}\bot\)</span> as a function of
+any number of variates. For a pair of variates <span class="math inline">\(\bot\hspace{-.5em}\bot(X, Y)\)</span> means, as
+before, that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are probabilistically independent of
+one another. The notation becomes useful when there it has more than two
+arguments (or variates); it then indicates that all variates are
+probabilistically independent in every way, a <em>complete
+independence</em> of one another. This idea is made more precise in this
+section.</p>
 <p>Strictly speaking, the notation is not necessary to understand the
 rest of the vignette and readers may skip this subsection and return to
 it after observing eikosograms for the various possible cases of
 independence involving three variates. The notation principally permits
 these cases to be symbolically described more succinctly.</p>
 <p>As an operator on two or more symmetrically treated variables, the
-function <span class="math inline">$\bot\hspace{-.5em}\bot(X, Y, Z,
-\ldots)$</span> is understood as follows: <span class="math display">$$\begin{eqnarray}
+function <span class="math inline">\(\bot\hspace{-.5em}\bot(X, Y, Z,
+\ldots)\)</span> is understood as follows: <span class="math display">\[\begin{eqnarray}
 \bot\hspace{-.5em}\bot(Y, X)
 &amp; \mbox{  means } &amp;
 Y \bot\hspace{-.5em}\bot X \nonumber \\
@@ -358,17 +291,17 @@ Y \bot\hspace{-.5em}\bot Z, ~
 \mbox{ and } ~
 X \bot\hspace{-.5em}\bot Z   
 \nonumber
-\end{eqnarray}$$</span> When only the binary operation is called for,
+\end{eqnarray}\]</span> When only the binary operation is called for,
 either the prefix or infix notation can be used depending on which seems
 clearer in the context.</p>
 <p>As always, conditioning variables or events appear to the right of a
 vertical line (if more than one variable is conditioned on, as in <span class="citation">Dawid (1979)</span>, they can appear listed separately
 within parentheses after the vertical bar).</p>
-<p>The prefix notation <span class="math inline">$\bot\hspace{-.5em}\bot(Y, \cdots , Z)$</span> is
+<p>The prefix notation <span class="math inline">\(\bot\hspace{-.5em}\bot(Y, \cdots , Z)\)</span> is
 intended to indicate the complete probabilistic independence of its
 arguments which, as with pairwise independence, can occur for its
 arguments either unconditionally or conditionally given other random
-variables or events. So, <span class="math display">$$\begin{eqnarray}
+variables or events. So, <span class="math display">\[\begin{eqnarray}
 \bot\hspace{-.5em}\bot(Y, X, Z) ~\vert~W
 &amp; \mbox{  means } &amp;
 \bot\hspace{-.5em}\bot(Y, X) ~\vert~(Z, W),~~  
@@ -382,8 +315,8 @@ variables or events. So, <span class="math display">$$\begin{eqnarray}
 &amp; &amp;
 \mbox{ all hold }
 \nonumber
-\end{eqnarray}$$</span> For four variables the recursive definition is
-<span class="math display">$$\begin{eqnarray}
+\end{eqnarray}\]</span> For four variables the recursive definition is
+<span class="math display">\[\begin{eqnarray}
 \bot\hspace{-.5em}\bot(Y, X, Z, W) &amp; ~~\mbox{ means that }~~
 &amp;\nonumber \\
 &amp;
@@ -401,17 +334,17 @@ variables or events. So, <span class="math display">$$\begin{eqnarray}
 \nonumber \\
 &amp;
 \mbox{ all hold. }&amp;   \nonumber
-\end{eqnarray}$$</span> The extension of the notation to more than four
-variables is entirely analogous. <span class="math inline">$\bot\hspace{-.5em}\bot\hspace{-0.85em} \times (Y,
-\cdots , Z)$</span> means that at least one of the independencies on the
-right hand side does not hold.</p>
+\end{eqnarray}\]</span> The extension of the notation to more than four
+variables is entirely analogous. <span class="math inline">\(\bot\hspace{-.5em}\bot\hspace{-0.85em} \times (Y,
+\cdots , Z)\)</span> means that at least one of the independencies on
+the right hand side does not hold.</p>
 <p>Given the number of independencies that are entailed, the phrase
 independence seems more evocative of the strength of the assertion than
 does the traditional independence. <span class="citation">Oldford
 (2003)</span> studies these relationships in some detail (including
 linking them to log-linear and graphical models).</p>
 <p>The rest of the vignette explores eikosograms which show the various
-possible independencies that appear as part of the definition of <span class="math inline">$\bot\hspace{-.5em}\bot(X,Y,Z)$</span>.</p>
+possible independencies that appear as part of the definition of <span class="math inline">\(\bot\hspace{-.5em}\bot(X,Y,Z)\)</span>.</p>
 </div>
 </div>
 <div class="section level2">
@@ -424,18 +357,11 @@ constructed to illustrate the possible independence relationships
 between three categorical variates. For each example, there will be a
 table of joint probabilities from which eikosograms may be
 determined.</p>
-<p>To simplify the presentation, each variate,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>,
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Z</mi><annotation encoding="application/x-tex">Z</annotation></semantics></math>,
-will be binary, taking values “x1” or “x2”, “y1” or “y2”, and “z1” or
-“z2”, respectively. That way the number of combinations of variate
-values is reduced to
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>8</mn><annotation encoding="application/x-tex">8</annotation></semantics></math>,
-the number of cells in a complete
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>2</mn><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2 \times 2 \times 2</annotation></semantics></math>
-table of the joint probabilities.</p>
+<p>To simplify the presentation, each variate, <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span>, and <span class="math inline">\(Z\)</span>, will be binary, taking values “x1” or
+“x2”, “y1” or “y2”, and “z1” or “z2”, respectively. That way the number
+of combinations of variate values is reduced to <span class="math inline">\(8\)</span>, the number of cells in a complete
+<span class="math inline">\(2 \times 2 \times 2\)</span> table of the
+joint probabilities.</p>
 <p>A function to create the tables with data in the form given in the
 Appendix of <span class="citation">Oldford (2003)</span> is the
 following:</p>
@@ -454,22 +380,12 @@ following:</p>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">as.table</a></span><span class="op">(</span><span class="va">probs</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
 <p>Here the argument <code>widths</code> refers to the marginal joint
-probabilities of the values of the conditioning variate pairs
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo>,</mo><mi>Z</mi><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(X, Z)</annotation></semantics></math>
-in the order
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mn>1</mn><mo>,</mo><mi>z</mi><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(x1, z1)</annotation></semantics></math>,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mn>1</mn><mo>,</mo><mi>z</mi><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(x1, z2)</annotation></semantics></math>,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mn>2</mn><mo>,</mo><mi>z</mi><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(x2, z1)</annotation></semantics></math>,
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mn>2</mn><mo>,</mo><mi>z</mi><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(x2, z2)</annotation></semantics></math>.
-The widths must sum to 1. The argument <code>heights</code> gives the
-conditional probabilities of the response variate
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
-taking value
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">y1</annotation></semantics></math>
-for each of value of the conditioning pairs
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo>,</mo><mi>Y</mi><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(X, Y)</annotation></semantics></math>
-in the same order as <code>widths</code>. There is no restriction on the
+probabilities of the values of the conditioning variate pairs <span class="math inline">\((X, Z)\)</span> in the order <span class="math inline">\((x1, z1)\)</span>, <span class="math inline">\((x1, z2)\)</span>, <span class="math inline">\((x2, z1)\)</span>, and <span class="math inline">\((x2, z2)\)</span>. The widths must sum to 1. The
+argument <code>heights</code> gives the conditional probabilities of the
+response variate <span class="math inline">\(Y\)</span> taking value
+<span class="math inline">\(y1\)</span> for each of value of the
+conditioning pairs <span class="math inline">\((X, Y)\)</span> in the
+same order as <code>widths</code>. There is no restriction on the
 individual heights except that they be probabilities.</p>
 <p>For example,</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
@@ -548,48 +464,29 @@ What is the independence structure?
 </div>
 <p>This eikosogram suggests some sort of independence. Certainly,
 applying the water container metaphor makes it easy to see the “flat
-water” in the diagram implies that <span class="math inline">$Y
-\bot\hspace{-.5em}\bot Z ~\vert~X$</span> and also that <span class="math inline">$Y \bot\hspace{-.5em}\bot X ~\vert~Z$</span>. That
+water” in the diagram implies that <span class="math inline">\(Y
+\bot\hspace{-.5em}\bot Z ~\vert~X\)</span> and also that <span class="math inline">\(Y \bot\hspace{-.5em}\bot X ~\vert~Z\)</span>. That
 all of the levels are identical also allows us to see that any
 perforation of vertical barriers would have no effect on any of the
-heights and hence we can conclude that pairwise independencies <span class="math inline">$\bot\hspace{-.5em}\bot(Y, X)$</span> and <span class="math inline">$\bot\hspace{-.5em}\bot(Y, Z)$</span> also hold.</p>
+heights and hence we can conclude that pairwise independencies <span class="math inline">\(\bot\hspace{-.5em}\bot(Y, X)\)</span> and <span class="math inline">\(\bot\hspace{-.5em}\bot(Y, Z)\)</span> also
+hold.</p>
 <p>One might be tempted to jump to the conclusion that the flat
-structure across all values of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Z</mi><annotation encoding="application/x-tex">Z</annotation></semantics></math>
-implies that <span class="math inline">$\bot\hspace{-.5em}\bot(X,Y,Z)$</span> also holds
-(i.e. that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>,
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Z</mi><annotation encoding="application/x-tex">Z</annotation></semantics></math>
-are <strong>completely independent</strong>). This would be a mistake.
-What this eikosogram fails to reveal immediately is the <strong>pairwise
-relationship</strong> between
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Z</mi><annotation encoding="application/x-tex">Z</annotation></semantics></math>
-and what effect it might have, if any, on the remaining conditional
-relations
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo>,</mo><mi>Z</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">X ~\vert~(Y, Z)</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo>,</mo><mi>Z</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">Z ~\vert~(X, Z)</annotation></semantics></math>.</p>
+structure across all values of <span class="math inline">\(X\)</span>
+and <span class="math inline">\(Z\)</span> implies that <span class="math inline">\(\bot\hspace{-.5em}\bot(X,Y,Z)\)</span> also holds
+(i.e. that <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span>, and <span class="math inline">\(Z\)</span> are <strong>completely
+independent</strong>). This would be a mistake. What this eikosogram
+fails to reveal immediately is the <strong>pairwise
+relationship</strong> between <span class="math inline">\(X\)</span> and
+<span class="math inline">\(Z\)</span> and what effect it might have, if
+any, on the remaining conditional relations <span class="math inline">\(X ~\vert~(Y, Z)\)</span> and <span class="math inline">\(Z ~\vert~(X, Z)\)</span>.</p>
 <p>It turns our that for this set of probabilities, the three variables
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>,
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Z</mi><annotation encoding="application/x-tex">Z</annotation></semantics></math>
-are <strong>not completely independent</strong>.</p>
+<span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span>, and <span class="math inline">\(Z\)</span> are <strong>not completely
+independent</strong>.</p>
 <div class="section level3">
 <h3 id="the-set-of-possibilities">The set of possibilities<a class="anchor" aria-label="anchor" href="#the-set-of-possibilities"></a>
 </h3>
-<p>For three variates, say
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>,
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Z</mi><annotation encoding="application/x-tex">Z</annotation></semantics></math>,
-a great many eikosograms are possibly of interest.</p>
+<p>For three variates, say <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span>, and <span class="math inline">\(Z\)</span>, a great many eikosograms are possibly
+of interest.</p>
 <p>To begin with any one of the three variates can be chosen as the
 response variate (or vertical axis), with the combinations of the
 remaining two appearing as conditioning variates. The order of the
@@ -611,7 +508,7 @@ illustrated in turn below.</p>
 <p>As was suggested earlier, it is not enough to consider only one of
 the variates as the response. While it may be possible to infer some
 independence structure from one three-way eikosogram, all three must be
-considered. If all three 3-way diagrams are flat, then <span class="math inline">$\bot\hspace{-.5em}\bot(X, Y, Z)$</span> holds and
+considered. If all three 3-way diagrams are flat, then <span class="math inline">\(\bot\hspace{-.5em}\bot(X, Y, Z)\)</span> holds and
 we have <strong>complete independence</strong>.</p>
 <p>An example where this occurs is very nearly the same as
 <code>someTable</code> above and is given by the following table of
@@ -644,8 +541,9 @@ Complete independence
 </div>
 <p>Note that each of the three eikosograms is completely flat. This is
 the hallmark of complete independence. In fact, it can be proved that
-<span class="math inline">$\bot\hspace{-.5em}\bot(X,Y,Z)$</span> occurs
-if, and only if, all three of these 3-way eikosograms is flat.</p>
+<span class="math inline">\(\bot\hspace{-.5em}\bot(X,Y,Z)\)</span>
+occurs if, and only if, all three of these 3-way eikosograms is
+flat.</p>
 <p>The conditional independencies are obvious from the diagrams, as are
 the marginal pairwise independencies. To check the latter we could
 construct the corresponding histograms.</p>
@@ -734,7 +632,7 @@ Complete independence
 </p>
 </div>
 <p>All eikosograms are flat, indicating the complete independence of all
-three variates from one another <span class="math inline">$\bot\hspace{-.5em}\bot(X, Y, Z)$</span></p>
+three variates from one another <span class="math inline">\(\bot\hspace{-.5em}\bot(X, Y, Z)\)</span></p>
 </div>
 <div class="section level4">
 <h4 id="case-2-one-4-flat-two-2-by-2-flats">Case 2: one 4-flat, two 2 by 2-flats<a class="anchor" aria-label="anchor" href="#case-2-one-4-flat-two-2-by-2-flats"></a>
@@ -754,8 +652,8 @@ one of the conditioning variates and not the others.</p>
 One 4-flat; two 2 by 2 flats
 </p>
 </div>
-<p>Because not all eikosograms are flat, we can conclude that <span class="math inline">$\bot\hspace{-.5em}\bot\hspace{-0.85em} \times (X,
-Y, Z)$</span>; there are at least some dependencies amongst the three
+<p>Because not all eikosograms are flat, we can conclude that <span class="math inline">\(\bot\hspace{-.5em}\bot\hspace{-0.85em} \times (X,
+Y, Z)\)</span>; there are at least some dependencies amongst the three
 variates.</p>
 <p>Recall that the value of the first conditioning variate mentioned
 changes fastest left to right across the vertical bars of any one
@@ -766,29 +664,29 @@ more slowly.</p>
 <li>from the first top row eikosogram that
 <ul>
 <li>
-<span class="math inline">$Y \bot\hspace{-.5em}\bot Z
-~\vert~X$</span>, but that</li>
+<span class="math inline">\(Y \bot\hspace{-.5em}\bot Z
+~\vert~X\)</span>, but that</li>
 <li>
-<span class="math inline">$Y \bot\hspace{-.5em}\bot\hspace{-0.85em}
-\times X ~\vert~Z$</span>;</li>
+<span class="math inline">\(Y \bot\hspace{-.5em}\bot\hspace{-0.85em}
+\times X ~\vert~Z\)</span>;</li>
 </ul>
 </li>
 <li>from the second eikosogram in the top row that
 <ul>
 <li>
-<span class="math inline">$X \bot\hspace{-.5em}\bot Z
-~\vert~Y$</span>, but that</li>
+<span class="math inline">\(X \bot\hspace{-.5em}\bot Z
+~\vert~Y\)</span>, but that</li>
 <li>
-<span class="math inline">$X \bot\hspace{-.5em}\bot\hspace{-0.85em}
-\times Y ~\vert~Z$</span>; and</li>
+<span class="math inline">\(X \bot\hspace{-.5em}\bot\hspace{-0.85em}
+\times Y ~\vert~Z\)</span>; and</li>
 </ul>
 </li>
 <li>from the third eikosogram in the top row that
 <ul>
 <li>
-<span class="math inline">$Z \bot\hspace{-.5em}\bot Y
-~\vert~X$</span> <strong>and</strong> <span class="math inline">$Z
-\bot\hspace{-.5em}\bot X ~\vert~Y$</span>.</li>
+<span class="math inline">\(Z \bot\hspace{-.5em}\bot Y
+~\vert~X\)</span> <strong>and</strong> <span class="math inline">\(Z
+\bot\hspace{-.5em}\bot X ~\vert~Y\)</span>.</li>
 </ul>
 </li>
 </ul>
@@ -802,44 +700,48 @@ we see</p>
 <li>from the first pair of eikosograms in the second row that
 <ul>
 <li>
-<span class="math inline">$Y \bot\hspace{-.5em}\bot\hspace{-0.85em}
-\times X$</span>, but</li>
+<span class="math inline">\(Y \bot\hspace{-.5em}\bot\hspace{-0.85em}
+\times X\)</span>, but</li>
 <li>
-<span class="math inline">$Y \bot\hspace{-.5em}\bot Z$</span>;</li>
+<span class="math inline">\(Y \bot\hspace{-.5em}\bot
+Z\)</span>;</li>
 </ul>
 </li>
 <li>from the second pair of eikosograms in the second row that
 <ul>
 <li>
-<span class="math inline">$X \bot\hspace{-.5em}\bot\hspace{-0.85em}
-\times Y$</span>, but</li>
+<span class="math inline">\(X \bot\hspace{-.5em}\bot\hspace{-0.85em}
+\times Y\)</span>, but</li>
 <li>
-<span class="math inline">$X \bot\hspace{-.5em}\bot Z$</span>;</li>
+<span class="math inline">\(X \bot\hspace{-.5em}\bot
+Z\)</span>;</li>
 </ul>
 </li>
 <li>from the third pair of eikosograms in the second row that
 <ul>
 <li>
-<span class="math inline">$Z \bot\hspace{-.5em}\bot Y$</span>,
+<span class="math inline">\(Z \bot\hspace{-.5em}\bot Y\)</span>,
 and</li>
 <li>
-<span class="math inline">$Z \bot\hspace{-.5em}\bot X$</span>.</li>
+<span class="math inline">\(Z \bot\hspace{-.5em}\bot
+X\)</span>.</li>
 </ul>
 </li>
 </ul>
 <p>In summary, the only independencies presented are</p>
 <ul>
 <li>
-<span class="math inline">$Z \bot\hspace{-.5em}\bot X
-~\vert~Y$</span>,</li>
+<span class="math inline">\(Z \bot\hspace{-.5em}\bot X
+~\vert~Y\)</span>,</li>
 <li>
-<span class="math inline">$Z \bot\hspace{-.5em}\bot Y
-~\vert~X$</span>,</li>
+<span class="math inline">\(Z \bot\hspace{-.5em}\bot Y
+~\vert~X\)</span>,</li>
 <li>
-<span class="math inline">$Z \bot\hspace{-.5em}\bot X$</span>,
+<span class="math inline">\(Z \bot\hspace{-.5em}\bot X\)</span>,
 and</li>
 <li>
-<span class="math inline">$Z \bot\hspace{-.5em}\bot Y$</span>.</li>
+<span class="math inline">\(Z \bot\hspace{-.5em}\bot
+Y\)</span>.</li>
 </ul>
 <p>For the remaining cases, only the summary independencies will be
 provided.</p>
@@ -859,8 +761,8 @@ One no-flat; two 2 by 2 flats
 </p>
 </div>
 <p>Reading across the eikosograms, there is only a single independence
-relation of any kind, namely <span class="math inline">$Y
-\bot\hspace{-.5em}\bot Z ~\vert~X$</span>.</p>
+relation of any kind, namely <span class="math inline">\(Y
+\bot\hspace{-.5em}\bot Z ~\vert~X\)</span>.</p>
 </div>
 <div class="section level4">
 <h4 id="case-4-three-no-flats">Case 4: three no-flats<a class="anchor" aria-label="anchor" href="#case-4-three-no-flats"></a>
@@ -896,11 +798,11 @@ No flats; one marginal independence
 </p>
 </div>
 <p>Only independence is present is the <em>marginal</em> independence
-<span class="math inline">$Z \bot\hspace{-.5em}\bot X$</span>.</p>
+<span class="math inline">\(Z \bot\hspace{-.5em}\bot X\)</span>.</p>
 <p>Note however that there is also a conditional indepenence but
 <strong>only for a single value of the conditioning variate</strong>,
-namely <span class="math inline">$Y \bot\hspace{-.5em}\bot Z ~\vert~(X =
-x2)$</span>, which can be seen in the first eikosogram of the top
+namely <span class="math inline">\(Y \bot\hspace{-.5em}\bot Z ~\vert~(X
+= x2)\)</span>, which can be seen in the first eikosogram of the top
 row.</p>
 </div>
 <div class="section level5">
@@ -916,9 +818,9 @@ row.</p>
 No flats; two marginal independences
 </p>
 </div>
-<p>Two marginal independences exist, <span class="math inline">$X
-\bot\hspace{-.5em}\bot Y$</span>, and <span class="math inline">$X
-\bot\hspace{-.5em}\bot Z$</span>.</p>
+<p>Two marginal independences exist, <span class="math inline">\(X
+\bot\hspace{-.5em}\bot Y\)</span>, and <span class="math inline">\(X
+\bot\hspace{-.5em}\bot Z\)</span>.</p>
 </div>
 <div class="section level5">
 <h5 id="case-4-4-no-flats-three-marginal-independences">Case 4.4: No flats; three marginal independences<a class="anchor" aria-label="anchor" href="#case-4-4-no-flats-three-marginal-independences"></a>
@@ -934,11 +836,11 @@ No flats; three marginal independences
 </p>
 </div>
 <p>All variates are pairwise independent but are not mutually
-independent. That is, <span class="math inline">$X
-\bot\hspace{-.5em}\bot Y$</span>, <span class="math inline">$Y
-\bot\hspace{-.5em}\bot Z$</span>, and <span class="math inline">$X
-\bot\hspace{-.5em}\bot Z$</span> but <span class="math inline">$\bot\hspace{-.5em}\bot\hspace{-0.85em} \times (X,
-Y, Z)$</span>. No conditional independence exists.</p>
+independent. That is, <span class="math inline">\(X
+\bot\hspace{-.5em}\bot Y\)</span>, <span class="math inline">\(Y
+\bot\hspace{-.5em}\bot Z\)</span>, and <span class="math inline">\(X
+\bot\hspace{-.5em}\bot Z\)</span> but <span class="math inline">\(\bot\hspace{-.5em}\bot\hspace{-0.85em} \times (X,
+Y, Z)\)</span>. No conditional independence exists.</p>
 </div>
 </div>
 </div>

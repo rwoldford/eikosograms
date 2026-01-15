@@ -11,7 +11,13 @@
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
 <link rel="icon" sizes="any" href="../favicon.ico">
 <link rel="manifest" href="../site.webmanifest">
-<script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- mathjax math --><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script><script>
+  window.MathJax = {
+    chtml: {
+      fontURL: "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2"
+    }
+  };
+</script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
@@ -128,8 +134,7 @@ represents the totality of its probability with each side of the
 eikosogram extending from 0 to 1. The bottom (blue) rectangle is
 associated with the event that an application is accepted and its area
 the probability of acceptance. This probability is determined by simply
-calculating this area from the eikosogram as
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>D</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>s</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo>=</mo><mi>A</mi><mi>c</mi><mi>c</mi><mi>e</mi><mi>p</mi><mi>t</mi><mi>e</mi><mi>d</mi><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="center" style="text-align: center"><mo>=</mo></mtd><mtd columnalign="left" style="text-align: left"><mi>w</mi><mi>i</mi><mi>d</mi><mi>t</mi><mi>h</mi><mo>×</mo><mi>h</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="left" style="text-align: left"></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="center" style="text-align: center"><mo>=</mo></mtd><mtd columnalign="left" style="text-align: left"><mn>1</mn><mo>×</mo><mn>0.08</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="left" style="text-align: left"></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="center" style="text-align: center"><mo>=</mo></mtd><mtd columnalign="left" style="text-align: left"><mn>0.08</mn></mtd></mtr></mtable><annotation encoding="application/x-tex"> 
+calculating this area from the eikosogram as <span class="math display">\[
 \begin{array}{rcl}
 Pr(Decision = Accepted) &amp; = &amp; width \times height  \\
 &amp;&amp; \\
@@ -137,10 +142,9 @@ Pr(Decision = Accepted) &amp; = &amp; width \times height  \\
 &amp;&amp; \\
 &amp; = &amp; 0.08
 \end{array}
-</annotation></semantics></math> Since <code>Decision</code> is a binary
-variate, the top (grey) rectangle is associated with the application
-being rejected. The area of this rectangle is the probability
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>D</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>s</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo>=</mo><mi>R</mi><mi>e</mi><mi>j</mi><mi>e</mi><mi>c</mi><mi>t</mi><mi>e</mi><mi>d</mi><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="center" style="text-align: center"><mo>=</mo></mtd><mtd columnalign="left" style="text-align: left"><mi>w</mi><mi>i</mi><mi>d</mi><mi>t</mi><mi>h</mi><mo>×</mo><mi>h</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="left" style="text-align: left"></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="center" style="text-align: center"><mo>=</mo></mtd><mtd columnalign="left" style="text-align: left"><mn>1</mn><mo>×</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mn>0.08</mn><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="left" style="text-align: left"></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="center" style="text-align: center"><mo>=</mo></mtd><mtd columnalign="left" style="text-align: left"><mn>0.92</mn><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex"> 
+\]</span> Since <code>Decision</code> is a binary variate, the top
+(grey) rectangle is associated with the application being rejected. The
+area of this rectangle is the probability <span class="math display">\[
 \begin{array}{rcl}
 Pr(Decision = Rejected) &amp; = &amp; width \times height  \\
 &amp;&amp; \\
@@ -148,11 +152,10 @@ Pr(Decision = Rejected) &amp; = &amp; width \times height  \\
 &amp;&amp; \\
 &amp; = &amp; 0.92 .
 \end{array}
-</annotation></semantics></math> These two areas give the probability
-distribution of the binary random variate <code>Decision</code> whose
-value must be one of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mi>A</mi><mi>c</mi><mi>c</mi><mi>e</mi><mi>p</mi><mi>t</mi><mi>e</mi><mi>d</mi><mo>,</mo><mspace width="0.222em"></mspace><mi>R</mi><mi>e</mi><mi>j</mi><mi>e</mi><mi>c</mi><mi>t</mi><mi>e</mi><mi>d</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{Accepted, ~Rejected \}</annotation></semantics></math>.
-The eikosogram gives a visual representation of this probability
+\]</span> These two areas give the probability distribution of the
+binary random variate <code>Decision</code> whose value must be one of
+<span class="math inline">\(\{Accepted, ~Rejected \}\)</span>. The
+eikosogram gives a visual representation of this probability
 distribution; the relative areas visually convey the magnitude of the
 probabilities. Moreover, since the width of both rectangles is the same
 (viz. 1) these probabilities are also given more simply (and visually
@@ -202,11 +205,11 @@ finally to <code>F</code> is 0.16 (= 1 - 0.84).</p>
 </h2>
 <p>The eikosogram reinforces the basic probability rule that when the
 values of the variate are mutually exclusive and exhaust the set of
-possibilities, the probabilities must sum to one:
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>D</mi><mi>e</mi><mi>p</mi><mi>t</mi><mo>=</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>D</mi><mi>e</mi><mi>p</mi><mi>t</mi><mo>=</mo><mi>B</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mi>⋯</mi><mo>+</mo><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>D</mi><mi>e</mi><mi>p</mi><mi>t</mi><mo>=</mo><mi>F</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">Pr(Dept = A) + Pr(Dept = B) + \cdots + Pr(Dept = F) = 1 </annotation></semantics></math>
-Note that this was because not all Berkeley departments are being
-considered here; these probabilities are therefore <em>conditional</em>
-on the fact that the department is one of the six largest.</p>
+possibilities, the probabilities must sum to one: <span class="math display">\[Pr(Dept = A) + Pr(Dept = B) + \cdots + Pr(Dept =
+F) = 1 \]</span> Note that this was because not all Berkeley departments
+are being considered here; these probabilities are therefore
+<em>conditional</em> on the fact that the department is one of the six
+largest.</p>
 <p>In a very direct sense, the unit square of the eikosogram
 <em>frames</em> the probabilities expressed within it and these are
 <strong>always conditional on whatever background information determines
@@ -218,10 +221,8 @@ applications from each gender is</p>
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/eikos.html">eikos</a></span><span class="op">(</span><span class="st">"Gender"</span>, data <span class="op">=</span> <span class="va">UCBAdmissions</span><span class="op">)</span></span></code></pre></div>
 <p><img src="Introduction_files/figure-html/UCB_gender_marginals-1.png" class="r-plt" alt="" width="30%" style="display: block; margin: auto;"></p>
 <p>showing that there are unequal numbers of applications from each sex
-with
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>G</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo>=</mo><mi>M</mi><mi>a</mi><mi>l</mi><mi>e</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0.59</mn></mrow><annotation encoding="application/x-tex">Pr(Gender = Male) = 0.59</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>G</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo>=</mo><mi>F</mi><mi>e</mi><mi>m</mi><mi>a</mi><mi>l</mi><mi>e</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0.41</mn></mrow><annotation encoding="application/x-tex">Pr(Gender = Female) = 0.41</annotation></semantics></math>.</p>
+with <span class="math inline">\(Pr(Gender = Male) = 0.59\)</span> and
+<span class="math inline">\(Pr(Gender = Female) = 0.41\)</span>.</p>
 <p>The eikosogram conditional only on “Male” applicants is</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/eikos.html">eikos</a></span><span class="op">(</span><span class="st">"Dept"</span>, data <span class="op">=</span> <span class="va">UCBAdmissions</span><span class="op">[</span>,<span class="st">"Male"</span>,<span class="op">]</span>, </span>
@@ -255,18 +256,14 @@ that conditioning variable “Gender”.</p>
 <p>The conditioning variate(s) values appear across the bottom
 horizontal axis and the response along the left hand vertical axis. This
 arrangement makes reading the conditional probabilities follow visually
-left to right, top to bottom. For example,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>D</mi><mi>e</mi><mi>p</mi><mi>t</mi><mo>=</mo><mi>A</mi><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mi>G</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo>=</mo><mi>M</mi><mi>a</mi><mi>l</mi><mi>e</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0.31</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">Pr(Dept = A ~\vert~Gender = Male) = 0.31)</annotation></semantics></math>
+left to right, top to bottom. For example, <span class="math inline">\(Pr(Dept = A ~\vert~Gender = Male) = 0.31)\)</span>
 visually follows the display left to right and dropping down to the
 bottom edge for the value of the conditioning variate(s).</p>
 <p><em>Numerical values along the top</em> horizontal edge are the
 <em>cumulative marginal probabilities</em> associated with the values of
 the (bottom) conditioning variate. For example - the probability that an
-application is from a male applicant is
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.59</mn><annotation encoding="application/x-tex">0.59</annotation></semantics></math>
-and - the probability that an application is from a female applicant is
-the difference
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>−</mo><mn>0.59</mn><mo>=</mo><mn>0.41</mn></mrow><annotation encoding="application/x-tex">1 - 0.59 = 0.41</annotation></semantics></math>.</p>
+application is from a male applicant is <span class="math inline">\(0.59\)</span> and - the probability that an
+application is from a female applicant is the difference <span class="math inline">\(1 - 0.59 = 0.41\)</span>.</p>
 <p><em>Numerical values along the right</em> vertical edge are the
 <em>cumulative conditional probabilities</em> for each department’s
 applications given gender.</p>
@@ -278,10 +275,15 @@ conditional probability</em> to that height is given.</p></li>
 <strong>conditional probability</strong> of an application to that
 department given the corresponding gender. For example,</p>
 <ul>
-<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>D</mi><mi>e</mi><mi>p</mi><mi>t</mi><mo>=</mo><mi>E</mi><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mi>G</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo>=</mo><mi>M</mi><mi>a</mi><mi>l</mi><mi>e</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0.86</mn><mo>−</mo><mn>0.79</mn><mo>=</mo><mn>0.07</mn></mrow><annotation encoding="application/x-tex">Pr(Dept = E ~\vert~Gender = Male) = 0.86 - 0.79 = 0.07</annotation></semantics></math></li>
-<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>D</mi><mi>e</mi><mi>p</mi><mi>t</mi><mo>=</mo><mi>E</mi><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mi>G</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo>=</mo><mi>F</mi><mi>e</mi><mi>m</mi><mi>a</mi><mi>l</mi><mi>e</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0.81</mn><mo>−</mo><mn>0.6</mn><mo>=</mo><mn>0.21</mn></mrow><annotation encoding="application/x-tex">Pr(Dept = E ~\vert~Gender = Female) =  0.81 - 0.6 = 0.21</annotation></semantics></math></li>
-<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>D</mi><mi>e</mi><mi>p</mi><mi>t</mi><mo>=</mo><mi>A</mi><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mi>G</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo>=</mo><mi>M</mi><mi>a</mi><mi>l</mi><mi>e</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0.31</mn></mrow><annotation encoding="application/x-tex">Pr(Dept = A ~\vert~Gender = Male) = 0.31</annotation></semantics></math></li>
-<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>D</mi><mi>e</mi><mi>p</mi><mi>t</mi><mo>∈</mo><mrow><mo stretchy="true" form="prefix">{</mo><mi>B</mi><mo>,</mo><mi>D</mi><mo stretchy="true" form="postfix">}</mo></mrow><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mi>G</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo>=</mo><mi>M</mi><mi>a</mi><mi>l</mi><mi>e</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>0.51</mn><mo>−</mo><mn>0.31</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>0.79</mn><mo>−</mo><mn>0.64</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0.35</mn></mrow><annotation encoding="application/x-tex">Pr(Dept \in \left\{B, D \right\} ~\vert~Gender = Male) = (0.51 - 0.31) + (0.79 - 0.64) = 0.35</annotation></semantics></math></li>
+<li><span class="math inline">\(Pr(Dept = E ~\vert~Gender = Male) = 0.86
+- 0.79 = 0.07\)</span></li>
+<li><span class="math inline">\(Pr(Dept = E ~\vert~Gender = Female)
+=  0.81 - 0.6 = 0.21\)</span></li>
+<li><span class="math inline">\(Pr(Dept = A ~\vert~Gender = Male) =
+0.31\)</span></li>
+<li><span class="math inline">\(Pr(Dept \in \left\{B, D \right\}
+~\vert~Gender = Male) = (0.51 - 0.31) + (0.79 - 0.64) =
+0.35\)</span></li>
 </ul>
 </li>
 <li>
@@ -289,7 +291,8 @@ department given the corresponding gender. For example,</p>
 probability</strong> of an application to that department from the
 corresponding gender. For example,</p>
 <ul>
-<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>D</mi><mi>e</mi><mi>p</mi><mi>t</mi><mo>=</mo><mi>E</mi><mo>,</mo><mi>G</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo>=</mo><mi>M</mi><mi>a</mi><mi>l</mi><mi>e</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0.59</mn><mo>×</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>0.86</mn><mo>−</mo><mn>0.79</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0.0413</mn></mrow><annotation encoding="application/x-tex">Pr(Dept = E, Gender = Male) = 0.59 \times (0.86 - 0.79) = 0.0413</annotation></semantics></math></li>
+<li><span class="math inline">\(Pr(Dept = E, Gender = Male) = 0.59
+\times (0.86 - 0.79) = 0.0413\)</span></li>
 </ul>
 </li>
 </ul>
@@ -331,7 +334,8 @@ probabilities</strong></p></li>
 <li>
 <p><strong>areas</strong> of rectangles are <strong>joint
 probabilities</strong></p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi><mi>o</mi><mi>i</mi><mi>n</mi><mi>t</mi><mo>=</mo><mi>a</mi><mi>r</mi><mi>e</mi><mi>a</mi><mo>=</mo><mi>h</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi><mo>×</mo><mi>w</mi><mi>i</mi><mi>d</mi><mi>t</mi><mi>h</mi><mo>=</mo><mi>c</mi><mi>o</mi><mi>n</mi><mi>d</mi><mi>i</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>a</mi><mi>l</mi><mo>×</mo><mi>m</mi><mi>a</mi><mi>r</mi><mi>g</mi><mi>i</mi><mi>n</mi><mi>a</mi><mi>l</mi></mrow><annotation encoding="application/x-tex">joint = area = height \times width = conditional \times marginal</annotation></semantics></math></p>
+<p><span class="math display">\[joint = area = height \times width =
+conditional \times marginal\]</span></p>
 </li>
 <li><p>the width of an entire vertical bar is the area of that bar
 (since its height is 1) and is also the sum of the areas of the
@@ -358,14 +362,10 @@ value given that of the conditioning variate.</p>
 the rectangles having the same colour (i.e. those which correspond to
 the same response value).</p>
 <p>This summing of areas is called <strong>marginalization</strong> and
-corresponds to a rule of probability. For example,
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>D</mi><mi>e</mi><mi>p</mi><mi>t</mi><mo>=</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><munder><mo>∑</mo><mrow><mi>g</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo>∈</mo><mrow><mo stretchy="true" form="prefix">{</mo><mi>M</mi><mi>a</mi><mi>l</mi><mi>e</mi><mo>,</mo><mi>F</mi><mi>e</mi><mi>m</mi><mi>a</mi><mi>l</mi><mi>e</mi><mo stretchy="true" form="postfix">}</mo></mrow></mrow></munder><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>D</mi><mi>e</mi><mi>p</mi><mi>t</mi><mo>=</mo><mi>A</mi><mo>,</mo><mi>G</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo>=</mo><mi>g</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">Pr(Dept = A) = \sum_{gender \in \left\{Male, Female\right\}} Pr(Dept = A, Gender = gender)</annotation></semantics></math>
-with
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>D</mi><mi>e</mi><mi>p</mi><mi>t</mi><mo>=</mo><mi>d</mi><mi>e</mi><mi>p</mi><mi>t</mi><mo>,</mo><mi>G</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo>=</mo><mi>g</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>D</mi><mi>e</mi><mi>p</mi><mi>t</mi><mo>=</mo><mi>d</mi><mi>e</mi><mi>p</mi><mi>t</mi><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mi>G</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo>=</mo><mi>g</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>×</mo><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>G</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo>=</mo><mi>g</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">Pr(Dept = dept, Gender = gender) = Pr(Dept = dept ~\vert~Gender = gender) \times Pr(Gender = gender) </annotation></semantics></math>
-for all values of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>e</mi><mi>p</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">dept</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>r</mi></mrow><annotation encoding="application/x-tex">gender</annotation></semantics></math>.</p>
+corresponds to a rule of probability. For example, <span class="math display">\[Pr(Dept = A) = \sum_{gender \in \left\{Male,
+Female\right\}} Pr(Dept = A, Gender = gender)\]</span> with <span class="math display">\[Pr(Dept = dept, Gender = gender) = Pr(Dept = dept
+~\vert~Gender = gender) \times Pr(Gender = gender) \]</span> for all
+values of <span class="math inline">\(dept\)</span> and <span class="math inline">\(gender\)</span>.</p>
 <p>Marginalization can sometimes seems mysterious when first
 encountered. Fortunately, the eikosogram lends itself to another visual
 metaphor that simplifies the idea of marginalization. This is the
@@ -373,11 +373,7 @@ metaphor that simplifies the idea of marginalization. This is the
 <div class="section level3">
 <h3 id="the-water-container-metaphor">the water container metaphor<a class="anchor" aria-label="anchor" href="#the-water-container-metaphor"></a>
 </h3>
-<p>Consider again the joint probability distribution of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mi>e</mi><mi>p</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">Dept</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>r</mi></mrow><annotation encoding="application/x-tex">Gender</annotation></semantics></math>
-given by the eikosogram</p>
+<p>Consider again the joint probability distribution of <span class="math inline">\(Dept\)</span> and <span class="math inline">\(Gender\)</span> given by the eikosogram</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/eikos.html">eikos</a></span><span class="op">(</span>y <span class="op">=</span> <span class="st">"Dept"</span>, x <span class="op">=</span> <span class="st">"Gender"</span>, data <span class="op">=</span> <span class="va">UCBAdmissions</span>, </span>
 <span>      xlabs <span class="op">=</span> <span class="cn">FALSE</span>, yaxs <span class="op">=</span> <span class="cn">FALSE</span>, xaxs <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
@@ -428,10 +424,11 @@ from a male is 0.59 and from a female 0.41 = 1 - 0.59.</p>
 <p>The joint probability that an application is from a male and that it
 results in an offer of admission is the area of the bottom left
 rectangle or</p>
-<p><span class="math display">$$
+<p><span class="math display">\[
 \begin{array}{rcl}
-Pr(Gender = \mbox{"Male"} ~~\&amp; ~~Admit = \mbox{"Admitted"})
-&amp;=&amp; \mbox{area of bottom left rectangle} \\
+Pr(Gender = \mbox{"Male"} ~~\&amp; ~~Admit =
+\mbox{"Admitted"}) &amp;=&amp; \mbox{area of bottom left
+rectangle} \\
 &amp;=&amp; \mbox(height) \times \mbox{(width) of rectangle} \\
 &amp;=&amp; Pr(Admit = \mbox{"Admitted"} ~\vert~Gender =
 \mbox{"Male"})\\
@@ -439,36 +436,39 @@ Pr(Gender = \mbox{"Male"} ~~\&amp; ~~Admit = \mbox{"Admitted"})
 &amp;=&amp; 0.45 \times 0.59 \\
 &amp;=&amp; 0.2655
 \end{array}
-$$</span> Similarly, the area of the bottom right rectangle is
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>G</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo>=</mo><mtext mathvariant="normal">"Female"</mtext><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mi>&amp;</mi><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mi>A</mi><mi>d</mi><mi>m</mi><mi>i</mi><mi>t</mi><mo>=</mo><mtext mathvariant="normal">"Admitted"</mtext><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="center" style="text-align: center"><mo>=</mo></mtd><mtd columnalign="left" style="text-align: left"><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mi>d</mi><mi>m</mi><mi>i</mi><mi>t</mi><mo>=</mo><mtext mathvariant="normal">"Admitted"</mtext><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mi>G</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo>=</mo><mtext mathvariant="normal">"Female"</mtext><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="left" style="text-align: left"><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mo>×</mo><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>G</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo>=</mo><mtext mathvariant="normal">"Female"</mtext><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="center" style="text-align: center"><mo>=</mo></mtd><mtd columnalign="left" style="text-align: left"><mn>0.3</mn><mo>×</mo><mn>0.41</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="center" style="text-align: center"><mo>=</mo></mtd><mtd columnalign="left" style="text-align: left"><mn>0.123</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\]</span> Similarly, the area of the bottom right rectangle is <span class="math display">\[
 \begin{array}{rcl}
-Pr(Gender = \mbox{"Female"} ~~\&amp; ~~Admit = \mbox{"Admitted"}) &amp;=&amp; Pr(Admit = \mbox{"Admitted"} ~\vert~Gender = \mbox{"Female"}) \\
- &amp;&amp; ~~~~~~~~~~\times 
+Pr(Gender = \mbox{"Female"} ~~\&amp; ~~Admit =
+\mbox{"Admitted"}) &amp;=&amp; Pr(Admit =
+\mbox{"Admitted"} ~\vert~Gender = \mbox{"Female"})
+\\
+&amp;&amp; ~~~~~~~~~~\times
 Pr(Gender = \mbox{"Female"} ) \\
 &amp; = &amp; 0.3 \times 0.41 \\
 &amp;=&amp; 0.123
 \end{array}
-</annotation></semantics></math> the area of the top left rectangle is
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>G</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo>=</mo><mtext mathvariant="normal">"Male"</mtext><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mi>&amp;</mi><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mi>A</mi><mi>d</mi><mi>m</mi><mi>i</mi><mi>t</mi><mo>=</mo><mtext mathvariant="normal">"Rejected"</mtext><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="center" style="text-align: center"><mo>=</mo></mtd><mtd columnalign="left" style="text-align: left"><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mi>d</mi><mi>m</mi><mi>i</mi><mi>t</mi><mo>=</mo><mtext mathvariant="normal">"Rejected"</mtext><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mi>G</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo>=</mo><mtext mathvariant="normal">"Male"</mtext><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="left" style="text-align: left"><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mo>×</mo><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>G</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo>=</mo><mtext mathvariant="normal">"Male"</mtext><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="center" style="text-align: center"><mo>=</mo></mtd><mtd columnalign="left" style="text-align: left"><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mn>0.45</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>×</mo><mn>0.59</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="center" style="text-align: center"><mo>=</mo></mtd><mtd columnalign="left" style="text-align: left"><mn>0.3245</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\]</span> the area of the top left rectangle is <span class="math display">\[
 \begin{array}{rcl}
-Pr(Gender = \mbox{"Male"} ~~\&amp; ~~Admit = \mbox{"Rejected"}) &amp;=&amp; Pr(Admit = \mbox{"Rejected"} ~\vert~Gender = \mbox{"Male"}) \\
- &amp;&amp; ~~~~~~~~~~\times 
+Pr(Gender = \mbox{"Male"} ~~\&amp; ~~Admit =
+\mbox{"Rejected"}) &amp;=&amp; Pr(Admit =
+\mbox{"Rejected"} ~\vert~Gender = \mbox{"Male"}) \\
+&amp;&amp; ~~~~~~~~~~\times
 Pr(Gender = \mbox{"Male"} ) \\
 &amp; = &amp; (1 - 0.45) \times 0.59 \\
 &amp;=&amp; 0.3245
 \end{array}
-</annotation></semantics></math> and finally the area of the top right
-rectangle is
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>G</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo>=</mo><mtext mathvariant="normal">"Female"</mtext><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mi>&amp;</mi><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mi>A</mi><mi>d</mi><mi>m</mi><mi>i</mi><mi>t</mi><mo>=</mo><mtext mathvariant="normal">"Rejected"</mtext><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="center" style="text-align: center"><mo>=</mo></mtd><mtd columnalign="left" style="text-align: left"><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mi>d</mi><mi>m</mi><mi>i</mi><mi>t</mi><mo>=</mo><mtext mathvariant="normal">"Rejected"</mtext><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mi>G</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo>=</mo><mtext mathvariant="normal">"Female"</mtext><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="left" style="text-align: left"><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mo>×</mo><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>G</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo>=</mo><mtext mathvariant="normal">"Female"</mtext><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="center" style="text-align: center"><mo>=</mo></mtd><mtd columnalign="left" style="text-align: left"><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mn>0.3</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>×</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mn>0.59</mn><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="center" style="text-align: center"><mo>=</mo></mtd><mtd columnalign="left" style="text-align: left"><mn>0.287</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\]</span> and finally the area of the top right rectangle is <span class="math display">\[
 \begin{array}{rcl}
-Pr(Gender = \mbox{"Female"} ~~\&amp; ~~Admit = \mbox{"Rejected"}) &amp;=&amp; Pr(Admit = \mbox{"Rejected"} ~\vert~Gender = \mbox{"Female"}) \\
- &amp;&amp; ~~~~~~~~~~\times 
+Pr(Gender = \mbox{"Female"} ~~\&amp; ~~Admit =
+\mbox{"Rejected"}) &amp;=&amp; Pr(Admit =
+\mbox{"Rejected"} ~\vert~Gender = \mbox{"Female"})
+\\
+&amp;&amp; ~~~~~~~~~~\times
 Pr(Gender = \mbox{"Female"} ) \\
 &amp; = &amp; (1 - 0.3) \times (1 - 0.59) \\
 &amp;=&amp; 0.287
 \end{array}
-</annotation></semantics></math> The sum of these four probabilities is
-of course 1.</p>
+\]</span> The sum of these four probabilities is of course 1.</p>
 <p>Alternatively, the joint distribution of the variates
 <code>Admit</code> and <code>Gender</code> could be expressed by
 conditioning on the values or <code>Admit</code> rather than on those of
@@ -488,39 +488,38 @@ same joint probabilities</strong>. That is the bottom left rectangle of
 both eikosograms have the same variate values, namely the
 <code>Gender</code> = “Male” and <code>Admit</code> = “Admitted”. They
 must therefore have the same area. In the first eikosogram, this area
-was
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mi>d</mi><mi>m</mi><mi>i</mi><mi>t</mi><mo>=</mo><mtext mathvariant="normal">"Admitted"</mtext><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mi>G</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo>=</mo><mtext mathvariant="normal">"Male"</mtext><mo stretchy="true" form="postfix">)</mo></mrow><mo>×</mo><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>G</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo>=</mo><mtext mathvariant="normal">"Male"</mtext><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex"> 
-Pr(Admit = \mbox{"Admitted"} ~\vert~Gender = \mbox{"Male"}) \times Pr(Gender = \mbox{"Male"} )
-</annotation></semantics></math> which is just $Pr(Admit =
-<sub>&amp;</sub> Gender = ). The same joint probability in the second
-eikosogram is the area of the corresponding rectangle
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>G</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo>=</mo><mtext mathvariant="normal">"Male"</mtext><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mi>A</mi><mi>d</mi><mi>m</mi><mi>i</mi><mi>t</mi><mo>=</mo><mtext mathvariant="normal">"Admitted"</mtext><mo stretchy="true" form="postfix">)</mo></mrow><mo>×</mo><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mi>d</mi><mi>m</mi><mi>i</mi><mi>t</mi><mo>=</mo><mtext mathvariant="normal">"Admitted"</mtext><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex"> 
-Pr(Gender = \mbox{"Male"} ~\vert~Admit = \mbox{"Admitted"}) \times Pr(Admit = \mbox{"Admitted"}).
-</annotation></semantics></math> That these two rectangles have the same
-area is the famous result due to the Thomas Bayes! Namely that
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mi>d</mi><mi>m</mi><mi>i</mi><mi>t</mi><mo>=</mo><mtext mathvariant="normal">"Admitted"</mtext><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mi>G</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo>=</mo><mtext mathvariant="normal">"Male"</mtext><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="center" style="text-align: center"><mi>×</mi></mtd><mtd columnalign="left" style="text-align: left"><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>G</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo>=</mo><mtext mathvariant="normal">"Male"</mtext><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mo>=</mo><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>G</mi><mi>e</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo>=</mo><mtext mathvariant="normal">"Male"</mtext><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mi>A</mi><mi>d</mi><mi>m</mi><mi>i</mi><mi>t</mi><mo>=</mo><mtext mathvariant="normal">"Admitted"</mtext><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="center" style="text-align: center"><mi>×</mi></mtd><mtd columnalign="left" style="text-align: left"><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mi>d</mi><mi>m</mi><mi>i</mi><mi>t</mi><mo>=</mo><mtext mathvariant="normal">"Admitted"</mtext><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex"> 
+was <span class="math display">\[
+Pr(Admit = \mbox{"Admitted"} ~\vert~Gender =
+\mbox{"Male"}) \times Pr(Gender = \mbox{"Male"} )
+\]</span> which is just $Pr(Admit = <sub>&amp;</sub> Gender = ). The
+same joint probability in the second eikosogram is the area of the
+corresponding rectangle <span class="math display">\[
+Pr(Gender = \mbox{"Male"} ~\vert~Admit =
+\mbox{"Admitted"}) \times Pr(Admit =
+\mbox{"Admitted"}).
+\]</span> That these two rectangles have the same area is the famous
+result due to the Thomas Bayes! Namely that <span class="math display">\[
 \begin{array}{rcl}
-Pr(Admit = \mbox{"Admitted"} ~\vert~Gender = \mbox{"Male"}) &amp;\times&amp;  Pr(Gender = \mbox{"Male"} )\\
+Pr(Admit = \mbox{"Admitted"} ~\vert~Gender =
+\mbox{"Male"}) &amp;\times&amp;  Pr(Gender =
+\mbox{"Male"} )\\
 = ~~
-Pr(Gender = \mbox{"Male"} ~\vert~Admit = \mbox{"Admitted"}) &amp;\times&amp; Pr(Admit = \mbox{"Admitted"}).
+Pr(Gender = \mbox{"Male"} ~\vert~Admit =
+\mbox{"Admitted"}) &amp;\times&amp; Pr(Admit =
+\mbox{"Admitted"}).
 \end{array}
-</annotation></semantics></math> Rectangles which identify the
-<em>same</em> joint probability in both eikosograms must have the same
-area. This is Bayes’s theorem and is perhaps most simply expressed
-generically as
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>×</mo><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mspace width="0.222em"></mspace><mi>&amp;</mi><mspace width="0.222em"></mspace><mi>Y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mi>Y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>×</mo><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">Pr(Y ~\vert~X) \times Pr(X) = Pr(X ~\&amp;~ Y) = Pr(X ~\vert~Y) \times Pr(Y). 
-</annotation></semantics></math> Simply, areas of corresponding
-rectangles must match.</p>
+\]</span> Rectangles which identify the <em>same</em> joint probability
+in both eikosograms must have the same area. This is Bayes’s theorem and
+is perhaps most simply expressed generically as <span class="math display">\[Pr(Y ~\vert~X) \times Pr(X) = Pr(X ~\&amp;~ Y) =
+Pr(X ~\vert~Y) \times Pr(Y).
+\]</span> Simply, areas of corresponding rectangles must match.</p>
 </div>
 <div class="section level2">
 <h2 id="independence">Independence<a class="anchor" aria-label="anchor" href="#independence"></a>
 </h2>
-<p>Two random variates
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
-are said to be distributed <strong>independently</strong> of one another
-if their corresponding eikosgram is <strong>flat</strong>.</p>
+<p>Two random variates <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are said to be distributed
+<strong>independently</strong> of one another if their corresponding
+eikosgram is <strong>flat</strong>.</p>
 <p>For example, consider the following eikosogram</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">indep</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">as.table</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">40</span>, <span class="fl">15</span>, <span class="fl">60</span><span class="op">)</span>,</span>
@@ -534,16 +533,12 @@ if their corresponding eikosgram is <strong>flat</strong>.</p>
 Independence of variates X and Y
 </p>
 </div>
-<p>Clearly, for
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>=</mo><mn>1</mn><mo>,</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">i = 1, 2</annotation></semantics></math><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo>=</mo><msub><mi>y</mi><mi>i</mi></msub><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mi>X</mi><mo>=</mo><msub><mi>x</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo>=</mo><msub><mi>y</mi><mi>i</mi></msub><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mi>X</mi><mo>=</mo><msub><mi>x</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo>=</mo><msub><mi>y</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">Pr(Y = y_i ~\vert~X = x_1) = Pr(Y = y_i ~\vert~X = x_2) = Pr(Y = y_i)</annotation></semantics></math>
-This is what we mean by independence - whatever the value of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
-the probability that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
-takes any particular value is the same.
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>’s
-values are independent of those of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>.</p>
+<p>Clearly, for <span class="math inline">\(i = 1, 2\)</span> <span class="math display">\[Pr(Y = y_i ~\vert~X = x_1) = Pr(Y = y_i ~\vert~X
+= x_2) = Pr(Y = y_i)\]</span> This is what we mean by independence -
+whatever the value of <span class="math inline">\(X\)</span> the
+probability that <span class="math inline">\(Y\)</span> takes any
+particular value is the same. <span class="math inline">\(Y\)</span>’s
+values are independent of those of <span class="math inline">\(X\)</span>.</p>
 <p>By definition, this presents itself as all regions being flat across
 the values of the conditioning variate.</p>
 <p>Of course, if we reverse the conditioning, flatness in the eikosogram
@@ -555,27 +550,22 @@ must happen because of the independence. And this is what we see:</p>
 Independence of variates X and Y
 </p>
 </div>
-<p>Now, for
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>=</mo><mn>1</mn><mo>,</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">i = 1, 2</annotation></semantics></math><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo>=</mo><msub><mi>x</mi><mi>i</mi></msub><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mi>Y</mi><mo>=</mo><msub><mi>y</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo>=</mo><msub><mi>x</mi><mi>i</mi></msub><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mi>Y</mi><mo>=</mo><msub><mi>y</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo>=</mo><msub><mi>x</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">Pr(X = x_i ~\vert~Y = y_1) = Pr(X = x_i ~\vert~Y = y_2) = Pr(X = x_i).</annotation></semantics></math></p>
+<p>Now, for <span class="math inline">\(i = 1, 2\)</span> <span class="math display">\[Pr(X = x_i ~\vert~Y = y_1) = Pr(X = x_i ~\vert~Y
+= y_2) = Pr(X = x_i).\]</span></p>
 <p>It follows from either of these, and the definition that a joint
 probability is the area of the corresponding rectangle, that
-independence occurs if and only if for any
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>j</mi><annotation encoding="application/x-tex">j</annotation></semantics></math>,
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo>=</mo><msub><mi>x</mi><mi>i</mi></msub><mspace width="0.222em"></mspace><mi>&amp;</mi><mspace width="0.222em"></mspace><mi>Y</mi><mo>=</mo><msub><mi>y</mi><mi>j</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo>=</mo><msub><mi>x</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>×</mo><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo>=</mo><msub><mi>y</mi><mi>j</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">Pr(X = x_i ~\&amp;~  Y = y_j) = Pr(X = x_i) \times Pr(Y = y_j).</annotation></semantics></math></p>
+independence occurs if and only if for any <span class="math inline">\(i\)</span>, <span class="math inline">\(j\)</span>, <span class="math display">\[Pr(X =
+x_i ~\&amp;~  Y = y_j) = Pr(X = x_i) \times Pr(Y = y_j).\]</span></p>
 <p>For a deeper exploration of independence relationships between
 categorical variates, see the vignette <a href="IndependenceExploration.html">IndependenceExploration</a>.</p>
 </div>
 <div class="section level2">
 <h2 id="events">Events<a class="anchor" aria-label="anchor" href="#events"></a>
 </h2>
-<p>Consider the possibility of two events,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>,
-each of which either occurs or does not occur. Events simply modelled as
-binary variates taking values <code>Yes</code> or <code>No</code>
-depending on whether the corresponding event occurs or not.</p>
+<p>Consider the possibility of two events, <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, each of which either occurs or does
+not occur. Events simply modelled as binary variates taking values
+<code>Yes</code> or <code>No</code> depending on whether the
+corresponding event occurs or not.</p>
 <p>As seen above, independence of two events occurs if and only all
 corresponding eikosograms are flat (see the vignette <a href="IndependenceExploration.html">IndependenceExploration</a> for more
 detail).</p>
@@ -592,76 +582,36 @@ and Oldford (2003)</span>)</p>
 coincident, or of a pair which are complementary, is that the
 conditioning rectangles are all of one colour and are different from one
 another.</p>
-<p><strong>Coincident events</strong> If
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
-are coincident events then the eikosograms of their values
-(<code>Yes</code> for occurs; <code>No</code> for does not occur) has
-the form:</p>
+<p><strong>Coincident events</strong> If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are coincident events then the
+eikosograms of their values (<code>Yes</code> for occurs;
+<code>No</code> for does not occur) has the form:</p>
 <p><img src="Introduction_files/figure-html/coincident_events-1.png" class="r-plt" alt="" width="50%" style="display: block; margin: auto;"><img src="Introduction_files/figure-html/coincident_events-2.png" class="r-plt" alt="" width="50%" style="display: block; margin: auto;"></p>
-<p>In the left most eikosogram, if event
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
-occurs then
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-must occur (probability is 1); if the event
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
-does not occur, then
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-cannot occur (probability is 0). The same information appears in the
-right hand eikosogram where
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-is now the conditioning event.</p>
-<p><strong>Complementary events</strong> If
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
-are complementary events then the eikosograms of their values
-(<code>Yes</code> for occurs; <code>No</code> for does not occur) has
-the form:</p>
+<p>In the left most eikosogram, if event <span class="math inline">\(B\)</span> occurs then <span class="math inline">\(A\)</span> must occur (probability is 1); if the
+event <span class="math inline">\(B\)</span> does not occur, then <span class="math inline">\(A\)</span> cannot occur (probability is 0). The
+same information appears in the right hand eikosogram where <span class="math inline">\(A\)</span> is now the conditioning event.</p>
+<p><strong>Complementary events</strong> If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are complementary events then the
+eikosograms of their values (<code>Yes</code> for occurs;
+<code>No</code> for does not occur) has the form:</p>
 <p><img src="Introduction_files/figure-html/complementary_events-1.png" class="r-plt" alt="" width="50%" style="display: block; margin: auto;"><img src="Introduction_files/figure-html/complementary_events-2.png" class="r-plt" alt="" width="50%" style="display: block; margin: auto;"></p>
-<p>In the left most eikosogram, if event
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
-occurs then
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-cannot occur (probability is 0); if the event
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
-does not occur, then
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-must occur (probability is 1). The same information appears in the right
-hand eikosogram where
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-is now the conditioning event.</p>
+<p>In the left most eikosogram, if event <span class="math inline">\(B\)</span> occurs then <span class="math inline">\(A\)</span> cannot occur (probability is 0); if the
+event <span class="math inline">\(B\)</span> does not occur, then <span class="math inline">\(A\)</span> must occur (probability is 1). The same
+information appears in the right hand eikosogram where <span class="math inline">\(A\)</span> is now the conditioning event.</p>
 </div>
 <div class="section level3">
 <h3 id="mutually-exclusive-events">Mutually exclusive events<a class="anchor" aria-label="anchor" href="#mutually-exclusive-events"></a>
 </h3>
 <p>Complementary events are a special case of mutually exclusive events.
-If
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
-are complementary, then one of them must occur (in which case the other
-will not).
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
-are <strong>mutually exclusive</strong> events, then if one occurs the
-other cannot however neither <em>must</em> occur. The eikosograms will
-look have the following form:</p>
+If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are complementary, then one of them
+must occur (in which case the other will not). <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are <strong>mutually exclusive</strong>
+events, then if one occurs the other cannot however neither
+<em>must</em> occur. The eikosograms will look have the following
+form:</p>
 <p><img src="Introduction_files/figure-html/mutually_exclusive_events-1.png" class="r-plt" alt="" width="50%" style="display: block; margin: auto;"><img src="Introduction_files/figure-html/mutually_exclusive_events-2.png" class="r-plt" alt="" width="50%" style="display: block; margin: auto;"></p>
-<p>In the left most eikosogram, if event
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
-occurs then
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-cannot occur (probability is 0); if the event
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
-does not occur, then
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-may or may not occur (probability is greater than 0). The same
-information appears in the right hand eikosogram where
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-is now the conditioning event.</p>
+<p>In the left most eikosogram, if event <span class="math inline">\(B\)</span> occurs then <span class="math inline">\(A\)</span> cannot occur (probability is 0); if the
+event <span class="math inline">\(B\)</span> does not occur, then <span class="math inline">\(A\)</span> may or may not occur (probability is
+greater than 0). The same information appears in the right hand
+eikosogram where <span class="math inline">\(A\)</span> is now the
+conditioning event.</p>
 <p>Mutually exclusive events only have some non-zero probability for the
 response event (vertical axis) occurring when the conditioning event
 does not. If that non-zero probability is also 1, then the events are
@@ -676,34 +626,28 @@ When events tend to occur together we say that they are
 <strong>positively associated</strong>; when they tend to not occur
 together we say that they are <strong>negatively
 associated</strong>.</p>
-<p><strong>Positive association</strong> If
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
-are positively associated, their eikosograms will have the following
-form</p>
+<p><strong>Positive association</strong> If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are positively associated, their
+eikosograms will have the following form</p>
 <p><img src="Introduction_files/figure-html/positively_associated_events-1.png" class="r-plt" alt="" width="50%" style="display: block; margin: auto;"><img src="Introduction_files/figure-html/positively_associated_events-2.png" class="r-plt" alt="" width="50%" style="display: block; margin: auto;"></p>
 <p>The visual hallmark is that the leftmost bar is higher than the
-rightmost. In the left eikosogram, this means that
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> occurs</mtext></mrow><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mi>B</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> occurs</mtext></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>&gt;</mo><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> occurs</mtext></mrow><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mi>B</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> does not occur</mtext></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">Pr(A  \text{ occurs} ~\vert~B \text{ occurs}) &gt; Pr(A  \text{ occurs} ~\vert~B \text{ does not occur}).</annotation></semantics></math>
-On the right eikosogram, we have the same for the other conditional
-probabilities, namely that
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>B</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> occurs</mtext></mrow><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mi>A</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> occurs</mtext></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>&gt;</mo><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>B</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> occurs</mtext></mrow><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mi>A</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> does not occur</mtext></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">Pr(B  \text{ occurs} ~\vert~A \text{ occurs}) &gt; Pr(B  \text{ occurs} ~\vert~A \text{ does not occur}).</annotation></semantics></math></p>
+rightmost. In the left eikosogram, this means that <span class="math display">\[Pr(A  \text{ occurs} ~\vert~B \text{ occurs})
+&gt; Pr(A  \text{ occurs} ~\vert~B \text{ does not occur}).\]</span> On
+the right eikosogram, we have the same for the other conditional
+probabilities, namely that <span class="math display">\[Pr(B  \text{
+occurs} ~\vert~A \text{ occurs}) &gt; Pr(B  \text{ occurs} ~\vert~A
+\text{ does not occur}).\]</span></p>
 <p><em>Clearly, coincident events are an especially strong case of
 positively associated events.</em></p>
-<p><strong>Negative association</strong> If
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
-are negatively associated, their eikosograms will have the following
-form</p>
+<p><strong>Negative association</strong> If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are negatively associated, their
+eikosograms will have the following form</p>
 <p><img src="Introduction_files/figure-html/negatively_associated_events-1.png" class="r-plt" alt="" width="50%" style="display: block; margin: auto;"><img src="Introduction_files/figure-html/negatively_associated_events-2.png" class="r-plt" alt="" width="50%" style="display: block; margin: auto;"></p>
 <p>The visual hallmark is that the leftmost bar is lower than the
-rightmost. In the left eikosogram, this means that
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> occurs</mtext></mrow><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mi>B</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> occurs</mtext></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>&lt;</mo><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> occurs</mtext></mrow><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mi>B</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> does not occur</mtext></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">Pr(A  \text{ occurs} ~\vert~B \text{ occurs}) &lt; Pr(A  \text{ occurs} ~\vert~B \text{ does not occur}).</annotation></semantics></math>
-On the right eikosogram, we have the same for the other conditional
-probabilities, namely that
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>B</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> occurs</mtext></mrow><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mi>A</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> occurs</mtext></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>&lt;</mo><mi>P</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>B</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> occurs</mtext></mrow><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">|</mo><mspace width="0.222em"></mspace><mi>A</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> does not occur</mtext></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">Pr(B  \text{ occurs} ~\vert~A \text{ occurs}) &lt; Pr(B  \text{ occurs} ~\vert~A \text{ does not occur}).</annotation></semantics></math></p>
+rightmost. In the left eikosogram, this means that <span class="math display">\[Pr(A  \text{ occurs} ~\vert~B \text{ occurs})
+&lt; Pr(A  \text{ occurs} ~\vert~B \text{ does not occur}).\]</span> On
+the right eikosogram, we have the same for the other conditional
+probabilities, namely that <span class="math display">\[Pr(B  \text{
+occurs} ~\vert~A \text{ occurs}) &lt; Pr(B  \text{ occurs} ~\vert~A
+\text{ does not occur}).\]</span></p>
 <p><em>Clearly, complementary events are an especially strong case of
 negatively associated events.</em></p>
 </div>
@@ -725,8 +669,7 @@ two containers that has changed. Were the barrier between containers
 removed (or perforated so that the water can flow to an equilibrium),
 all resulting eikosograms would match that of the middle one
 (independence but without the vertical barrier). This reflects that the
-marginal probability of the event
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+marginal probability of the event <span class="math inline">\(A\)</span>
 occurring, or not, is identical in all five cases.</p>
 </div>
 </div>
@@ -739,118 +682,45 @@ variate(s).<br>
 The key is to look for flat regions in the eikosogram where some
 conditioning variate(s) values match.</p>
 <p>For example, consider the following eikosograms for the joint
-distribution of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>,
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Z</mi><annotation encoding="application/x-tex">Z</annotation></semantics></math>,
-where each variate in turn appears on the vertical axiz as the
-response:</p>
+distribution of <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span>, and <span class="math inline">\(Z\)</span>, where each variate in turn appears on
+the vertical axiz as the response:</p>
 <p><img src="Introduction_files/figure-html/conditional_independence_example-1.png" class="r-plt" alt="" width="70%" style="display: block; margin: auto;"><img src="Introduction_files/figure-html/conditional_independence_example-2.png" class="r-plt" alt="" width="70%" style="display: block; margin: auto;"></p>
 <p>For the leftmost eikosogram, two flat regions appear. One occurs when
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo>=</mo><mi>z</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">Z = z1</annotation></semantics></math>
-as
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
-changes from
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">x1</annotation></semantics></math>
-to
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">x2</annotation></semantics></math>.
-This flat region says that given
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo>=</mo><mi>z</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">Z = z1</annotation></semantics></math>,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
-are independently distributed. The second flat region occurs when
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo>=</mo><mi>z</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">Z = z2</annotation></semantics></math>
-and again for all values of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mi>x</mi><mn>1</mn><mo>,</mo><mi>x</mi><mn>2</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">X \in \{x1, x2 \}</annotation></semantics></math>.
-This implies that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
-are also independently distributed when
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo>=</mo><mi>z</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">Z = z2</annotation></semantics></math>.
-When conditional independence between
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
-occurs for all values of the conditioning variate
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Z</mi><annotation encoding="application/x-tex">Z</annotation></semantics></math>,
-as it does here, we say that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
-are <strong>conditionally independent</strong> given
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Z</mi><annotation encoding="application/x-tex">Z</annotation></semantics></math>.</p>
+<span class="math inline">\(Z = z1\)</span> as <span class="math inline">\(X\)</span> changes from <span class="math inline">\(x1\)</span> to <span class="math inline">\(x2\)</span>. This flat region says that given
+<span class="math inline">\(Z = z1\)</span>, <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span> are independently distributed. The
+second flat region occurs when <span class="math inline">\(Z =
+z2\)</span> and again for all values of <span class="math inline">\(X
+\in \{x1, x2 \}\)</span>. This implies that <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span> are also independently distributed when
+<span class="math inline">\(Z = z2\)</span>. When conditional
+independence between <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span> occurs for all values of the
+conditioning variate <span class="math inline">\(Z\)</span>, as it does
+here, we say that <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span> are <strong>conditionally
+independent</strong> given <span class="math inline">\(Z\)</span>.</p>
 <p>This conditional independence makes it easy to see the conditional
-distribution of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
-for each value of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Z</mi><annotation encoding="application/x-tex">Z</annotation></semantics></math>.
-Applying the <strong>water container metaphor</strong>, this time
-removing the barriers between each value of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
-but preserving the barrier between the values of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Z</mi><annotation encoding="application/x-tex">Z</annotation></semantics></math>,
-we see the joint distribution of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Z</mi><annotation encoding="application/x-tex">Z</annotation></semantics></math>
-after marginalizing over
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>.
-With these barriers erased, the leftmost eikosogram shows a negative
-association between
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Z</mi><annotation encoding="application/x-tex">Z</annotation></semantics></math><strong>unconditionally</strong> on
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>.</p>
-<p>The middle eikosogram tells the same story, this time with
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
-as the response variate. Again, the two flat regions demonstrate that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
-are conditionally independent given
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Z</mi><annotation encoding="application/x-tex">Z</annotation></semantics></math>.
-Applying the <strong>water container metaphor</strong> as before, now
-reveals the joint distribution of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Z</mi><annotation encoding="application/x-tex">Z</annotation></semantics></math>
-after marginalizing over
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>.
-This reveals a posiitive association between
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Z</mi><annotation encoding="application/x-tex">Z</annotation></semantics></math>
-unconditionally on
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>.</p>
+distribution of <span class="math inline">\(Y\)</span> for each value of
+<span class="math inline">\(Z\)</span>. Applying the <strong>water
+container metaphor</strong>, this time removing the barriers between
+each value of <span class="math inline">\(X\)</span> but preserving the
+barrier between the values of <span class="math inline">\(Z\)</span>, we
+see the joint distribution of <span class="math inline">\(Y\)</span> and
+<span class="math inline">\(Z\)</span> after marginalizing over <span class="math inline">\(X\)</span>. With these barriers erased, the
+leftmost eikosogram shows a negative association between <span class="math inline">\(Y\)</span> and <span class="math inline">\(Z\)</span> <strong>unconditionally</strong> on
+<span class="math inline">\(X\)</span>.</p>
+<p>The middle eikosogram tells the same story, this time with <span class="math inline">\(X\)</span> as the response variate. Again, the two
+flat regions demonstrate that <span class="math inline">\(X\)</span> and
+<span class="math inline">\(Y\)</span> are conditionally independent
+given <span class="math inline">\(Z\)</span>. Applying the <strong>water
+container metaphor</strong> as before, now reveals the joint
+distribution of <span class="math inline">\(X\)</span> and <span class="math inline">\(Z\)</span> after marginalizing over <span class="math inline">\(Y\)</span>. This reveals a posiitive association
+between <span class="math inline">\(X\)</span> and <span class="math inline">\(Z\)</span> unconditionally on <span class="math inline">\(Y\)</span>.</p>
 <p>In the rightmost eikosogram, no flats appear and hence no conditional
-independencies exist. That is
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Z</mi><annotation encoding="application/x-tex">Z</annotation></semantics></math>
-is neither conditionally independent of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
-given
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
-nor conditionally independent of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
-given
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>.
-Rather, in the rightmost eikosogram we can see that conditional on
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
-(for each of its values)
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Z</mi><annotation encoding="application/x-tex">Z</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
-are positively associated, and that conditional on
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
-(for each of its values; note that the
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
-values are not grouped)
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Z</mi><annotation encoding="application/x-tex">Z</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
-are negarively associated.</p>
+independencies exist. That is <span class="math inline">\(Z\)</span> is
+neither conditionally independent of <span class="math inline">\(X\)</span> given <span class="math inline">\(Y\)</span> nor conditionally independent of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X\)</span>. Rather, in the rightmost eikosogram we
+can see that conditional on <span class="math inline">\(Y\)</span> (for
+each of its values) <span class="math inline">\(Z\)</span> and <span class="math inline">\(X\)</span> are positively associated, and that
+conditional on <span class="math inline">\(X\)</span> (for each of its
+values; note that the <span class="math inline">\(X\)</span> values are
+not grouped) <span class="math inline">\(Z\)</span> and <span class="math inline">\(Y\)</span> are negarively associated.</p>
 <p>For more investigation of conditional independence among three
 variates see the vignette <a href="IndependenceExploration.html">IndependenceExploration</a>.</p>
 </div>

@@ -1,6 +1,7 @@
 url: "https://rwoldford.github.io/eikosograms/"
 template:
   bootstrap: 5
+  math-rendering: mathjax
 
 navbar:
   type: default
